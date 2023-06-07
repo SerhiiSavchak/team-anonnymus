@@ -1,7 +1,18 @@
-@import './common';
+/* utils */
+@import './utils/variables';
+@import './utils/hidden';
+
+/* base */
+@import './base/common';
+@import './base/reset';
+
+/* components */
+@import './components/components';
+
+/* layout */
 @import './header/header';
 @import './hero/hero';
-@import './weekly';
-@import './upcoming';
+@import './home/weekly';
+@import './home/upcoming';
 @import './footer/footer';
 @import './modal/modal';
