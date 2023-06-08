@@ -1,0 +1,110 @@
+
+
+      .header-nav {
+        border: solid 2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+      }
+      
+      .name-link {
+        color: $body-bg-color;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.17;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        
+      }
+      .header-list-item {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.14;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+        color: $grey-color;
+      }
+      
+      .header-list-item:not(:last-child) {
+          margin-right: 40px;
+      }
+      .header-logo {
+        margin-right: 8px;
+      }
+      .header-list {
+          display: flex;
+            
+      }
+      .focus-link:hover,
+    .focus-link:focus{
+       color: $accent-color;
+    }
+    
+    .btn-switch {
+        border: none;
+        border-radius: 194px;
+        background: $btn-bg-color;
+        cursor: pointer;
+      }
+      
+      .switch-icon {
+        width: 24px;
+        height: 24px;
+        stroke: white;
+        transition: opacity 0.3s ease;
+      }
+      
+      .active {
+        opacity: 1;
+        
+      }
+      
+      .no-active {
+        opacity: 0;
+        
+      }
+      
+      
+      @media screen and (max-width: 767px){
+        .header-container{
+          width: 320px;
+        }
+        .header-list {
+          display: none;
+      }
+      .span-name{
+        display: none;
+      }
+      
+     
+
+        
+      }
+      @media screen and (min-width: 768px){
+        .header-container{
+          width: 768px;
+        }
+        // .header-nav{
+        //   justify-content:
+        // }
+         
+      }
+    
+      @media screen and (min-width: 1280px){
+        .header-container {
+          width: 100%;
+          position: fixed;
+          top: 0;
+          padding: 0 15px 0 15px;
+          z-index: 100;
+          background-color:$white-color;
+        }
+      }
+        
+
+
