@@ -1,0 +1,45 @@
+.weekly-container{
+background-color:#111111;
+}
+.weekly-header{
+display: flex;
+justify-content: space-between;
+}
+.weekly-header{
+padding-bottom: 40px;
+}
+.weekly-info-tittle-all{ padding-top: 80px;
+    font-size: 16px;
+    line-height: 1.18;
+    color:#ffffff;}
+// .weekly-tittle{
+   
+// }
+.weekly-link{
+    color:#F87719;
+}
+.weekly-item-link{
+    color:#ffffff;
+}
+.weekly-info-tittle{
+    color:#ffffff;  
+}
+img{
+    border-radius: 5px;
+}
+@media screen and (max-width: 767px) {
+    img{width: 100%;}
+  }
+  
+  @media screen and (min-width: 768px) {
+  
+    .weekly-list{
+        display: flex;
+        gap:16px;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) {
+    // img{width: 30%;}
+  }
+  
