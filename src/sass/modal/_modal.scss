@@ -59,7 +59,8 @@
 
 .modal-film-statistics {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 10px;
   font-weight: 500;
   font-size: 14px;
@@ -67,16 +68,16 @@
 }
 
 .modal-statistical-parameters {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  min-width: 78px;
+  margin-right: 62px;
   color: $card-desc-color;
 }
 
-.modal-statistical-values {
+.modal-statistical-item {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+}
+
+.modal-statistical-values {
   color: $white-color;
 }
 
