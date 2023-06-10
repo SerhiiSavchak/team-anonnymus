@@ -58,7 +58,7 @@ function generateMarkup(data) {
         <div class="weekly-info-tittle-all">
             <h2 class="weekly-info-tittle">${movie.title}</h2>
                 <div class="info-movie">
-                    <p class="weekly-info-date">${movie.genreFirst} ${movie.genreSecond} ▏</p>
+                    <p class="weekly-info-date">${movie.genreFirst} ${movie.genreSecond},&nbsp</p>
                     <p>${movie.release_date.slice(0, 4)}</p>
                 </div>
         </div></a>     
