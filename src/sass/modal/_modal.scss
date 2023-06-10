@@ -45,6 +45,8 @@
 }
 
 .modal-img-poster {
+  max-width: 248px;
+  max-height: 315px;
   margin-bottom: 22px;
 }
 
@@ -59,8 +61,7 @@
 
 .modal-film-statistics {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  column-gap: 62px;
   margin-bottom: 10px;
   font-weight: 500;
   font-size: 14px;
@@ -68,16 +69,19 @@
 }
 
 .modal-statistical-parameters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   min-width: 78px;
-  margin-right: 62px;
+  // margin-right: 62px;
   color: $card-desc-color;
 }
 
-.modal-statistical-item {
-  display: flex;
-}
-
 .modal-statistical-values {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 91px;
   color: $white-color;
 }
 
@@ -112,6 +116,10 @@
   line-height: 1.67;
   margin-bottom: 16px;
   color: $card-desc-color;
+  width: 100%;
+  height: 180px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 .modal-button {
@@ -156,6 +164,8 @@
   .modal-img-poster {
     margin-bottom: 0px;
     margin-right: 16px;
+    max-width: 294px;
+    max-height: 400px;
   }
 
   .modal-name-film {
@@ -176,6 +186,7 @@
 
   .modal-about-text {
     margin-bottom: 24px;
+    height: 140px;
   }
 }
 
@@ -193,12 +204,15 @@
 
   .modal-img-poster {
     margin-right: 20px;
+    max-width: 375px;
+    max-height: 478px;
   }
 
   .modal-name-film {
     line-height: 1.33;
     margin-bottom: 28px;
   }
+
   .modal-about {
     font-size: 16px;
     line-height: 1;
@@ -208,5 +222,6 @@
   .modal-about-text {
     font-size: 14px;
     line-height: 1.43;
+    height: 159px;
   }
 }
