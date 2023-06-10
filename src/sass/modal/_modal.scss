@@ -112,7 +112,7 @@
   line-height: 1.67;
   margin-bottom: 16px;
   color: $card-desc-color;
-  max-width: 248px;
+  // max-width: 248px;
 }
 
 .modal-button {
@@ -149,6 +149,11 @@
     display: flex;
   }
 
+  .modal-close-btn {
+    top: 24px;
+    right: 24px;
+  }
+
   .modal-img-poster {
     margin-bottom: 0px;
     margin-right: 16px;
@@ -172,7 +177,7 @@
 
   .modal-about-text {
     margin-bottom: 24px;
-    max-width: 301px;
+    //max-width: 301px;
   }
 }
 
@@ -181,6 +186,11 @@
     padding: 60px;
     width: 846px;
     height: 598px;
+  }
+
+  .modal-close-btn {
+    top: 40px;
+    right: 40px;
   }
 
   .modal-img-poster {
@@ -200,6 +210,6 @@
   .modal-about-text {
     font-size: 14px;
     line-height: 1.43;
-    max-width: 301px;
+    //max-width: 331px;
   }
 }
