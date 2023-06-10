@@ -1,20 +1,16 @@
-.library-hero-content {
-  max-width: 249px;
-}
 .library-hero-title {
   font-weight: 700;
   font-size: 32px;
   line-height: 1.19;
-  display: flex;
-  align-items: center;
+
   color: $white-color;
   margin-bottom: 8px;
+  max-width: 235px;
 }
 .library-hero-text {
   font-size: 14px;
   line-height: 1.14;
-  display: flex;
-  align-items: center;
+  max-width: 249px;
   color: $main-text-color;
 }
 .library-hero-section {
@@ -25,7 +21,7 @@
       #111111 34.1%,
       rgba(17, 17, 17, 0) 64.67%
     ),
-    url(../images/library-page/hero-library@1x-mobile.jpg);
+    url(../images/library-page/hero-library@1x-tablet.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -40,15 +36,12 @@
         #111111 34.1%,
         rgba(17, 17, 17, 0) 64.67%
       ),
-      url(../images/library-page/hero-library@2x-mobile.jpg);
+      url(../images/library-page/hero-library@2x-tablet.jpg);
     background-size: cover;
     background-position: center;
   }
 }
 @media screen and (min-width: 768px) {
-  .library-hero-content {
-    max-width: 357px;
-  }
   .library-hero-section {
     background: linear-gradient(
         77.77deg,
@@ -62,9 +55,17 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+
   .library-hero-title {
     font-size: 44px;
     line-height: 1.18;
+    max-width: 332px;
+  }
+
+  .library-hero-text {
+    max-width: 357px;
+    font-size: 14px;
+    line-height: 1.14;
   }
 
   @media (min-device-pixel-ratio: 2),
@@ -85,9 +86,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .library-hero-content {
-    max-width: 464px;
-  }
   .library-hero-section {
     background: linear-gradient(
         77.77deg,
@@ -100,15 +98,20 @@
     height: 720px;
     padding-top: 169px;
   }
+
   .library-hero-title {
     font-size: 64px;
     line-height: 1.17;
     margin-bottom: 16px;
+    max-width: 464px;
   }
+
   .library-hero-text {
     font-size: 16px;
     line-height: 1.18;
+    max-width: 464px;
   }
+
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -124,6 +127,7 @@
       background-position: center;
     }
   }
+
   .container-library-hero {
     padding-left: 117px;
   }
