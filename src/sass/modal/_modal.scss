@@ -1,0 +1,186 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 47, 66, 0.4);
+  transition: visibility 250ms var(--cubic), opacity 250ms var(--cubic);
+}
+
+.modal-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 52px 16px;
+  height: 847px;
+  transform: translate(-50%, -50%) scaleY(1);
+  opacity: 1;
+  border-radius: 14px;
+  background-color: $btn-color;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-close-icon {
+  stroke: $main-text-color;
+  transition: stroke $cubic-bezier;
+}
+
+.modal-close-icon:hover,
+.modal-close-icon:focus {
+  stroke: $accent-color;
+}
+
+.modal-img-poster {
+  margin-bottom: 22px;
+}
+
+.modal-name-film {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 29px;
+  color: $white-color;
+}
+
+.modal-film-statistics {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+.modal-statistical-parameters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: $card-desc-color;
+}
+
+.modal-statistical-values {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: $white-color;
+}
+
+.modal-votes {
+  background: $white-color;
+  color: $btn-color;
+  border-radius: 5px;
+}
+
+.modal-about {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: $card-desc-color;
+}
+
+.modal-about-text {
+  font-size: 12px;
+  line-height: 1.67;
+  margin-bottom: 16px;
+  color: $card-desc-color;
+}
+
+.modal-button {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+  text-align: center;
+  border-radius: 74px;
+  padding: 12px 24px;
+  color: $white-color;
+  border: 4px solid $btn-bg-color;
+  background-color: transparent;
+  transition: background $cubic-bezier, color $cubic-bezier;
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  background: $white-color;
+  color: $accent-color;
+  border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .modal-window {
+    max-width: 280px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal-window {
+    padding: 44px;
+    width: 704px;
+    height: 488px;
+    display: flex;
+  }
+
+  .modal-img-poster {
+    margin-bottom: 0px;
+    margin-right: 16px;
+  }
+
+  .modal-name-film {
+    font-size: 24px;
+    line-height: 1.16;
+    margin-bottom: 24px;
+  }
+
+  .modal-film-statistics {
+    margin-bottom: 20px;
+  }
+
+  .modal-about {
+    margin-bottom: 16px;
+  }
+
+  .modal-about-text {
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .modal-window {
+    padding: 60px;
+    width: 846px;
+    height: 598px;
+  }
+
+  .modal-img-poster {
+    margin-right: 20px;
+  }
+
+  .modal-name-film {
+    line-height: 1.33;
+    margin-bottom: 28px;
+  }
+  .modal-about {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .modal-about-text {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+}
