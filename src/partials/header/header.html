@@ -1,11 +1,11 @@
-<header class="header ">
-    <div class="header-container container">
-      <nav class="header-nav">
+<header class="header">
+    <div class="header-container mob container">
+      <nav class="header-nav ">
         <a class="link name-link" href="./index.html"
           >
           <img src="./images/logo-@1x.png" class="header-logo" alt="logo-popkorn" width="48" height="48"><span class="span-name">Cinemania</span></a
         >
-        <div class="header-nav-list">
+        <div class="header-nav-list"  >
         <ul class="list header-list">
           <li class="header-list-item"><a class="focus-link link" href="./index.html">Home</a></li>
           <li class="header-list-item"><a class="focus-link link" href="./catalog.html">Catalog</a></li>
@@ -13,14 +13,28 @@
           </li>
         </ul>
       </div>
+      <button type="button" class="menu-open-btn" data-menu-open>MENU</button>
       <button type="button" class="btn-switch" id="switch">
-        <svg id="sun" class="switch-icon active" width="20" height="20" viewBox="0 0 24 24">
+        <svg id="sun" class="switch-icon active" width="18" height="18" viewBox="0 0 24 24">
         <use href="./images/spite/sprite.svg#icon-sun" ></use>
       </svg>
-      <svg id="moon" class="switch-icon no-active" width="20" height="20"  viewBox="0 0 24 24">
+      <svg id="moon" class="switch-icon no-active" width="18" height="18"  viewBox="0 0 24 24">
         <use href="./images/spite/sprite.svg#icon-moon"></use>
       </svg></button>
+      </nav>    
+    </div>  
+    <div class="mob-menu is-hidden" data-menu>
+      <div class="menu-container">
+        <button type="button" class="menu-close-btn" data-menu-close>X</button>
+        <img src="./images/logo-@1x.png" class="menu-logo" alt="logo-popkorn" width="48" height="48">
+        <nav>
+          <ul class="list menu-list">
+          <li class="mob-menu-list-item"><a class="focus-link link" href="./index.html">Home</a></li>
+          <li class="mob-menu-list-item"><a class="focus-link link" href="./catalog.html">Catalog</a></li>
+          <li class="mob-menu-list-item"><a class="focus-link link" href="./library.html">My library</a>
+          </li>
+        </ul>       
       </nav>
-        
-    </div>
-  </header>
+      </div>    
+    </div>  
+  </header>     
