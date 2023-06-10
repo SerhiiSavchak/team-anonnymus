@@ -1,4 +1,4 @@
-.header-container {
+.header{  
   position: fixed;
   top: 0;
   left: 50%;
@@ -7,6 +7,7 @@
   background-color: $mobile-bg-color;
   width: 100%;
 }
+
 .header-nav {
   display: flex;
   justify-content: space-between;
@@ -110,7 +111,7 @@ color:$card-desc-color;
   height: 100vh;
   background:  rgba(255, 255, 255, 0.2);
   overflow-y: auto;
-  transition: $cubic-bezier;
+  
 }
 
 .menu-container {

@@ -2,7 +2,7 @@ const switchButton = document.getElementById('switch');
 const svg1 = document.getElementById("sun");
 const svg2 = document.getElementById("moon");
 const body = document.querySelector("body");
-const header = document.querySelector(".header-container");
+const header = document.querySelector(".header");
 const menuBtn = document.querySelector(".menu-open-btn");
 switchButton.addEventListener('click', function() {
   svg1.classList.toggle('active');
