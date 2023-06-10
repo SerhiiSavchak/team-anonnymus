@@ -157,7 +157,9 @@ color:$card-desc-color;
  stroke: $accent-color;
  transition: stroke $cubic-bezier;
 }
-
+.switch-icon use {
+  fill: transparent;
+}
 // ============================ \MENU\ ==================================//
 
 @media screen and (max-width: 767px) {
