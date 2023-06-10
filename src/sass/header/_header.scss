@@ -80,12 +80,15 @@
 .span-name{
   color:$white-color;
 }
-.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: $cubic-bezier;
-}
+// .is-hidden {
+//   opacity: 0;
+//   visibility: hidden;
+//   pointer-events: none;
+//   transition: $cubic-bezier;
+// }
+// .no-scroll {
+//   overflow: hidden;
+// }
 // ============================ MENU ==================================//
 .menu-open-btn {
   background: transparent;
@@ -121,7 +124,7 @@ color:$card-desc-color;
   padding: 0 20px 0 20px;
   overflow-y: auto;
   border-radius: 0px 8px 8px 0px;
-  transition:transform  cubic-bezier(0.4, 0, 0.2, 1);
+  transition:transform cubic-bezier(0.4, 0, 0.2, 1);
   left: 50%;
   transform: translateX(-92%);
   margin: 0; 
@@ -170,9 +173,7 @@ color:$card-desc-color;
   .span-name {
     display: none;
   }
-  .menu-container {
-   margin:0;
-  }
+  
  
 }
 @media screen and (min-width: 768px) {
