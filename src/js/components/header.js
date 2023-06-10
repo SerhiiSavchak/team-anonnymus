@@ -10,13 +10,14 @@ switchButton.addEventListener('click', function() {
  const moon =svg2.classList.toggle('active');
  svg2.classList.toggle('no-active');
   if(moon){
-    body.style.backgroundColor = "black"; 
+    body.style.backgroundColor = "f8f8f8";
     header.style.backgroundColor = "black";
-    menuBtn.style.color = "white";
+    menuBtn.style.color = "#B7B7B7";
   }else{
-    body.style.backgroundColor = "white";
+    body.style.backgroundColor = "f8f8f8";
     header.style.backgroundColor = "white";
-    menuBtn.style.color = "black";
+    menuBtn.style.color = "#595959";
+    
   }
 });
 
