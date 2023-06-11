@@ -21,8 +21,13 @@ window.addEventListener('load', onPageLoad);
 
 // LISTENERS
 function onPageLoad() {
+  const genrePromise = fetchGenres(options);
+
   fetchData(END_POINT, options).then(movieData => {
-    renderMarkup(movieData).then(markup => {
+    console.log(movieData);
+
+    genrePromise.then(genreData => {
+      const markup = renderMarkup(movieData, genreData);
       addMarkup(weeklyUlRef, markup);
     });
   });
@@ -46,8 +51,17 @@ function transformData(movieData, genreData) {
       genreSecond: genres[1],
     };
   });
-
   return transformedMovies;
+}
+
+function renderMarkup(movieData, genreData) {
+  const transformedData = transformData(movieData, genreData);
+
+  return generateMarkup(transformedData);
+}
+
+function addMarkup(element, markup) {
+  element.innerHTML = markup;
 }
 
 // MARKUP
@@ -79,19 +93,6 @@ function generateMarkup(data) {
     .join('');
 
   return markup;
-}
-
-async function renderMarkup(movieData) {
-  return await fetchGenres(options).then(genreData => {
-    const transformedData = transformData(movieData, genreData);
-    console.log(transformedData);
-
-    return generateMarkup(transformedData);
-  });
-}
-
-function addMarkup(element, markup) {
-  element.innerHTML = markup;
 }
 
 // //FETCH
