@@ -1,0 +1,234 @@
+.search-form {
+    display: flex;
+    justify-content: center;
+}
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.catalog-list {
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // padding-left: 0;
+    row-gap: 16px;
+    margin-top: 16px;
+    margin-bottom: 40px;
+    padding-inline-start: 0px;
+}
+
+
+.catalog-movie {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    list-style-type: none;
+    position: relative;
+    width: 280px;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
+    border-radius: 5px;
+    overflow: hidden;
+
+    // &:last-child {
+    //     margin-bottom: 0;
+    // }
+    
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
+        border-radius: 5px;
+    }
+}
+
+.catalog-movie-desc {
+    display: flex;
+    position: absolute;
+    z-index: 3;
+    bottom: 12px;
+    left: 12px;
+}
+
+
+
+.catalog-list-img {
+    // width: 280px;
+    // height: 406px;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
+    border-radius: 5px;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+// .catalog-genre-date {
+
+// }
+
+.catalog-item-title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: $card-desc-color;
+}
+
+.catalog-item-movie {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    color: $card-desc-color;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-results-message {
+    max-width: 280px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #111111;
+    text-align: center;
+}
+
+.search-form-input {
+    width: 224px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 142px 10px 20px;
+    margin-right: 16px;
+
+    &::placeholder {
+        width: 44px;
+        height: 16px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        align-items: center;
+        text-align: center;
+        color: #B7B7B7;
+    }
+
+}
+
+
+@media screen and (max-width: 767px) {
+    .container {
+        max-width: 375px;
+    }
+
+    .btn-search {
+        padding: 11px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 768px;
+        padding: 0 32px;
+    }
+
+    .btn-search {
+        padding: 13px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .catalog-movie {
+        // width: calc(33.33% - 16px);
+        width: 224px;
+        margin-bottom: 0px;
+    }
+
+    .search-form-input {
+        width: 204px;
+        height: 44px;
+    }
+
+    .catalog-list-img {
+        // height: 325px;
+    }
+
+    .catalog-list {
+        // row-gap: 28px;
+        // column-gap: 16px;
+        // margin-top: 36px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 28px 16px;
+    }
+
+    .no-results-message {
+        max-width: 513px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+
+    .btn-search {
+        padding: 14px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .catalog-movie {
+        // width: calc(33.33% - 16px);
+        width: 395px;
+    }
+
+    .search-form-input {
+        width: 334px;
+        height: 48px;
+    
+        &::placeholder {
+            width: 50px;
+            height: 19px;
+            font-size: 16px;
+            line-height: 19px;
+        }
+    }
+
+    .catalog-list-img {
+        
+        // height: auto;
+    }
+
+    .catalog-list {
+        // row-gap: 32px;
+        // column-gap: 16px;
+        // margin-top: 48px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 32px 16px;
+    }
+
+    .no-results-message {
+        max-width: 684px;
+    }
+}

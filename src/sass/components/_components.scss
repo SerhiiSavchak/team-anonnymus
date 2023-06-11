@@ -26,6 +26,10 @@
   color: $btn-color;
   background: $btn-bg-color;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 40px;
   transition: color $cubic-bezier, border $cubic-bezier;
   &:hover,
   &:focus {
