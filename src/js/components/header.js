@@ -26,7 +26,6 @@ switchButton.addEventListener('click', function() {
     openMenuBtn: document.querySelector("[data-menu-open]"),
     closeMenuBtn: document.querySelector("[data-menu-close]"),
     menu: document.querySelector("[data-menu]"),
-    
   };
 
   refs.openMenuBtn.addEventListener("click", openMenu);
@@ -34,10 +33,19 @@ switchButton.addEventListener('click', function() {
 
   function openMenu() {
     refs.menu.removeAttribute("hidden");
+    window.addEventListener("resize", checkWindowWidth);
   }
 
   function closeMenu() {
     refs.menu.setAttribute("hidden", true);
+    window.removeEventListener("resize", checkWindowWidth);
+  }
+
+  function checkWindowWidth() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 767) {
+      closeMenu();
+    }
   }
 })();
 
