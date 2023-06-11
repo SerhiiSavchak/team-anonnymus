@@ -1,4 +1,4 @@
-.header{  
+.header {
   position: fixed;
   top: 0;
   left: 50%;
@@ -16,12 +16,10 @@
 
 .header-logo-link {
   color: $body-bg-color;
-  font-weight: 400;
   font-size: 24px;
   line-height: 1.17;
   display: flex;
   align-items: center;
-  text-align: center;
 }
 
 .header-item {
@@ -47,7 +45,7 @@
 .header-link:hover,
 .header-link:focus {
   color: $accent-color;
-  transition:$cubic-bezier;
+  transition: $cubic-bezier;
 }
 
 .header-btn-switch {
@@ -77,8 +75,8 @@
 .no-active {
   opacity: 0;
 }
-.span-name{
-  color:$white-color;
+.span-name {
+  color: $white-color;
 }
 
 // ============================ MENU ==================================//
@@ -86,19 +84,19 @@
   background: transparent;
   border: none;
   font-weight: 500;
-font-size: 12px;
-line-height: 1.17;
-display: flex;
-align-items: center;
-text-align: center;
-text-transform: uppercase;
-color:$card-desc-color;
+  font-size: 12px;
+  line-height: 1.17;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: $card-desc-color;
 }
 
 .menu-open-btn:hover,
-.menu-open-btn:focus{
+.menu-open-btn:focus {
   color: $accent-color;
-  transition:$cubic-bezier;
+  transition: $cubic-bezier;
 }
 
 .mob-menu {
@@ -109,30 +107,27 @@ color:$card-desc-color;
   z-index: 101;
   width: 100%;
   height: 100vh;
-  background:  rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .menu-container {
   position: relative;
-  width:60%;
+  width: 60%;
   height: 428px;
   background-color: $mobile-bg-color;
   padding: 80px 105px 144px 20px;
   border-radius: 0px 8px 8px 0px;
-  transition:transform cubic-bezier(0.4, 0, 0.2, 1);
-
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1);
 }
-.menu-list{
+.menu-list {
   width: 79px;
 }
 
 .mob-menu-item {
-  font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
   color: $white-color;
   text-transform: uppercase;
-  
 }
 
 .mob-menu-item:not(:last-child) {
@@ -148,8 +143,8 @@ color:$card-desc-color;
   border: none;
 }
 
-.svg-close{
-  stroke:$white-color;
+.svg-close {
+  stroke: $white-color;
 }
 
 .switch-icon use {
@@ -167,7 +162,7 @@ color:$card-desc-color;
 }
 
 @media screen and (min-width: 768px) {
-  .header-container{
+  .header-container {
     max-width: 768px;
   }
   .header-nav {
@@ -193,7 +188,7 @@ color:$card-desc-color;
 }
 
 @media screen and (min-width: 1280px) {
-  .header-container{
+  .header-container {
     max-width: 1280px;
   }
   .header-nav {
@@ -205,7 +200,7 @@ color:$card-desc-color;
   .header-list {
     margin-right: 0;
   }
-  .menu-container{
+  .menu-container {
     display: none;
   }
 }
