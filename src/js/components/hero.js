@@ -1,15 +1,7 @@
 console.log('hello');
 import axios from 'axios';
 
-const heroCont = document.querySelector('.hero');
-const bigSizeText = document.querySelector('.hero-text-big');
-const smallSizeText = document.querySelector('.hero-text-mobile');
-const heroTitle = document.querySelector('.hero-title');
-const heroBtn = document.querySelector('.hero-btn');
-const ratings = document.querySelectorAll('.rating');
-const ratingValue = document.querySelector('.rating_value');
-const ratingW = document.querySelector('.rating');
-const blackHeroBtn = document.querySelector('.blackBtn');
+const heroSection = document.querySelector('.hero');
 
 
 async function fetchTrandingFilmDay() {
@@ -27,118 +19,117 @@ async function fetchTrandingFilmDay() {
   let response = await axios.get(URL, options);
   if (response.status !== 200) {
     throw new Error(response);
-    
   } else {
     const data = response;
-    appendStartHeroMarkup(data);
-    console.log('work');
-    const fetchInfo = data.data.results;
-    console.log(fetchInfo);
-    appendHeroMarkup(data);
-
+     firstHeroMarkup(data);
+    
   }
 }
 
+function onEror() {
+  heroSection.style.backgroundImage = `linear-gradient(
+      86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("../images/home-page/hero-home@1x-tablet.jpg")`;
+  document.querySelector('.hero-title').textContent =
+    'Let’s Make Your Own Cinema';
+  // heroWrap()
+  document.querySelector(
+    '.hero-text-big'
+  ).textContent = `Is a guide to creating a personalized movie theater experience. You'll need a
+projector, screen, and speakers. Decorate
+your space, choose your films, and stock up on snacks for the full experience.`;
 
+  document.querySelector(
+    '.hero-text-mobile'
+  ).textContent = `Is a guide to creating a personalized movie theater experience. You'll need a
+projector, screen, and speakers.`;
+  document.querySelector('.hero-rating').classList.add('visuality-hidden');
+  document
+    .querySelector('.hero-text-cont')
+    .classList.remove('visuality-hidden');
 
-function appendStartHeroMarkup(data) {
-  const fetchInfo = data.data.results[16];
-  ratingW.classList.remove('visuality-hidden');
-  ratingValue.textContent = fetchInfo.vote_average;
-  heroTitle.textContent = fetchInfo.original_title;
+  document.querySelector('.hero-blackBtn').classList.add('visuality-hidden');
+  document.querySelector('.hero-btn').classList.add('visuality-hidden');
 
-  bigSizeText.textContent = `${fetchInfo.overview
+  const ereoBtn = `<a href="./src/catalog.html" class="hero-link">
+                <button type="button" class="hero-startbtn">Get Started</button></a>`;
+  
+  
+  
+  heroSection.insertAdjacentHTML('beforeend', ereoBtn);
+}
+
+function onPageLoad() {
+  console.log('hello onPageLoad');
+  fetchTrandingFilmDay().then(data => {
+    
+    document
+      .querySelector('.hero-text-cont')
+      .classList.remove('visuality-hidden');
+  })
+    .catch(function (error) {
+      onEror();
+    });
+
+  setInterval(() => {
+    fetchTrandingFilmDay();
+  }, 10000);
+}
+
+window.addEventListener('load', onPageLoad);
+
+function heroRandomaizer() {
+  return (kaleidoscope = Math.floor(Math.random() * (19 - 0 + 1)) + 0);
+}
+
+function firstHeroMarkup(data) {
+  heroRandomaizer();
+  const fetchInfo = data.data.results[kaleidoscope];
+
+  // start staer
+  document.querySelector('.rating_value').textContent = fetchInfo.vote_average;
+  const ratingActiveWidth = fetchInfo.vote_average / 0.05 / 2;
+  document.querySelector(
+    '.rating_active'
+  ).style.width = `${ratingActiveWidth}%`;
+  // end staer
+
+  document.querySelector(
+    '.hero-title'
+  ).textContent = `${fetchInfo.original_title}`;
+  document.querySelector('.hero-text-big').textContent = `${fetchInfo.overview
     .split(' ')
     .slice(0, 50)
     .join(' ')}...`;
 
-  smallSizeText.textContent = `${fetchInfo.overview
-    .split(' ')
-    .slice(0, 25)
-    .join(' ')}...`;
+  document.querySelector(
+    '.hero-text-mobile'
+  ).textContent = `${fetchInfo.overview.split(' ').slice(0, 25).join(' ')}...`;
 
-  heroCont.style.backgroundImage = `linear-gradient(
-      86.77deg,
-      #111111 30.38%,
-      rgba(17, 17, 17, 0) 65.61%
-    ), url(https://image.tmdb.org/t/p/original/${fetchInfo.backdrop_path})`;
-  initRatings();
-  fetchBTN();
+  heroSection.style.backgroundImage = `linear-gradient(
+      86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(https://image.tmdb.org/t/p/original/${fetchInfo.backdrop_path})`;
 }
 
-fetchTrandingFilmDay();
-
-let curentFilmId = '';
-
-function appendHeroMarkup(data) {
-  setInterval(() => {
-    ratingW.classList.remove('visuality-hidden');
-
-    const kaleidoscope = Math.floor(Math.random() * (19 - 0 + 1)) + 0;
-
-    const fetchInfo = data.data.results[kaleidoscope];
-    ratingValue.textContent = fetchInfo.vote_average;
-    heroTitle.textContent = fetchInfo.original_title;
-
-    bigSizeText.textContent = `${fetchInfo.overview
-      .split(' ')
-      .slice(0, 50)
-      .join(' ')}...`;
-
-    smallSizeText.textContent = `${fetchInfo.overview
-      .split(' ')
-      .slice(0, 25)
-      .join(' ')}...`;
-
-    heroCont.style.backgroundImage = `linear-gradient(
-      86.77deg,
-      #111111 30.38%,
-      rgba(17, 17, 17, 0) 65.61%
-    ), url(https://image.tmdb.org/t/p/original/${fetchInfo.backdrop_path})`;
-
-    curentFilmId = fetchInfo.id;
-    console.log(curentFilmId);
-    initRatings();
-    fetchBTN();
-  }, 20000);
+function heroWrap() {
+  const box = `<div class="hero-text-cont сontainer visuality-hidden">
+  <h2 class="hero-title"></h2>
+        <!-- rating -->
+        <div class="hero-rating">
+            <div class="hero-rating_body">
+                <div class="rating_active"></div>
+            </div>
+            <div class="rating_value"></div>
+        </div>
+        <!-- end rating -->
+        <p class="hero-text-mobile"></p>
+        <p class="hero-text-big"></p>
+        <div class="hero-btn">
+            <button type="button" class="btn">Watch trailer</button>
+            <button type="button" class="hero-blackBtn">
+                More details
+            </button>
+        </div>
+        </div>`;
+  heroSection.insertAdjacentHTML('afterbegin', box);
 }
 
-console.log(curentFilmId);
-
-function fetchBTN() {
-  if (blackHeroBtn.classList.contains('visuality-hidden')) {
-    blackHeroBtn.classList.remove('visuality-hidden');
-    heroBtn.textContent = 'Watch trailer';
-  }
-  return;
-}
-
-
-//start rating
-
-function initRatings() {
-  let retingActive, ratingValue;
-  for (i = 0; i < ratings.length; i++) {
-    const rating = ratings[i];
-    initRating(rating);
-  }
-
-  function initRating(rating) {
-    initRatingVars(rating);
-    setRatingActiveWidth();
-  }
-
-  function initRatingVars(rating) {
-    retingActive = rating.querySelector('.rating_active');
-    ratingValue = rating.querySelector('.rating_value');
-  }
-
-  function setRatingActiveWidth(i = ratingValue.innerHTML) {
-    const ratingActiveWidth = i / 0.05 / 2;
-    retingActive.style.width = `${ratingActiveWidth}%`;
-  }
-}
-
-// end rating
-
-
+heroWrap();
