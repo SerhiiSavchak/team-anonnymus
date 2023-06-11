@@ -4,6 +4,7 @@
     padding-top: 40px;
 }
 
+
 .catalog {
     display: flex;
     flex-wrap: wrap;
@@ -11,21 +12,13 @@
 }
 
 .catalog-list {
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
-    // padding-left: 0;
-    row-gap: 16px;
-    margin-top: 16px;
-    margin-bottom: 40px;
+    // margin-top: 16px;
+    padding-bottom: 40px;
     padding-inline-start: 0px;
 }
 
 
 .catalog-movie {
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     list-style-type: none;
     position: relative;
     width: 280px;
@@ -36,9 +29,6 @@
     border-radius: 5px;
     overflow: hidden;
 
-    // &:last-child {
-    //     margin-bottom: 0;
-    // }
     
     &::after {
         content: "";
@@ -53,7 +43,7 @@
 }
 
 .catalog-movie-desc {
-    display: flex;
+    // display: flex;
     position: absolute;
     z-index: 3;
     bottom: 12px;
@@ -63,8 +53,6 @@
 
 
 .catalog-list-img {
-    // width: 280px;
-    // height: 406px;
     width: 100%;
     height: auto;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
@@ -74,15 +62,12 @@
     background-position: center;
 }
 
-// .catalog-genre-date {
-
-// }
-
 .catalog-item-title {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 20px;
+    margin-bottom: 5px;
     text-transform: uppercase;
     color: $white-color;
 }
@@ -163,7 +148,6 @@
     }
 
     .catalog-movie {
-        // width: calc(33.33% - 16px);
         width: 224px;
         margin-bottom: 0px;
     }
@@ -175,9 +159,6 @@
 
 
     .catalog-list {
-        // row-gap: 28px;
-        // column-gap: 16px;
-        // margin-top: 36px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 28px 16px;
@@ -188,6 +169,7 @@
     }
 
     .catalog-item-title {
+        margin-bottom: 5px;
         line-height: 18px;
     }
     
@@ -212,7 +194,6 @@
     }
 
     .catalog-movie {
-        // width: calc(33.33% - 16px);
         width: 395px;
     }
 
@@ -229,9 +210,6 @@
     }
 
     .catalog-list {
-        // row-gap: 32px;
-        // column-gap: 16px;
-        // margin-top: 48px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 32px 16px;
@@ -242,10 +220,13 @@
     }
 
     .catalog-item-title {
+        margin-bottom: 8px;
+        font-size: 20px;
         line-height: 23px;
     }
     
     .catalog-item-movie {
+        font-size: 20px;
         line-height: 23px;
     }
 }

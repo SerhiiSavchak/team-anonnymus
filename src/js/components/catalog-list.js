@@ -119,15 +119,13 @@ function generateMarkup(movie) {
         <a class="catalog-item-link" href="">
             <img class="catalog-list-img" src="https://image.tmdb.org/t/p/w500${movie.poster}" alt="${movie.title}" />
             <div class="catalog-movie-desc">
-                <div class="catalog-genre-date">
-                    <p class="catalog-item-title">${movie.title}</p>
-                    <p class="catalog-item-movie">
-                        ${movie.genreFirst}, ${movie.genreSecond} | 
-                        <span class="catalog-item-date">
-                            ${movie.release_date.slice(0, 4)}
-                        </span> 
-                    </p>
-                </div>
+            <p class="catalog-item-title">${movie.title}</p>
+            <p class="catalog-item-movie">
+                ${movie.genreFirst}, ${movie.genreSecond} | 
+                <span class="catalog-item-date">
+                    ${movie.release_date.slice(0, 4)}
+                </span> 
+            </p>
             </div>
             </a> 
         </li>`
