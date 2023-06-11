@@ -1,0 +1,107 @@
+
+ @media screen and (max-width: 767px) {
+  .text {
+    // padding-top: 40px; 
+    padding-bottom: 28px;
+    // width: 260px;
+    // text-align: center;
+
+  }
+}
+
+
+    @media screen and (min-width: 768px) {
+      .text {
+      // padding-top: 60px;
+      padding-bottom: 40px;
+    }
+    }
+
+    @media screen and (min-width: 1200px) {
+      .text {
+      // padding-top: 100px;
+      padding-bottom: 80px;
+    }
+  }
+  .footer {
+  background: #111111;
+  color: #B7B7B7;
+  text-align: center;
+  }
+
+    .modal {
+      /* Розміри та положення модального вікна */
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.8); /* Темний задній фон */
+    }
+    
+    .modal-content {
+      /* Стилізація контенту модального вікна */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fefefe;
+      padding: 20px;
+      max-width: 800px;
+      max-height: 90%;
+      overflow: auto;
+      text-align: center;
+    }
+    
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    /* Стилі для команди розробників */
+    .team-member {
+      /* Розміри та відступи розробників */
+      width: calc(25% - 20px);
+      margin: 10px;
+      text-align: center;
+    }
+    
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      margin-bottom: 10px;
+    }
+    
+    .team-member h2 {
+      margin-bottom: 5px;
+    }
+    
+    .team-member p {
+      margin: 0;
+    }
+    
+    .team-members-container {
+      /* Розміщення розробників у 3 ряди по 4 чоловіки */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 800px;
+      margin: 0 auto;
+    }
