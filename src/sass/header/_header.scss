@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.name-link {
+.header-name-link {
   color: $body-bg-color;
   font-weight: 400;
   font-size: 24px;
@@ -24,7 +24,7 @@
   text-align: center;
   
 }
-.header-list-item {
+.header-item {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -34,7 +34,7 @@
   color: $card-desc-color;
 }
 
-.header-list-item:not(:last-child) {
+.header-item:not(:last-child) {
   margin-right: 40px;
 }
 
@@ -50,7 +50,7 @@
 
 }
 
-.btn-switch {
+.header-btn-switch {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -80,16 +80,9 @@
 .span-name{
   color:$white-color;
 }
-// .is-hidden {
-//   opacity: 0;
-//   visibility: hidden;
-//   pointer-events: none;
-//   transition: $cubic-bezier;
-// }
-// .no-scroll {
-//   overflow: hidden;
-// }
+
 // ============================ MENU ==================================//
+
 .menu-open-btn {
   background: transparent;
   border: none;
@@ -115,37 +108,41 @@ color:$card-desc-color;
   transform: translateX(-50%);
   z-index: 101;
   width: 100%;
-  height: 50vh;
+  height: 100vh;
   background:  rgba(255, 255, 255, 0.2);
+  
   
   
 }
 
 .menu-container {
   position: relative;
-  width:60%;
-  height: 100%;
+  width:50%;
+  height: 428px;
   background-color: $mobile-bg-color;
   padding: 80px 105px 144px 20px;
-  overflow-y: auto;
+  
   border-radius: 0px 8px 8px 0px;
   transition:transform cubic-bezier(0.4, 0, 0.2, 1);
  
- 
+  
 }
-
+.menu-list{
+  width: 200%;
+}
 .mob-menu-item {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.14;
   color: $white-color;
   text-transform: uppercase;
+  
 }
+
 .mob-menu-item:not(:last-child) {
   margin-bottom: 24px;
 }
 .menu-logo {
-  margin-bottom: 40px;
   position: absolute;
   top: 0;
   transform: translate(0);
@@ -174,7 +171,7 @@ color:$card-desc-color;
 
 @media screen and (max-width: 767px) {
   
-  .header-nav-list {
+  .header-list {
     display: none;
   }
   .span-name {
@@ -195,13 +192,13 @@ color:$card-desc-color;
   .span-name {
     margin-right: 59px;
   }
-  .header-nav-list {
+  .header-list {
     margin-right: auto;
   }
   .header-logo {
     margin-right: 8px;
   }
-  .btn-switch {
+  .header-btn-switch {
     min-width: 60px;
     min-height: 24px;
   }
@@ -220,7 +217,11 @@ color:$card-desc-color;
   .span-name {
     margin-right: 0;
   }
-  .header-nav-list {
+  .header-list {
     margin-right: 0;
   }
+  .menu-container{
+    display: none;
+  }
+  
 }
