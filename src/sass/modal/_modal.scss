@@ -1,0 +1,273 @@
+td {
+  padding: 0;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 47, 66, 0.4);
+  transition: visibility 250ms var(--cubic), opacity 250ms var(--cubic);
+}
+
+.modal-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 52px 16px;
+  height: 847px;
+  transform: translate(-50%, -50%) scaleY(1);
+  opacity: 1;
+  border-radius: 16px;
+  background-color: $btn-color;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-close-icon {
+  stroke: $main-text-color;
+  transition: stroke $cubic-bezier;
+}
+
+.modal-close-icon:hover,
+.modal-close-icon:focus {
+  stroke: $accent-color;
+}
+
+.modal-img-poster {
+  margin-bottom: 22px;
+  //   max-height: 315px;
+  //   max-width: 248px;
+  border-radius: 5px;
+}
+
+.modal-name-film {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 29px;
+  color: $white-color;
+}
+
+.modal-film-statistics {
+  max-width: 100%;
+}
+
+.modal-statistical-values {
+  color: $white-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 12px;
+}
+
+.modal-statistical-parameter {
+  color: $card-desc-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 12px;
+  //   width: 60%;
+}
+
+.modal-vote-parametr {
+  width: 60%;
+}
+
+.modal-last-parametr {
+  margin-bottom: 20px;
+}
+
+.modal-vote {
+  background: $white-color;
+  color: $btn-color;
+  font-size: 12px;
+  line-height: 14px;
+  border-radius: 5px;
+  padding: 1px 8px;
+  margin-right: 7px;
+}
+
+.modal-votes {
+  background: $white-color;
+  color: $btn-color;
+  font-size: 12px;
+  line-height: 14px;
+  border-radius: 5px;
+  padding: 1px 4px;
+  margin-left: 4px;
+}
+
+.modal-genres {
+  max-width: 92px;
+  margin-bottom: 0;
+}
+
+.modal-about {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: $card-desc-color;
+}
+
+.modal-about-text {
+  font-size: 12px;
+  line-height: 1.67;
+  margin-bottom: 14px;
+  color: $card-desc-color;
+  max-width: 248px;
+  max-height: 180px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.modal-button {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+  text-align: center;
+  border-radius: 74px;
+  padding: 12px 24px;
+  color: $white-color;
+  border: 1px solid $accent-color;
+  background-color: transparent;
+  transition: background $cubic-bezier, color $cubic-bezier;
+}
+
+.modal-button:hover,
+.modal-button:focus {
+  background: $white-color;
+  color: $accent-color;
+  border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .modal-window {
+    max-width: 280px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal-window {
+    padding: 44px;
+    width: 704px;
+    height: 488px;
+    display: flex;
+  }
+  .modal-vote-parametr {
+    width: 52%;
+  }
+
+  .modal-close-btn {
+    top: 24px;
+    right: 24px;
+  }
+
+  .modal-genres {
+    max-width: 129px;
+  }
+
+  .modal-img-poster {
+    margin-bottom: 0px;
+    margin-right: 16px;
+  }
+
+  .modal-name-film {
+    font-size: 24px;
+    line-height: 1.17;
+    margin-bottom: 24px;
+    max-width: 229px;
+  }
+
+  .modal-about {
+    margin-bottom: 16px;
+  }
+
+  .modal-about-text {
+    margin-bottom: 24px;
+    max-width: 301px;
+    max-height: 159px;
+    font-size: 12px;
+    line-height: 1.67;
+  }
+
+  .modal-img-poster {
+    width: 293px;
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .modal-window {
+    padding: 60px;
+    width: 846px;
+    height: 598px;
+  }
+
+  .modal-vote-parametr{
+    width: 50%;
+  }
+
+   .modal-genres {
+    max-width: 148px;
+  }
+
+  .modal-statistical-values {
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 10.5px;
+}
+
+.modal-statistical-parameter {
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 10.5px;
+}
+
+  .modal-close-btn {
+    top: 40px;
+    right: 40px;
+  }
+
+  .modal-img-poster {
+    width: 375px;
+    height: 478px;
+    margin-right: 20px;
+  }
+
+  .modal-name-film {
+    line-height: 1.33;
+    margin-bottom: 28px;
+  }
+  .modal-about {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .modal-last-parametr{
+    margin-bottom: 20px;
+  }
+
+  .modal-about-text {
+    font-size: 14px;
+    line-height: 1.43;
+    max-width: 331px;
+    max-height: 171px;
+  }
+}
