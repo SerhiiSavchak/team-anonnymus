@@ -1,3 +1,5 @@
+import { fetchData } from '../api/fetchWeekly';
+import { fetchGenres } from '../api/fetchWeekly';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const END_POINT = 'trending/all/week?language=en-US';
 const options = {
@@ -31,7 +33,9 @@ function onPageLoad() {
 function transformData(movieData, genreData) {
   const transformedMovies = movieData.map(movie => {
     const genreIds = movie.genre_ids;
-    const genres = genreIds.map(id => genreData.find(genre => genre.id === id).name);
+    const genres = genreIds.map(
+      id => genreData.find(genre => genre.id === id).name
+    );
 
     return {
       release_date: movie.release_date,
@@ -53,26 +57,32 @@ function generateMarkup(data) {
     .map(
       movie => ` 
       <li class="weekly-item">
-        <a class="weekly-item-link" href="">
-            <img class="library-list-img" src="https://image.tmdb.org/t/p/w500/${movie.poster}" alt="${movie.title}" />       
-        <div class="weekly-info-tittle-all">
+        <a class="weekly-link" href="">
+            <img class="weekly-poster-list" src="https://image.tmdb.org/t/p/w500/${
+              movie.poster
+            }" alt="${movie.title}" />       
+        <div class="weekly-info">
             <h2 class="weekly-info-tittle">${movie.title}</h2>
                 <div class="info-movie">
-                    <p class="weekly-info-date">${movie.genreFirst} ${movie.genreSecond},&nbsp</p>
-                    <p>${movie.release_date.slice(0, 4)}</p>
+                    <p class="weekly-info-genre">${movie.genreFirst},&nbsp ${
+        movie.genreSecond
+      }&nbsp ▏</p>
+                    <p class="weekly-info-date">${movie.release_date.slice(
+                      0,
+                      4
+                    )}</p>
                 </div>
         </div></a>     
     </li>
      `
-
     )
     .join('');
 
   return markup;
 }
 
-function renderMarkup(movieData) {
-  return fetchGenres(options).then(genreData => {
+async function renderMarkup(movieData) {
+  return await fetchGenres(options).then(genreData => {
     const transformedData = transformData(movieData, genreData);
     console.log(transformedData);
 
@@ -84,18 +94,41 @@ function addMarkup(element, markup) {
   element.innerHTML = markup;
 }
 
-//FETCH
-async function fetchData(END_POINT, options) {
-  const response = await fetch(`https://api.themoviedb.org/3/${END_POINT}`, options);
-  const data = await response.json();
-  return data.results.slice(0, 3);
-}
+// //FETCH
 
-async function fetchGenres(options) {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/genre/movie/list?language=en`,
-    options
-  );
-  const data = await response.json();
-  return data.genres;
-}
+// const axios = require("axios");
+
+// async function fetchData(END_POINT, options) {
+//   const response = await axios.get(
+//     `${BASE_URL}${END_POINT}`,
+//     options
+//   );
+//   return response.data.results.slice(0, 3);
+// }
+
+// async function fetchGenres(options) {
+//   const response = await axios.get(
+//     `https://api.themoviedb.org/3/genre/movie/list?language=en`,
+//     options
+//   );
+//   return response.data.genres;
+// }
+
+//////копія на всякий случай----------------------------------------------------------------
+// async function fetchData(END_POINT, options) {
+//   const response = await fetch(
+//     `${BASE_URL}${END_POINT}`,
+//     options
+//   );
+//   const data = await response.json();
+//   return data.results.slice(0, 3);
+// }
+
+// async function fetchGenres(options) {
+//   const response = await fetch(
+//     `https://api.themoviedb.org/3/genre/movie/list?language=en`,
+//     options
+//   );
+//   const data = await response.json();
+//   return data.genres;
+// }
