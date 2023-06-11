@@ -1,12 +1,7 @@
 .header {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 100;
   background-color: $mobile-bg-color;
   width: 100%;
-  padding: 8px 0;
 }
 
 .header-nav {
@@ -160,7 +155,6 @@
 
 @media screen and (min-width: 768px) {
   .header {
-    padding: 6px 0;
   }
   .header-container {
     max-width: 768px;
@@ -189,7 +183,6 @@
 
 @media screen and (min-width: 1280px) {
   .header {
-    padding: 6px 0;
   }
   .header-container {
     max-width: 1280px;
