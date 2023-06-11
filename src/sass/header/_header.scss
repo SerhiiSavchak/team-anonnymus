@@ -128,11 +128,11 @@ color:$card-desc-color;
   
 }
 .menu-list{
-  width: 200%;
+  width: 79px;
 }
 .mob-menu-item {
   font-weight: 400;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.14;
   color: $white-color;
   text-transform: uppercase;
@@ -143,27 +143,20 @@ color:$card-desc-color;
   margin-bottom: 24px;
 }
 .menu-logo {
-  position: absolute;
-  top: 0;
-  transform: translate(0);
+ 
 }
 .menu-close-btn {
   display: block;
-  margin-left: auto;
+  background-color: transparent;
   position: absolute;
-  top: 8%;
-  left: 80%;
-  transform: translate(-8%, -80%);
-  background-color:transparent;
+  top: 0;
+  transform: translate(0);
   border: none;
 }
 .svg-close{
   stroke:$white-color;
 }
-.menu-close-btn:is(:hover, :focus) .svg-close {
- stroke: $accent-color;
- transition: stroke $cubic-bezier;
-}
+
 .switch-icon use {
   fill: transparent;
 }
