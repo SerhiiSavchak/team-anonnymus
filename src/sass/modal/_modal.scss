@@ -1,5 +1,4 @@
 .backdrop {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -46,9 +45,10 @@
 }
 
 .modal-img-poster {
-  max-width: 248px;
-  max-height: 315px;
+  width: 248px;
+  height: 315px;
   margin-bottom: 22px;
+  object-fit: fill;
 }
 
 .modal-title {
@@ -57,12 +57,12 @@
   line-height: 1.15;
   margin-bottom: 29px;
   color: $white-color;
-  max-width: 191px;
+  max-width: 248px;
 }
 
 .modal-stat-film {
   display: flex;
-  column-gap: 62px;
+  column-gap: 50px;
   margin-bottom: 10px;
   font-weight: 500;
   font-size: 14px;
@@ -74,7 +74,6 @@
   flex-direction: column;
   gap: 12px;
   min-width: 78px;
-  // margin-right: 62px;
   color: $card-desc-color;
 }
 
@@ -82,7 +81,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-width: 91px;
+  min-width: 100px;
   color: $white-color;
 }
 
@@ -118,7 +117,7 @@
   margin-bottom: 16px;
   color: $card-desc-color;
   width: 100%;
-  max-height: 180px;
+  max-height: 150px;
   scroll-behavior: smooth;
   overflow-y: auto;
 }
@@ -165,20 +164,20 @@
 
   .modal-img-poster {
     margin-bottom: 0px;
-
-    max-width: 294px;
-    max-height: 400px;
+    min-width: 294px;
+    height: 400px;
   }
 
-  .modal-name-film {
+  .modal-title {
     font-size: 24px;
     line-height: 1.16;
     margin-bottom: 24px;
-    max-width: 229px;
+    max-width: 306px;
   }
 
   .modal-stat-film {
     margin-bottom: 20px;
+    column-gap: 62px;
   }
 
   .modal-about {
@@ -188,7 +187,7 @@
 
   .modal-about-text {
     margin-bottom: 24px;
-    max-height: 166px;
+    max-height: 130px;
   }
 }
 
@@ -206,13 +205,14 @@
   }
 
   .modal-img-poster {
-    max-width: 375px;
-    max-height: 478px;
+    min-width: 375px;
+    height: 478px;
   }
 
   .modal-title {
     line-height: 1.33;
     margin-bottom: 28px;
+    max-width: 331px;
   }
 
   .modal-about {
@@ -224,6 +224,6 @@
   .modal-about-text {
     font-size: 14px;
     line-height: 1.43;
-    max-height: 230px;
+    max-height: 200px;
   }
 }
