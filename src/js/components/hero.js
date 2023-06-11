@@ -42,7 +42,7 @@ async function fetchTrandingFilmDay() {
 
 
 function appendStartHeroMarkup(data) {
-  const fetchInfo = data.data.results[0];
+  const fetchInfo = data.data.results[16];
   ratingW.classList.remove('visuality-hidden');
   ratingValue.textContent = fetchInfo.vote_average;
   heroTitle.textContent = fetchInfo.original_title;
@@ -100,7 +100,7 @@ function appendHeroMarkup(data) {
     console.log(curentFilmId);
     initRatings();
     fetchBTN();
-  }, 10000);
+  }, 20000);
 }
 
 console.log(curentFilmId);
