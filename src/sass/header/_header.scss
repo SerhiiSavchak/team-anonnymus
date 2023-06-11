@@ -101,13 +101,18 @@ align-items: center;
 text-align: center;
 text-transform: uppercase;
 color:$card-desc-color;
-
 }
-
+.menu-open-btn:hover,
+.menu-open-btn:focus{
+  color: $accent-color;
+  transition:$cubic-bezier;
+}
 
 .mob-menu {
   position: fixed;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 101;
   width: 100%;
   height: 50vh;
@@ -125,9 +130,8 @@ color:$card-desc-color;
   overflow-y: auto;
   border-radius: 0px 8px 8px 0px;
   transition:transform cubic-bezier(0.4, 0, 0.2, 1);
-  left: 50%;
-  transform: translateX(-92%);
-  margin: 0; 
+ 
+ 
 }
 
 .mob-menu-item {
