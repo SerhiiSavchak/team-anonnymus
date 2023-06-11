@@ -6,6 +6,7 @@
   z-index: 100;
   background-color: $mobile-bg-color;
   width: 100%;
+  padding: 8px 0;
 }
 
 .header-nav {
@@ -30,10 +31,6 @@
   text-align: center;
   text-transform: uppercase;
   color: $card-desc-color;
-}
-
-.header-item:not(:last-child) {
-  margin-right: 40px;
 }
 
 .header-list {
@@ -121,6 +118,9 @@
 }
 .menu-list {
   width: 79px;
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .mob-menu-item {
@@ -130,15 +130,12 @@
   text-transform: uppercase;
 }
 
-.mob-menu-item:not(:last-child) {
-  margin-bottom: 24px;
-}
-
 .menu-close-btn {
   display: block;
   background-color: transparent;
   position: absolute;
   top: 0;
+  left 0;
   transform: translate(0);
   border: none;
 }
@@ -162,6 +159,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .header {
+    padding: 6px 0;
+  }
   .header-container {
     max-width: 768px;
   }
@@ -169,12 +169,12 @@
     justify-content: flex-start;
     align-items: center;
   }
-  .span-name {
-    margin-right: 59px;
-  }
   .header-list {
-    margin-right: auto;
+    margin-left: 59px;
+    margin-right: 169px;
+    gap: 32px;
   }
+
   .header-logo {
     margin-right: 8px;
   }
@@ -188,19 +188,19 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .header {
+    padding: 6px 0;
+  }
   .header-container {
     max-width: 1280px;
   }
-  .header-nav {
-    justify-content: space-between;
-  }
-  .span-name {
-    margin-right: 0;
-  }
-  .header-list {
-    margin-right: 0;
-  }
+
   .menu-container {
     display: none;
+  }
+
+  .header-list {
+    margin-left: 307px;
+    margin-right: 417px;
   }
 }
