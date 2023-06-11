@@ -1,0 +1,153 @@
+body {
+    background-color: black;
+}
+
+.upcoming-title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+}
+
+.upcoming-poster img {
+    border-radius: 5px;
+}
+
+.upcoming-film-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+    margin: 24px 0px;
+    text-transform: uppercase;
+}
+
+.votes-count span {
+    padding: 0px 4px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    color: #111111;
+    font-size: 14px;
+    line-height: 1.14;
+}
+
+.votes-count b {
+    padding: 1px 4px;
+}
+
+.wrap {
+    padding-bottom: 40px;
+}
+
+.info-film-item p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.18;
+    color: #B7B7B7;
+    margin-bottom: 12px;
+    width: 50%;
+}
+
+p.release-date {
+    color: #F87719;
+}
+
+p.text-color-white {
+    color: #FFFFFF;
+}
+
+.info-film-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.film-description-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.18;
+    color: #B7B7B7;
+    margin-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.film-description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #F8F8F8;
+    margin-bottom: 24px;
+}
+
+.upcoming-alert {
+    color: white;
+    font-size: 36px;
+}
+
+
+@media screen and (min-width: 767px) {
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+        line-height: 1.14;
+    }
+
+    .info-film {
+        column-count: 2;
+    }
+
+    .upcoming-title {
+        font-size: 24px;
+        line-height: 1.16;
+    }
+
+    .upcoming-film-title {
+        margin: 32px 0px 24px;
+        font-size: 28px;
+        line-height: 1.17;
+    }
+
+    // .info-film-block {
+    //     height: 82px;
+    // }
+}
+
+@media screen and (min-width: 1280px) {
+    .wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .upcoming-poster img {
+        max-width: 805px;
+        margin-right: 16px;
+    }
+
+    .upcoming-title {
+        font-size: 28px;
+        margin-bottom: 28px;
+    }
+
+    .upcoming-film-title {
+        font-size: 32px;
+        line-height: 1.18;
+        margin-bottom: 28px;
+        margin-top: 0px;
+    }
+
+    .info-film {
+        column-count: 1;
+    }
+
+    // .film-description {
+    //     text-overflow: ellipsis;
+    //     width: 564px;
+    //     overflow: hidden;
+    // }
+}
