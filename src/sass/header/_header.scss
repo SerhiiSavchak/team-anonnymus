@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.header-name-link {
+.header-logo-link {
   color: $body-bg-color;
   font-weight: 400;
   font-size: 24px;
@@ -22,8 +22,8 @@
   display: flex;
   align-items: center;
   text-align: center;
-  
 }
+
 .header-item {
   font-weight: 500;
   font-size: 14px;
@@ -43,11 +43,11 @@
   align-items: center;
   justify-content: center;
 }
-.focus-link:hover,
-.focus-link:focus {
+
+.header-link:hover,
+.header-link:focus {
   color: $accent-color;
   transition:$cubic-bezier;
-
 }
 
 .header-btn-switch {
@@ -82,7 +82,6 @@
 }
 
 // ============================ MENU ==================================//
-
 .menu-open-btn {
   background: transparent;
   border: none;
@@ -95,6 +94,7 @@ text-align: center;
 text-transform: uppercase;
 color:$card-desc-color;
 }
+
 .menu-open-btn:hover,
 .menu-open-btn:focus{
   color: $accent-color;
@@ -110,9 +110,6 @@ color:$card-desc-color;
   width: 100%;
   height: 100vh;
   background:  rgba(255, 255, 255, 0.2);
-  
-  
-  
 }
 
 .menu-container {
@@ -121,15 +118,14 @@ color:$card-desc-color;
   height: 428px;
   background-color: $mobile-bg-color;
   padding: 80px 105px 144px 20px;
-  
   border-radius: 0px 8px 8px 0px;
   transition:transform cubic-bezier(0.4, 0, 0.2, 1);
- 
-  
+
 }
 .menu-list{
   width: 79px;
 }
+
 .mob-menu-item {
   font-weight: 400;
   font-size: 14px;
@@ -142,9 +138,7 @@ color:$card-desc-color;
 .mob-menu-item:not(:last-child) {
   margin-bottom: 24px;
 }
-.menu-logo {
- 
-}
+
 .menu-close-btn {
   display: block;
   background-color: transparent;
@@ -153,6 +147,7 @@ color:$card-desc-color;
   transform: translate(0);
   border: none;
 }
+
 .svg-close{
   stroke:$white-color;
 }
@@ -163,17 +158,14 @@ color:$card-desc-color;
 // ============================ \MENU\ ==================================//
 
 @media screen and (max-width: 767px) {
-  
   .header-list {
     display: none;
   }
   .span-name {
     display: none;
   }
-  
-  
- 
 }
+
 @media screen and (min-width: 768px) {
   .header-container{
     max-width: 768px;
@@ -216,5 +208,4 @@ color:$card-desc-color;
   .menu-container{
     display: none;
   }
-  
 }
