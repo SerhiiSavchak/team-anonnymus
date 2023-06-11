@@ -3,26 +3,33 @@
 <head>
   <title>Модальне вікно з фотографіями розробників</title>
   <style>
-    footer {
-  background: #111111;
-}
-.text {
-  position: absolute;
-  width: 326px;
-  height: 19px;
-  /* left: 399px;
-  top: 5306px; */
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #B7B7B7;
+ @media screen and (max-width: 767px) {
+  .text {
+    padding-top: 40px; 
+    padding-bottom: 28px;
+
+  }
 }
 
+
+    @media screen and (min-width: 768px) {
+      .text {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+    }
+
+    @media screen and (min-width: 1200px) {
+      .text {
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+  }
+  .footer {
+  background: #111111;
+  color: #B7B7B7;
+  text-align: center;
+  }
 
     .modal {
       /* Розміри та положення модального вікна */
@@ -103,15 +110,9 @@
   </style>
 </head>
 <body>
-  <footer>
-    <div class="copyright">
-      &copy; 2023 | All Rights Reserved | Developed with &#129505 by
-    </div>
-    <div class="project-info">
-      <!-- Реалізовано в 2023 році. -->
-    </div>
-    <div class="team">
-      <a href="#" id="team-link">GoIT Students</a>
+  <footer class="footer">
+    <div class="text">
+      © 2023 | All Rights Reserved | Developed with &#129505 by <a href="#" id="team-link">GoIT Students</a>
     </div>
   </footer>
 
@@ -173,12 +174,12 @@
           </div>
           <div class="team-member">
             <img src="./images/team/developer.jpg" alt="Розробник 11">
-            <h2>Риш</h2>
+            <h2>Iryna Pervaniuk</h2>
             <p>Front-end Developer</p>
           </div>
           <div class="team-member">
             <img src="./images/team/developer.jpg" alt="Розробник 12">
-            <h2>Ноунейм</h2>
+            <h2>Anonymous</h2>
             <p>UI/UX Designer</p>
           </div>
       </div>
