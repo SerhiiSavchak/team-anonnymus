@@ -11,6 +11,7 @@
   color: $btn-color;
   border-radius: 74px;
   font-weight: 500;
+  padding: 10 24px;
 
   transition: color $cubic-bezier, border $cubic-bezier;
   &:hover,
@@ -58,11 +59,11 @@
   .btn {
     font-size: 14px;
     line-height: 1.14;
+    padding: 12px 24px;
   }
   .btn-search {
     padding: 13px;
   }
-  
 }
 
 @media screen and (min-width: 1280px) {
@@ -76,5 +77,4 @@
   .btn-search {
     padding: 14px;
   }
-  
 }
