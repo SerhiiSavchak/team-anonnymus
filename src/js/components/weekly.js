@@ -57,12 +57,12 @@ function generateMarkup(data) {
     .map(
       movie => ` 
       <li class="weekly-item">
-        <a class="weekly-link" href="">
+        <a class="weekly-link link" href="">
             <img class="weekly-poster-list" src="https://image.tmdb.org/t/p/w500/${
               movie.poster
             }" alt="${movie.title}" />       
         <div class="weekly-info">
-            <h2 class="weekly-info-tittle">${movie.title}</h2>
+            <h2 class="weekly-info-title">${movie.title}</h2>
                 <div class="info-movie">
                     <p class="weekly-info-genre">${movie.genreFirst},&nbsp ${
         movie.genreSecond
