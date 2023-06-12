@@ -81,7 +81,7 @@ function onPageLoad() {
 window.addEventListener('load', onPageLoad);
 
 function heroRandomaizer() {
-  return (kaleidoscope = Math.floor(Math.random() * (19 - 0 + 1)) + 0);
+  return Math.floor(Math.random() * (19 - 0 + 1)) + 0;
 }
 
 function firstHeroMarkup(data) {
@@ -115,7 +115,7 @@ function firstHeroMarkup(data) {
 }
 
 function heroWrap() {
-  const box = `<div class="hero-text-cont сontainer visuality-hidden">
+  const box = `<div class="hero-text-cont сontainer ">
   <h2 class="hero-title"></h2>
         <!-- rating -->
         <div class="hero-rating">
