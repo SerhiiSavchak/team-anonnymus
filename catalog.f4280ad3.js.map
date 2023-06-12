@@ -1,0 +1,1 @@
+{"mappings":"oeAAAA,EAAA,S","sources":["src/catalog.js"],"sourcesContent":["import './js/components/header';\nimport './js/components/catalog-list';\nimport './js/components/modal';\nimport './js/components/footer';\n"],"names":["parcelRequire"],"version":3,"file":"catalog.f4280ad3.js.map"}
