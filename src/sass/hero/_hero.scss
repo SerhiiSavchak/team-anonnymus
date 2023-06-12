@@ -13,6 +13,7 @@
   background-repeat: no-repeat;
   max-width: 480px;
   margin: auto;
+  
 }
 
 @media (min-device-pixel-ratio: 2),
@@ -52,7 +53,7 @@
   border-radius: 74px;
   font-weight: 500;
   padding: 12px 24px;
-  margin-left: 20px;
+  
 }
 .hero-container {
 }
@@ -109,11 +110,25 @@
 }
 .hero-text-cont {
   padding: 0 20px;
-
+position: relative;
   padding-top: 40px;
   margin: 0 auto;
 
   // padding-bottom: 20px;
+}
+.hero-error-onstart-img{
+  position:absolute;
+  top: 100%;
+  right: 100%;
+  transform: translateY(+300);
+
+}
+
+.hero-error-text{
+  font-weight: 400;
+font-size: 16px;
+line-height: 1.19;
+color: $white-color;
 }
 
 @media screen and (min-width: 375px) {
@@ -157,7 +172,7 @@
     border-radius: 74px;
     font-weight: 500;
     padding: 12px 24px;
-    margin-left: 20px;
+    
   }
 
   .hero-black-btn {
@@ -251,7 +266,7 @@
     border-radius: 74px;
     font-weight: 500;
     padding: 12px 24px;
-    margin-left: 32px;
+    
   }
 
   .video {
@@ -292,7 +307,6 @@
   .hero-text-cont {
     width: 1280px;
     padding: 0 32px;
-
     padding-top: 118px;
   }
   .hero-title {
