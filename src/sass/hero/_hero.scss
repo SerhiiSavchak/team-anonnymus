@@ -124,7 +124,7 @@
       url(../images/home-page/Loader.jpg);
     background-position: 20% 0%;
     background-size: cover;
-    max-width: 768px;
+    max-width: 375px;
     margin: auto;
   }
 
@@ -173,7 +173,7 @@
 
 @media screen and (min-width: 768px) {
   .hero {
-    height: 375px;
+    height: 768px;
     background-image: linear-gradient(
         86.77deg,
         #111111 30.38%,
@@ -183,7 +183,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100% 0%;
-    max-width: 1280px;
+    max-width: 768px;
     margin: auto;
   }
 
@@ -273,7 +273,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100% 0%;
-    max-width: 100%;
+    max-width: 1280px;
     margin: auto;
   }
 
