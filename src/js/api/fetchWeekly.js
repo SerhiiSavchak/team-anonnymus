@@ -1,5 +1,6 @@
 //FETCH
-const BASE_URL = 'https://api.themoviedb.org/3/';
+import { BASE_URL } from './apiKey';
+
 async function fetchData(END_POINT, options) {
   try {
     const response = await fetch(`${BASE_URL}${END_POINT}`, options);
