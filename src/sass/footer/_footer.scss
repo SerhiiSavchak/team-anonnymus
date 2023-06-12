@@ -1,150 +1,70 @@
-@media screen and (max-width: 767px) {
-  .text {
-    padding-bottom: 28px;
-    width: 260px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-    .modal-content {
-      max-width: 90%;
-      max-height: 90%;
-      padding: 10px;
-    }
-        /* Стилі для команди розробників */
-        .team-member {
-          /* Розміри та відступи розробників */
-          width: calc(50% - 20px);
-          margin: 10px;
-          text-align: center;
-        }
-    
-        .team-member img {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          object-fit: cover;
-          object-position: center;
-          margin-bottom: 10px;
-        }
-    
-        .team-member h2 {
-          margin-bottom: 5px;
-          text-align: center;
-          line-height: 1;
-          height: 50%;
-        }
-    
-        .team-member p {
-          margin: 0;
-          text-align: center;
-        }
-    
-        .team-members-container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: flex-start;
-          max-width: 800px;
-          margin: 0 auto;
-        }
-}
-
-
-@media screen and (min-width: 768px) {
-  .text {
-    padding-bottom: 40px;
-  }
-     .modal-content {
-       max-width: 600px;
-       max-height: 80%;
-     }
-         /* Стилі для команди розробників */
-         .team-member {
-           /* Розміри та відступи розробників */
-           width: calc(33% - 20px);
-           margin: 10px;
-           text-align: center;
-         }
-    
-         .team-member img {
-           width: 100px;
-           height: 100px;
-           border-radius: 50%;
-           object-fit: cover;
-           object-position: center;
-           margin-bottom: 10px;
-         }
-    
-         .team-member h2 {
-           margin-bottom: 5px;
-           text-align: center;
-         }
-    
-         .team-member p {
-           margin: 0;
-          text-align: center;
-         }
-    
-         .team-members-container {
-           display: flex;
-           flex-wrap: wrap;
-           justify-content: center;
-           align-items: flex-start;
-           max-width: 800px;
-           margin: 0 auto;
-         }
-}
-
-@media screen and (min-width: 1200px) {
-  .text {
-    padding-bottom: 80px;
-  }
-    /* Стилі для команди розробників */
-    .team-member {
-      /* Розміри та відступи розробників */
-      width: calc(25% - 20px);
-      margin: 10px;
-      text-align: center;
-    }
-  
-    .team-member img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      margin-bottom: 10px;
-    }
-  
-    .team-member h2 {
-      margin-bottom: 5px;
-      text-align: center;
-    }
-  
-    .team-member p {
-      margin: 0;
-      text-align: center;
-    }
-  
-    .team-members-container {
-      /* Розміщення розробників у 3 ряди по 4 чоловіки */
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-}
-
 .footer {
-  background: #111111;
-  color: #B7B7B7;
+  background-color: $btn-color;
+  color: #b7b7b7;
   text-align: center;
+  padding-bottom: 28px;
+}
+
+.footer-text {
+  margin: 0 auto;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.14;
+  max-width: 236px;
+
+  color: $card-desc-color;
+}
+
+.footer-bottom-text {
+  font-size: 14px;
+  line-height: 1.14;
+
+  color: $card-desc-color;
+}
+
+.footer-span {
+  margin-bottom: 8px;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  padding: 10px;
+}
+
+.team-members-list {
+  width: 250px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.team-member-item {
+  text-align: center;
+
+  height: 350px;
+}
+
+.team-member-img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.team-title {
+  margin-bottom: 10px;
+  max-width: 300px;
+}
+
+.footer-link {
+  text-decoration: underline;
 }
 
 .modal {
-  /* Розміри та положення модального вікна */
   display: none;
   position: fixed;
   z-index: 999;
@@ -154,19 +74,17 @@
   height: 100%;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.8);
-  /* Темний задній фон */
 }
 
 .modal-content {
-  /* Стилізація контенту модального вікна */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fefefe;
   padding: 20px;
-  max-width: 800px;
-  max-height: 90%;
+  width: 32 0px;
+  height: 90%;
   overflow: auto;
   text-align: center;
 }
@@ -186,3 +104,62 @@
   cursor: pointer;
 }
 
+@media screen and (min-width: 768px) {
+  .footer {
+    padding-bottom: 40px;
+  }
+
+  .footer-container {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+  }
+
+  .footer-text,
+  .footer-bottom-text {
+    font-size: 16px;
+    line-height: 1.18;
+  }
+  .footer-text {
+    margin: 0;
+  }
+
+  .modal-content {
+    max-width: 1110px;
+  }
+
+  .team-members-list {
+    width: 700px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .team-member-item {
+    width: calc((100% - 50px) / 3);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    padding-bottom: 80px;
+  }
+
+  .modal-content {
+    max-width: 1280px;
+  }
+
+  .team-members-list {
+    width: 1150px;
+    gap: 10px;
+  }
+
+  .team-member-item {
+    width: calc((100% - 30px) / 3);
+  }
+
+  .team-title {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
