@@ -1,15 +1,13 @@
 console.log('hello');
 import axios from 'axios';
 import Vimeo from '@vimeo/player';
-import { async } from '@vimeo/player';
-
 
 const heroSection = document.querySelector('.hero');
 const videoModal = document.querySelector('iframe');
 
 let filmID = '';
 
-
+// Fetch Fetch Fetch Fetch Fetch
 
 async function fetchTrandingFilmDay() {
   const options = {
@@ -28,9 +26,8 @@ async function fetchTrandingFilmDay() {
     throw new Error(response);
   } else {
     const data = response;
-    
-    firstHeroMarkup(data);
 
+    firstHeroMarkup(data);
   }
 }
 
@@ -53,11 +50,11 @@ projector, screen, and speakers.`;
     .querySelector('.hero-text-cont')
     .classList.remove('visuality-hidden');
 
-  document.querySelector('.hero-blackBtn').classList.add('visuality-hidden');
+  document.querySelector('.hero-black-btn').classList.add('visuality-hidden');
   document.querySelector('.hero-btn').classList.add('visuality-hidden');
 
   const ereoBtn = `<a href="./src/catalog.html" class="hero-link">
-                <button type="button" class="hero-startbtn">Get Started</button></a>`;
+                <button type="button" class="hero-start-btn">Get Started</button></a>`;
 
   heroSection.insertAdjacentHTML('beforeend', ereoBtn);
   heroSection.style.backgroundImage =
@@ -86,8 +83,6 @@ window.addEventListener('load', onPageLoad);
 function heroRandomaizer() {
   return (kaleidoscope = Math.floor(Math.random() * (19 - 0 + 1)) + 0);
 }
-
-
 
 function firstHeroMarkup(data) {
   heroRandomaizer();
@@ -134,7 +129,7 @@ function heroWrap() {
         <p class="hero-text-big"></p>
         <div class="hero-btn">
             <button type="button" class="btn" data-modal-open>Watch trailer</button>
-            <button type="button" class="hero-blackBtn">
+            <button type="button" class="hero-black-btn">
                 More details
             </button>
         </div>
@@ -160,15 +155,21 @@ function toggleModal() {
 }
 
 function getFilmID(fetchInfo) {
-  return filmID = fetchInfo.id
+  return (filmID = fetchInfo.id);
 }
 
+heroSection.addEventListener('click', watchFilm);
 
-heroSection.addEventListener('click', fetchFilmByID);
+function watchFilm() {
+  fetchFilmByID().catch(function (error) {
+    console.log('Ereor wathtrailer');
+    onModalError();
+  });
+}
 
 async function fetchFilmByID() {
-  filmID
-  
+  filmID;
+
   const options = {
     method: 'GET',
     headers: {
@@ -186,14 +187,34 @@ async function fetchFilmByID() {
   } else {
     const data = response;
     console.log(data.data.results[0].key);
-  addKey(data);
+    addKey(data);
   }
 }
 
-
 function addKey(data) {
   const curentKey = data.data.results[0].key;
-  console.log(curentKey);
-  videoModal.src = `https://www.youtube.com/watch?v=${curentKey}`;
+  console.log(data.data);
+  videoModal.src = `https://www.youtube.com/embed/${curentKey}`;
 }
 
+function onModalError() {
+  //  .modal
+  videoModal.classList.add('visuality-hidden');
+  const errorText = `<p>OOPS...
+    We are very sorry!
+    But we couldn’t find the trailer.</p>
+<picture>
+    <source srcset="
+                            src\images\error\error-@1x-mobile.png 1x, 
+                            src\images\error\error-@2x-mobile.png 2x" media="(max-width: 768px)">
+    <source srcset="
+                            src\images\error\error-@1x-tablet.png 1x, 
+                            src\images\error\error-@2x-tablet.png 2x" media="(min-width: 768px)">
+    <source srcset="
+                            src\images\error\error-@1x-desctop.png 1x, 
+                            src\images\error\error-@2x-desctop.png 2x" media="(min-width: 1200px)">
+    <img class="hero-error-img" src="src\images\error\error-@1x-mobile.png " alt="Error" width="200">
+</picture>`;
+
+  refs.modal.insertAdjacentHTML('afterbegin', errorText);
+}
