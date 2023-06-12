@@ -69,7 +69,8 @@ function onPageLoad() {
         .querySelector('.hero-text-cont')
         .classList.remove('visuality-hidden');
     })
-    .catch(function (error) {
+    .catch(error => {
+      console.log(error.message);
       onEror();
     });
 
