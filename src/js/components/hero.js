@@ -1,8 +1,9 @@
 console.log('hello');
 import axios from 'axios';
+import Vimeo from '@vimeo/player';
 
 const heroSection = document.querySelector('.hero');
-
+const iframe = document.querySelector('iframe');
 
 async function fetchTrandingFilmDay() {
   const options = {
@@ -21,14 +22,12 @@ async function fetchTrandingFilmDay() {
     throw new Error(response);
   } else {
     const data = response;
-     firstHeroMarkup(data);
-    
+    console.log(response);
+    firstHeroMarkup(data);
   }
 }
 
 function onEror() {
-  heroSection.style.backgroundImage = `linear-gradient(
-      86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("../images/home-page/hero-home@1x-tablet.jpg")`;
   document.querySelector('.hero-title').textContent =
     'Let’s Make Your Own Cinema';
   // heroWrap()
@@ -52,27 +51,27 @@ projector, screen, and speakers.`;
 
   const ereoBtn = `<a href="./src/catalog.html" class="hero-link">
                 <button type="button" class="hero-startbtn">Get Started</button></a>`;
-  
-  
-  
+
   heroSection.insertAdjacentHTML('beforeend', ereoBtn);
+  heroSection.style.backgroundImage =
+    'linear-gradient(86.77deg,#111111 30.38%,rgba(17, 17, 17, 0) 65.61%),url(..srcimageshome-pagehero-home1x-mobile.jpg)';
 }
 
 function onPageLoad() {
   console.log('hello onPageLoad');
-  fetchTrandingFilmDay().then(data => {
-    
-    document
-      .querySelector('.hero-text-cont')
-      .classList.remove('visuality-hidden');
-  })
+  fetchTrandingFilmDay()
+    .then(data => {
+      document
+        .querySelector('.hero-text-cont')
+        .classList.remove('visuality-hidden');
+    })
     .catch(function (error) {
       onEror();
     });
 
   setInterval(() => {
     fetchTrandingFilmDay();
-  }, 10000);
+  }, 60000);
 }
 
 window.addEventListener('load', onPageLoad);
@@ -107,6 +106,9 @@ function firstHeroMarkup(data) {
 
   heroSection.style.backgroundImage = `linear-gradient(
       86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(https://image.tmdb.org/t/p/original/${fetchInfo.backdrop_path})`;
+
+  fetchTrailer(fetchInfo);
+  console.log(fetchInfo.id);
 }
 
 function heroWrap() {
@@ -123,7 +125,7 @@ function heroWrap() {
         <p class="hero-text-mobile"></p>
         <p class="hero-text-big"></p>
         <div class="hero-btn">
-            <button type="button" class="btn">Watch trailer</button>
+            <button type="button" class="btn" data-modal-open>Watch trailer</button>
             <button type="button" class="hero-blackBtn">
                 More details
             </button>
@@ -133,3 +135,41 @@ function heroWrap() {
 }
 
 heroWrap();
+
+// Modal// Modal// Modal
+
+const refs = {
+  openModalBtn: document.querySelector('[data-modal-open]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
+};
+
+refs.openModalBtn.addEventListener('click', toggleModal);
+refs.closeModalBtn.addEventListener('click', toggleModal);
+
+function toggleModal() {
+  refs.modal.classList.toggle('is-hidden');
+}
+
+// async function fetchTrailer(fetchInfo) {
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       accept: 'application/json',
+//       Authorization:
+//         'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
+//     },
+//   };
+
+//   fetch(
+//     `https://api.themoviedb.org/3/movie/${fetchInfo.id}/videos?language=en-US`,
+//     options
+//   );
+//   let response = await axios.get(URL, options);
+//   if (response.status !== 200) {
+//     throw new Error(response);
+//   } else {
+//     const data = response;
+//     console.log(data);
+//   }
+// }
