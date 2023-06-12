@@ -1,5 +1,5 @@
-// убрать в отдельный модуль
 import axios from 'axios';
+
 import { BASE_URL, API_KEY } from './apiKey';
 
 function getInfoMovieByID(movieID) {
