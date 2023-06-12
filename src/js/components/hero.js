@@ -1,9 +1,15 @@
 console.log('hello');
 import axios from 'axios';
 import Vimeo from '@vimeo/player';
+import { async } from '@vimeo/player';
+
 
 const heroSection = document.querySelector('.hero');
-const iframe = document.querySelector('iframe');
+const videoModal = document.querySelector('iframe');
+
+let filmID = '';
+
+
 
 async function fetchTrandingFilmDay() {
   const options = {
@@ -22,8 +28,9 @@ async function fetchTrandingFilmDay() {
     throw new Error(response);
   } else {
     const data = response;
-    console.log(response);
+    
     firstHeroMarkup(data);
+
   }
 }
 
@@ -71,7 +78,7 @@ function onPageLoad() {
 
   setInterval(() => {
     fetchTrandingFilmDay();
-  }, 60000);
+  }, 20000);
 }
 
 window.addEventListener('load', onPageLoad);
@@ -79,6 +86,8 @@ window.addEventListener('load', onPageLoad);
 function heroRandomaizer() {
   return (kaleidoscope = Math.floor(Math.random() * (19 - 0 + 1)) + 0);
 }
+
+
 
 function firstHeroMarkup(data) {
   heroRandomaizer();
@@ -107,8 +116,7 @@ function firstHeroMarkup(data) {
   heroSection.style.backgroundImage = `linear-gradient(
       86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(https://image.tmdb.org/t/p/original/${fetchInfo.backdrop_path})`;
 
-  fetchTrailer(fetchInfo);
-  console.log(fetchInfo.id);
+  getFilmID(fetchInfo);
 }
 
 function heroWrap() {
@@ -151,25 +159,41 @@ function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
 }
 
-// async function fetchTrailer(fetchInfo) {
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       accept: 'application/json',
-//       Authorization:
-//         'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
-//     },
-//   };
+function getFilmID(fetchInfo) {
+  return filmID = fetchInfo.id
+}
 
-//   fetch(
-//     `https://api.themoviedb.org/3/movie/${fetchInfo.id}/videos?language=en-US`,
-//     options
-//   );
-//   let response = await axios.get(URL, options);
-//   if (response.status !== 200) {
-//     throw new Error(response);
-//   } else {
-//     const data = response;
-//     console.log(data);
-//   }
-// }
+
+heroSection.addEventListener('click', fetchFilmByID);
+
+async function fetchFilmByID() {
+  filmID
+  
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
+    },
+  };
+
+  const URL = `https://api.themoviedb.org/3/movie/${filmID}/videos?language=en-US,`;
+
+  let response = await axios.get(URL, options);
+  if (response.status !== 200) {
+    throw new Error(response);
+  } else {
+    const data = response;
+    console.log(data.data.results[0].key);
+  addKey(data);
+  }
+}
+
+
+function addKey(data) {
+  const curentKey = data.data.results[0].key;
+  console.log(curentKey);
+  videoModal.src = `https://www.youtube.com/watch?v=${curentKey}`;
+}
+
