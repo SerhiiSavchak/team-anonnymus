@@ -1,0 +1,199 @@
+.header {
+  z-index: 100;
+  background-color: $mobile-bg-color;
+  width: 100%;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo-link {
+  color: $body-bg-color;
+  font-size: 24px;
+  line-height: 1.17;
+  display: flex;
+  align-items: center;
+}
+
+.header-item {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: $card-desc-color;
+}
+
+.header-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-link:hover,
+.header-link:focus {
+  color: $accent-color;
+  transition: $cubic-bezier;
+}
+
+.header-btn-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 18px;
+  border: none;
+  border-radius: 194px;
+  background: $btn-bg-color;
+  text-align: center;
+}
+
+.switch-icon {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  transition: opacity 0.3s ease;
+  background-position: center;
+}
+
+.active {
+  opacity: 1;
+}
+
+.no-active {
+  opacity: 0;
+}
+.span-name {
+  color: $white-color;
+}
+
+// ============================ MENU ==================================//
+.menu-open-btn {
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: $card-desc-color;
+}
+
+.menu-open-btn:hover,
+.menu-open-btn:focus {
+  color: $accent-color;
+  transition: $cubic-bezier;
+}
+
+.mob-menu {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 101;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.menu-container {
+  position: relative;
+  width: 60%;
+  height: 428px;
+  background-color: $mobile-bg-color;
+  padding: 80px 105px 144px 20px;
+  border-radius: 0px 8px 8px 0px;
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1);
+}
+.menu-list {
+  width: 79px;
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mob-menu-item {
+  font-size: 14px;
+  line-height: 1.14;
+  color: $white-color;
+  text-transform: uppercase;
+}
+
+.menu-close-btn {
+  display: block;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0);
+  border: none;
+}
+
+.svg-close {
+  stroke: $white-color;
+}
+
+.switch-icon use {
+  fill: transparent;
+}
+// ============================ \MENU\ ==================================//
+
+@media screen and (max-width: 767px) {
+  .header-list {
+    display: none;
+  }
+  .span-name {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+  }
+  .header-container {
+    max-width: 768px;
+  }
+  .header-nav {
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .header-list {
+    margin-left: 59px;
+    margin-right: 169px;
+    gap: 32px;
+  }
+
+  .header-logo {
+    margin-right: 8px;
+  }
+  .header-btn-switch {
+    min-width: 60px;
+    min-height: 24px;
+  }
+  .menu-open-btn {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header {
+  }
+  .header-container {
+    max-width: 1280px;
+  }
+
+  .menu-container {
+    display: none;
+  }
+
+  .header-list {
+    margin-left: 307px;
+    margin-right: 417px;
+  }
+}
