@@ -1,32 +1,44 @@
 body {
     background-color: black;
 }
+
+.upcoming-response-content-js {
+    display: flex;
+    justify-content: center;
+}
+
 .upcoming-section {
     padding-bottom: 40px;
 }
 
-.upcoming-section__title {
+.upcoming-section--title {
     font-weight: 500;
     line-height: 19px;
     color: #FFFFFF;
     margin-bottom: 24px;
+    padding-left: 20px;
 }
 
 .upcoming-poster img {
     border-radius: 5px;
-    // max-width: 280px;
+    margin-bottom: 24px;
+    max-width: 280px;
 }
 
-.upcoming-film__title {
+.upcoming-film--title {
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
+    margin-bottom: 20px;
     color: #FFFFFF;
-    margin: 24px 0px;
     text-transform: uppercase;
 }
 
-.info-film__votes-count span {
+.info-film {
+    margin-bottom: 20px;
+}
+
+.info-film--votes-count span {
     padding: 0px 4px;
     background-color: #FFFFFF;
     border-radius: 5px;
@@ -35,7 +47,7 @@ body {
     line-height: 1.14;
 }
 
-.info-film__votes-count b {
+.info-film--votes-count b {
     padding: 1px 4px;
 }
 
@@ -44,11 +56,15 @@ body {
     font-weight: 500;
     line-height: 1.18;
     color: #B7B7B7;
-    margin-bottom: 12px;
+    padding-bottom: 12px;
     width: 50%;
 }
 
-p.info-film__release-date {
+.genre-padding-bottom {
+    padding-bottom: 0px;
+}
+    
+p.info-film--resp-release-date {
     color: #F87719;
 }
 
@@ -83,11 +99,18 @@ p.text-color-white {
     color: white;
     font-size: 36px;
 }
+.upcoming-section-wrap {
+    width: 280px;
+}
 
 
 @media screen and (min-width: 767px) {
     .upcoming-section {
         padding-bottom: 77px;
+    }
+
+    .upcoming-section--title {
+        padding-left: 0px;
     }
 
     .btn {
@@ -100,20 +123,31 @@ p.text-color-white {
         column-count: 2;
     }
 
-    .upcoming-section__title {
+    .upcoming-section--title {
         font-size: 24px;
         line-height: 1.16;
     }
 
-    .upcoming-section-wrap__title {
+    .upcoming-section-wrap {
+        width: 704px;
+    }
+    .upcoming-section-wrap--title {
         margin: 32px 0px 24px;
         font-size: 28px;
         line-height: 1.17;
     }
+    .upcoming-poster img {
+        margin-bottom: 28px;
+        max-width: 704px;
+        height: 400px;
+    }
 
+    .upcoming-film--title {
+        margin-bottom: 24px;
+    }
     // .info-film-block {
     //     height: 82px;
-    // }
+    // }margin-bottom: 20px;
 }
 
 @media screen and (min-width: 1280px) {
@@ -125,23 +159,25 @@ p.text-color-white {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        width: 1211px;
     }
 
     .upcoming-poster img {
         max-width: 805px;
+        height: 458px;
         margin-right: 16px;
+        margin-bottom: 32px;
     }
 
-    .upcoming-section__title {
+    .upcoming-section--title {
         font-size: 28px;
         margin-bottom: 28px;
     }
 
-    .upcoming-film__title {
+    .upcoming-film--title {
         font-size: 32px;
         line-height: 1.18;
         margin-bottom: 28px;
-        margin-top: 0px;
     }
 
     .info-film {

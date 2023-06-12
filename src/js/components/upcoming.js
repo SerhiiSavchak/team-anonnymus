@@ -53,10 +53,11 @@ async function fetchMovieDetails() {
 function createMarkup(movie) {
   let textContent = movie.overview;
   if (movie.overview.length > 300) {
-    textContent = (movie.overview).slice(0, 300) + "...";
+    textContent = movie.overview.split('').slice(0, 150).join('') + '...';
   }
-  const message = `<h3 class="upcoming-alert">Ops! No have any upcoming films...</h3>`;
+  const message = `<h3 class="upcoming-alert">Ops! No upcoming films...</h3>`;
   let filmContent = `
+  
   <div class ="upcoming-section-wrap">
   
     <picture class="upcoming-poster">
@@ -65,39 +66,40 @@ function createMarkup(movie) {
     </picture>
 
     <div>
-        <h3 class="upcoming-film__title">${movie.title}</h3>
+        <h3 class="upcoming-film--title">${movie.title}</h3>
         
         <div class ="info-film">
             <div class="info-film-block">
               <div class="info-film-item">
-                <p>Release date</p>
-                <p class="info-film__release-date">${(movie.release_date).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}</p>
+                <p class="info-film-item--text">Release date</p>
+                <p class="info-film--resp-release-date">${(movie.release_date).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}</p>
               </div>
 
               <div class="info-film-item">
-                <p>Vote / Votes</p>
-                <p class="info-film__votes-count"><span>${movie.vote_average}</span><b>/</b><span>${movie.vote_count}</span></p>
+                <p class="info-film-item--text">Vote / Votes</p>
+                <p class="info-film--votes-count"><span>${movie.vote_average}</span><b>/</b><span>${movie.vote_count}</span></p>
               </div>
             </div>
             
             <div class="info-film-block">
               <div class="info-film-item">
-                <p>Popularity</p>
-                <p class="info-film__popularity text-color-white">${(Number(movie.popularity.toFixed(1)))}</p>
+                <p class="info-film-item--text">Popularity</p>
+                <p class="info-film--popularity text-color-white">${(Number(movie.popularity.toFixed(1)))}</p>
               </div>
 
               <div class="info-film-item">
-                <p>Genre</p>
-                <p class="info-film__genre-style text-color-white">${movie.genres}</p>
+                <p class="info-film-item--text">Genre</p>
+                <p class="info-film--genre-style text-color-white genre-padding-bottom">${movie.genres}</p>
               </div>
             </div> 
              
         </div>
     
-  
+        <div class ="info-film--overview">
       <h3 class="film-description-title">ABOUT</h3>
       <p class="film-description">${textContent}</p>
       <button class="btn">add to my library</button>
+      </div>
     </div>
   </div>`;
 
