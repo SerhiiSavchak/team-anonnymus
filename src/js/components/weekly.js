@@ -2,6 +2,7 @@ import { fetchData } from '../api/fetchWeekly';
 import { fetchGenres } from '../api/fetchWeekly';
 import { weeklyUlRef } from '../refs/weeklyRefs';
 import { options } from '../api/apiKey';
+import { selectMovie } from './modal';
 
 import { renderMarkup, addMarkup } from '../markup/weeklyMarkup';
 
@@ -16,11 +17,12 @@ function onPageLoad() {
   const genrePromise = fetchGenres(options);
 
   fetchData(END_POINT, options).then(movieData => {
-    console.log(movieData);
+    //console.log(movieData);
 
     genrePromise.then(genreData => {
       const markup = renderMarkup(movieData, genreData);
       addMarkup(weeklyUlRef, markup);
+      weeklyUlRef.addEventListener('click', selectMovie);
     });
   });
 }

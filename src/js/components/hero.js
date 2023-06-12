@@ -1,6 +1,7 @@
-console.log('hello');
+//console.log('hello');
 import axios from 'axios';
 import Vimeo from '@vimeo/player';
+import { selectMovie } from './modal';
 
 const heroSection = document.querySelector('.hero');
 const videoModal = document.querySelector('iframe');
@@ -62,7 +63,7 @@ projector, screen, and speakers.`;
 }
 
 function onPageLoad() {
-  console.log('hello onPageLoad');
+  //console.log('hello onPageLoad');
   fetchTrandingFilmDay()
     .then(data => {
       document
@@ -113,6 +114,10 @@ function firstHeroMarkup(data) {
       86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(https://image.tmdb.org/t/p/original/${fetchInfo.backdrop_path})`;
 
   getFilmID(fetchInfo);
+  // добавление дата-атрибута
+  btnDetailsRef = document.querySelector('.hero-black-btn');
+  btnDetailsRef.dataset.id = filmID;
+  btnDetailsRef.addEventListener('click', selectMovie);
 }
 
 function heroWrap() {
@@ -186,14 +191,14 @@ async function fetchFilmByID() {
     throw new Error(response);
   } else {
     const data = response;
-    console.log(data.data.results[0].key);
+    //console.log(data.data.results[0].key);
     addKey(data);
   }
 }
 
 function addKey(data) {
   const curentKey = data.data.results[0].key;
-  console.log(data.data);
+  //console.log(data.data);
   videoModal.src = `https://www.youtube.com/embed/${curentKey}`;
 }
 
