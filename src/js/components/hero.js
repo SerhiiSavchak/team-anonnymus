@@ -170,8 +170,6 @@ function watchFilm() {
 }
 
 async function fetchFilmByID() {
-  filmID;
-
   const options = {
     method: 'GET',
     headers: {
