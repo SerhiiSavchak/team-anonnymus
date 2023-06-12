@@ -128,7 +128,7 @@ function heroWrap() {
         <p class="hero-text-mobile"></p>
         <p class="hero-text-big"></p>
         <div class="hero-btn">
-            <button type="button" class="btn" data-modal-open>Watch trailer</button>
+            <button type="button" class="btn" data-modal-hero-open>Watch trailer</button>
             <button type="button" class="hero-black-btn">
                 More details
             </button>
@@ -142,16 +142,16 @@ heroWrap();
 // Modal// Modal// Modal
 
 const refs = {
-  openModalBtn: document.querySelector('[data-modal-open]'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
+  openHeroModalBtn: document.querySelector('[data-modal-hero-open]'),
+  closeHeroModalBtn: document.querySelector('[data-modal-hero-close]'),
+  heroModal: document.querySelector('[data-modal-hero]'),
 };
 
-refs.openModalBtn.addEventListener('click', toggleModal);
-refs.closeModalBtn.addEventListener('click', toggleModal);
+refs.openHeroModalBtn.addEventListener('click', toggleModalHero);
+refs.closeHeroModalBtn.addEventListener('click', toggleModalHero);
 
-function toggleModal() {
-  refs.modal.classList.toggle('is-hidden');
+function toggleModalHero() {
+  refs.heroModal.classList.toggle('is-hidden-hero');
 }
 
 function getFilmID(fetchInfo) {
@@ -213,8 +213,8 @@ function onModalError() {
     <source srcset="
                             src\images\error\error-@1x-desctop.png 1x, 
                             src\images\error\error-@2x-desctop.png 2x" media="(min-width: 1200px)">
-    <img class="hero-error-img" src="src\images\error\error-@1x-mobile.png " alt="Error" width="200">
+    <img class="hero-error-img" src="src\images\error\error-@1x-mobile.png " alt="Error" >
 </picture>`;
 
-  refs.modal.insertAdjacentHTML('afterbegin', errorText);
+  refs.heroModal.insertAdjacentHTML('afterbegin', errorText);
 }

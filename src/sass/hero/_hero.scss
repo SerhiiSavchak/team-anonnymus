@@ -19,7 +19,6 @@
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .hero {
-    display: none;
     background-image: linear-gradient(
         86.77deg,
         #111111 30.38%,
@@ -161,11 +160,15 @@
   .hero-black-btn {
     padding: 12px 24px;
   }
-.video{
-  width:375px;
-  height:350px;
-}
-
+  .video-hero {
+    width: 355px;
+    height: 350px;
+  }
+  .modal-hero {
+    z-index: 999;
+    width: 400px;
+    height: 420px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -238,22 +241,25 @@
     padding: 12px 24px;
   }
   .hero-start-btn {
-  border: transparent;
-  background: $btn-bg-color;
-  color: $btn-color;
-  border-radius: 74px;
-  font-weight: 500;
-  padding: 12px 24px;
-  margin-left: 32px;
-}
+    border: transparent;
+    background: $btn-bg-color;
+    color: $btn-color;
+    border-radius: 74px;
+    font-weight: 500;
+    padding: 12px 24px;
+    margin-left: 32px;
+  }
 
-.video{
-  width:760px;
-  height:370px;
+  .video-hero {
+    width: 760px;
+    height: 370px;
+  }
+  .modal-hero {
+    z-index: 999;
+    width: 800px;
+    height: 450px;
+  }
 }
-}
-
-
 
 @media screen and (min-width: 1200px) {
   .hero {
@@ -316,10 +322,15 @@
   .hero-rating {
     margin-bottom: 29px;
   }
-  .video{
-  width:1150px;
-  height:660px;
-}
+  .video-hero {
+    width: 1100px;
+    height: 660px;
+  }
+  .modal-hero {
+    z-index: 999;
+    width: 1150px;
+    height: 750px;
+  }
 }
 
 // rating
@@ -388,13 +399,14 @@
 
 /* Modal */ /* Modal */ /* Modal */ /* Modal */
 
-.is-hidden {
+.is-hidden-hero {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-.backdrop {
+.backdrop-hero {
+  z-index: 999;
   position: fixed;
   top: 0;
   left: 0;
@@ -406,18 +418,19 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop .is-hidden {
+.backdrop-hero .is-hidden-hero {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   visibility: hidden;
 }
 
-.backdrop.is-hidden .modal {
+.backdrop-hero .is-hidden-hero .modal-hero {
   transform: translate(-50%, -50%) scale(0);
 }
 
-.modal {
+.modal-hero {
+  
   position: absolute;
   top: 50%;
   left: 50%;
@@ -432,7 +445,7 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close {
+.modal-close-hero {
   color: $btn-color;
   width: 24px;
   height: 24px;
@@ -444,13 +457,12 @@
   transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translate(+15px, -5px)
-
+  transform: translate(+15px, -5px);
 }
 
-.modal-close:active,
-.modal-close:hover {
+.modal-close-hero:active,
+.modal-close-hero:hover {
   background-color: $white-color;
   border-radius: 50%;
-  color: $accent-color
+  color: $accent-color;
 }
