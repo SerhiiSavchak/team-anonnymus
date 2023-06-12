@@ -116,7 +116,7 @@ function firstHeroMarkup(data) {
 }
 
 function heroWrap() {
-  const box = `<div class="hero-text-cont сontainer ">
+  const box = `<div class="hero-text-cont ">
   <h2 class="hero-title"></h2>
         <!-- rating -->
         <div class="hero-rating">

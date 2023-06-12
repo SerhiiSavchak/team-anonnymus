@@ -108,8 +108,11 @@
   gap: 8px;
 }
 .hero-text-cont {
-  padding-left: 20px;
+  padding: 0 20px;
+
   padding-top: 40px;
+  margin: 0 auto;
+
   // padding-bottom: 20px;
 }
 
@@ -166,6 +169,12 @@
   }
 }
 
+@media screen and (min-width: 767px) {
+  .hero-text-cont {
+    width: 375px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .hero {
     height: 375px;
@@ -207,8 +216,9 @@
     margin-bottom: 13px;
     width: 400px;
   }
-  .btn {
-    padding: 12px 24px;
+  .hero-text-cont {
+    width: 768px;
+    padding: 0 32px;
   }
 
   .hero-rating {
@@ -251,7 +261,7 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1280px) {
   .hero {
     height: 660px;
     background-image: linear-gradient(
@@ -281,7 +291,9 @@
   }
 
   .hero-text-cont {
-    padding-left: 32px;
+    width: 1280px;
+    padding: 0 32px;
+
     padding-top: 118px;
   }
   .hero-title {
