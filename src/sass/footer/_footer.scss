@@ -1,28 +1,140 @@
 @media screen and (max-width: 767px) {
   .text {
-    // padding-top: 40px; 
     padding-bottom: 28px;
     width: 260px;
     margin-left: auto;
     margin-right: auto;
-    // text-align: center;
-
   }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      padding: 10px;
+    }
+        /* Стилі для команди розробників */
+        .team-member {
+          /* Розміри та відступи розробників */
+          width: calc(50% - 20px);
+          margin: 10px;
+          text-align: center;
+        }
+    
+        .team-member img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center;
+          margin-bottom: 10px;
+        }
+    
+        .team-member h2 {
+          margin-bottom: 5px;
+          text-align: center;
+          line-height: 1;
+          height: 50%;
+        }
+    
+        .team-member p {
+          margin: 0;
+          text-align: center;
+        }
+    
+        .team-members-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: flex-start;
+          max-width: 800px;
+          margin: 0 auto;
+        }
 }
 
 
 @media screen and (min-width: 768px) {
   .text {
-    // padding-top: 60px;
     padding-bottom: 40px;
   }
+     .modal-content {
+       max-width: 600px;
+       max-height: 80%;
+     }
+         /* Стилі для команди розробників */
+         .team-member {
+           /* Розміри та відступи розробників */
+           width: calc(33% - 20px);
+           margin: 10px;
+           text-align: center;
+         }
+    
+         .team-member img {
+           width: 100px;
+           height: 100px;
+           border-radius: 50%;
+           object-fit: cover;
+           object-position: center;
+           margin-bottom: 10px;
+         }
+    
+         .team-member h2 {
+           margin-bottom: 5px;
+           text-align: center;
+         }
+    
+         .team-member p {
+           margin: 0;
+          text-align: center;
+         }
+    
+         .team-members-container {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: center;
+           align-items: flex-start;
+           max-width: 800px;
+           margin: 0 auto;
+         }
 }
 
 @media screen and (min-width: 1200px) {
   .text {
-    // padding-top: 100px;
     padding-bottom: 80px;
   }
+    /* Стилі для команди розробників */
+    .team-member {
+      /* Розміри та відступи розробників */
+      width: calc(25% - 20px);
+      margin: 10px;
+      text-align: center;
+    }
+  
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      margin-bottom: 10px;
+    }
+  
+    .team-member h2 {
+      margin-bottom: 5px;
+      text-align: center;
+    }
+  
+    .team-member p {
+      margin: 0;
+      text-align: center;
+    }
+  
+    .team-members-container {
+      /* Розміщення розробників у 3 ряди по 4 чоловіки */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 }
 
 .footer {
@@ -74,37 +186,3 @@
   cursor: pointer;
 }
 
-/* Стилі для команди розробників */
-.team-member {
-  /* Розміри та відступи розробників */
-  width: calc(25% - 20px);
-  margin: 10px;
-  text-align: center;
-}
-
-.team-member img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  margin-bottom: 10px;
-}
-
-.team-member h2 {
-  margin-bottom: 5px;
-}
-
-.team-member p {
-  margin: 0;
-}
-
-.team-members-container {
-  /* Розміщення розробників у 3 ряди по 4 чоловіки */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 800px;
-  margin: 0 auto;
-}
