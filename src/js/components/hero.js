@@ -162,8 +162,9 @@ function getFilmID(fetchInfo) {
 heroSection.addEventListener('click', watchFilm);
 
 function watchFilm() {
-  fetchFilmByID().catch(function (error) {
-    console.log('Ereor wathtrailer');
+  fetchFilmByID().catch(error => {
+    console.log(error.message);
+
     onModalError();
   });
 }

@@ -19,7 +19,6 @@
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .hero {
-    display: none;
     background-image: linear-gradient(
         86.77deg,
         #111111 30.38%,
@@ -391,7 +390,7 @@
   pointer-events: none;
 }
 
-.backdrop {
+.backdrop-hero {
   position: fixed;
   top: 0;
   left: 0;
@@ -403,18 +402,18 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop .is-hidden {
+.backdrop-hero .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   visibility: hidden;
 }
 
-.backdrop.is-hidden .modal {
+.backdrop-hero.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0);
 }
 
-.modal {
+.modal-hero {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -429,7 +428,7 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close {
+.modal-close-hero {
   color: $btn-color;
   width: 24px;
   height: 24px;
@@ -444,8 +443,8 @@
   transform: translate(+15px, -5px);
 }
 
-.modal-close:active,
-.modal-close:hover {
+.modal-close-hero:active,
+.modal-close-hero:hover {
   background-color: $white-color;
   border-radius: 50%;
   color: $accent-color;
