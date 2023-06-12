@@ -85,7 +85,7 @@ function heroRandomaizer() {
 }
 
 function firstHeroMarkup(data) {
-  heroRandomaizer();
+  const kaleidoscope = heroRandomaizer();
   const fetchInfo = data.data.results[kaleidoscope];
 
   // start staer
