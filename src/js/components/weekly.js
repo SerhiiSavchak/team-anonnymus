@@ -56,7 +56,7 @@ function generateMarkup(data) {
   const markup = data
     .map(
       movie => ` 
-      <li class="weekly-item">
+      <li class="weekly-item" data-id="${movie.id}">
         <a class="weekly-link link" href="">
             <img class="weekly-poster-list" src="https://image.tmdb.org/t/p/w500/${
               movie.poster

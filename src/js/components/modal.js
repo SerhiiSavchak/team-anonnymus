@@ -1,20 +1,31 @@
 import axios from 'axios';
 import { API_KEY, BASE_URL } from '../api/apiKey.js';
 
-const modalEl = document.querySelector('.modal-window');
-const movieID = 385687;
+//const movieID = 385687; // для тестов
+// эту константу не мешало бы добавить в apiKey.js
 const URL_FOR_IMG = 'https://image.tmdb.org/t/p/w500';
-const textButton = 'Add to my library';
-const backdropEl = document.querySelector('.backdrop');
-const closeModalBtn = document.querySelector('.modal-close-btn');
+const textButton = 'Add to my library'; // имя кнопки будет меняться
+const backdropRef = document.querySelector('.backdrop');
+const modalWindowRef = document.querySelector('.js-modal-window');
+const weeklyUlRef = document.querySelector('.weekly-list');
 
-createModalMarkup(movieID);
+weeklyUlRef.addEventListener('click', selectMovie);
+
+function selectMovie(event) {
+  if (event.target.nodeName !== 'LI') {
+    return;
+  }
+
+  const movieID = event.target.dataset.id;
+  createModalMarkup(movieID);
+}
 
 async function createModalMarkup(movieID) {
+  modalWindowRef.innerHTML = '';
   try {
     const response = await getInfoMovieByID(movieID);
     const movieInfo = response.data;
-    console.log(movieInfo);
+    toggleModal();
     // приведем полученные данные к нужному виду
     const movieInfoForMarkup = {
       poster: `${URL_FOR_IMG}${movieInfo.poster_path}`,
@@ -27,8 +38,11 @@ async function createModalMarkup(movieID) {
       textButton,
     };
 
-    const markup = getModalMarkup(movieInfoForMarkup);
-    modalEl.insertAdjacentHTML('beforeend', markup);
+    modalWindowRef.innerHTML = getModalMarkup(movieInfoForMarkup);
+    const closeModalBtn = document.querySelector('.modal-close-btn');
+
+    // кнопка закрытия окна
+    closeModalBtn.addEventListener('click', toggleModal);
   } catch (error) {
     console.log(error);
   }
@@ -54,7 +68,7 @@ function getModalMarkup({
   textButton,
 }) {
   return `
-<img class="modal-img-poster" src="${poster}" alt="poster" />
+    <img class="modal-img-poster" src="${poster}" alt="poster" />
     <div class="modal-all-information-about-film">
       <h2 class="modal-title">${title}</h2>
 
@@ -85,12 +99,10 @@ function getModalMarkup({
       </p>
 
       <button class="modal-button" type="button">${textButton}</button>
+    </div>
       `;
 }
 
-// кнопка закрытия окна
-closeModalBtn.addEventListener('click', toggleModal);
-
 function toggleModal() {
-  backdropEl.classList.toggle('visuality-hidden');
+  backdropRef.classList.toggle('visuality-hidden');
 }

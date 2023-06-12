@@ -36,6 +36,7 @@
 
 .modal-close-icon {
   stroke: $main-text-color;
+  fill: $main-text-color;
   transition: stroke $cubic-bezier;
 }
 
@@ -150,11 +151,14 @@
 
 @media screen and (min-width: 768px) {
   .modal-window {
-    gap: 16px;
     padding: 44px;
     width: 704px;
     height: 488px;
+  }
+
+  .js-modal-window {
     display: flex;
+    gap: 16px;
   }
 
   .modal-close-btn {
@@ -194,9 +198,12 @@
 @media screen and (min-width: 1280px) {
   .modal-window {
     padding: 60px;
-    gap: 20px;
     width: 846px;
     height: 598px;
+  }
+
+  .js-modal-window {
+    gap: 20px;
   }
 
   .modal-close-btn {
