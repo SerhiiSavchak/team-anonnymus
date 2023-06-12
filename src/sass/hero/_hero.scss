@@ -161,11 +161,10 @@
   .hero-black-btn {
     padding: 12px 24px;
   }
-.video{
-  width:375px;
-  height:350px;
-}
-
+  .video {
+    width: 375px;
+    height: 350px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -238,22 +237,20 @@
     padding: 12px 24px;
   }
   .hero-start-btn {
-  border: transparent;
-  background: $btn-bg-color;
-  color: $btn-color;
-  border-radius: 74px;
-  font-weight: 500;
-  padding: 12px 24px;
-  margin-left: 32px;
-}
+    border: transparent;
+    background: $btn-bg-color;
+    color: $btn-color;
+    border-radius: 74px;
+    font-weight: 500;
+    padding: 12px 24px;
+    margin-left: 32px;
+  }
 
-.video{
-  width:760px;
-  height:370px;
+  .video {
+    width: 760px;
+    height: 370px;
+  }
 }
-}
-
-
 
 @media screen and (min-width: 1200px) {
   .hero {
@@ -316,10 +313,10 @@
   .hero-rating {
     margin-bottom: 29px;
   }
-  .video{
-  width:1150px;
-  height:660px;
-}
+  .video {
+    width: 1150px;
+    height: 660px;
+  }
 }
 
 // rating
@@ -444,13 +441,12 @@
   transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translate(+15px, -5px)
-
+  transform: translate(+15px, -5px);
 }
 
 .modal-close:active,
 .modal-close:hover {
   background-color: $white-color;
   border-radius: 50%;
-  color: $accent-color
+  color: $accent-color;
 }

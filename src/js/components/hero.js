@@ -1,13 +1,25 @@
-console.log('hello');
 import axios from 'axios';
-import Vimeo from '@vimeo/player';
-
-const heroSection = document.querySelector('.hero');
-const videoModal = document.querySelector('iframe');
 
 let filmID = '';
 
-// Fetch Fetch Fetch Fetch Fetch
+// REFS
+
+const heroSection = document.querySelector('.hero');
+const videoModal = document.querySelector('iframe');
+const refs = {
+  openModalBtn: document.querySelector('[data-modal-open]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
+};
+
+refs.openModalBtn.addEventListener('click', toggleModal);
+refs.closeModalBtn.addEventListener('click', toggleModal);
+
+window.addEventListener('load', onPageLoad);
+
+heroSection.addEventListener('click', watchFilm);
+
+// FETCH
 
 async function fetchTrandingFilmDay() {
   const options = {
@@ -61,7 +73,10 @@ projector, screen, and speakers.`;
     'linear-gradient(86.77deg,#111111 30.38%,rgba(17, 17, 17, 0) 65.61%),url(..srcimageshome-pagehero-home1x-mobile.jpg)';
 }
 
+// LISTENER
+
 function onPageLoad() {
+  heroWrap();
   console.log('hello onPageLoad');
   fetchTrandingFilmDay()
     .then(data => {
@@ -69,7 +84,7 @@ function onPageLoad() {
         .querySelector('.hero-text-cont')
         .classList.remove('visuality-hidden');
     })
-    .catch(function (error) {
+    .catch(error => {
       onEror();
     });
 
@@ -78,12 +93,13 @@ function onPageLoad() {
   }, 20000);
 }
 
-window.addEventListener('load', onPageLoad);
+// UTILS
 
 function heroRandomaizer() {
-  return (kaleidoscope = Math.floor(Math.random() * (19 - 0 + 1)) + 0);
+  return Math.floor(Math.random() * (19 - 0 + 1)) + 0;
 }
 
+// MARKUP
 function firstHeroMarkup(data) {
   heroRandomaizer();
   const fetchInfo = data.data.results[kaleidoscope];
@@ -137,18 +153,9 @@ function heroWrap() {
   heroSection.insertAdjacentHTML('afterbegin', box);
 }
 
-heroWrap();
+// MODAL
 
-// Modal// Modal// Modal
-
-const refs = {
-  openModalBtn: document.querySelector('[data-modal-open]'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
-};
-
-refs.openModalBtn.addEventListener('click', toggleModal);
-refs.closeModalBtn.addEventListener('click', toggleModal);
+// REFS
 
 function toggleModal() {
   refs.modal.classList.toggle('is-hidden');
@@ -158,14 +165,14 @@ function getFilmID(fetchInfo) {
   return (filmID = fetchInfo.id);
 }
 
-heroSection.addEventListener('click', watchFilm);
-
 function watchFilm() {
   fetchFilmByID().catch(function (error) {
     console.log('Ereor wathtrailer');
     onModalError();
   });
 }
+
+// FETCH MODAL
 
 async function fetchFilmByID() {
   filmID;
