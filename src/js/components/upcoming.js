@@ -51,7 +51,7 @@ async function fetchMovieDetails() {
 function createMarkup(movie) {
   let textContent = movie.overview;
   if (movie.overview.length > 300) {
-    textContent = movie.overview.split('').slice(0, 150).join('') + '...';
+    textContent = movie.overview.split('').slice(0, 300).join('') + '...';
   }
   const message = `<h3 class="upcoming-alert">Ops! No upcoming films...</h3>`;
   let filmContent = `
