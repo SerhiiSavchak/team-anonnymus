@@ -68,7 +68,7 @@ function createMarkup(movie) {
     </picture>
 
     <div>
-        <h3 class="upcoming-film--title">${movie.title}</h3>
+        <h3 class="upcoming-film-title">${movie.title}</h3>
         
         <div class ="info-film">
             <div class="info-film-block">
@@ -82,7 +82,7 @@ function createMarkup(movie) {
 
               <div class="info-film-item">
                 <p class="info-film-item-text">Vote / Votes</p>
-                <p class="info-film--votes-count"><span>${
+                <p class="info-film-votes-count"><span>${
                   movie.vote_average
                 }</span><b>/</b><span>${movie.vote_count}</span></p>
               </div>
@@ -91,14 +91,14 @@ function createMarkup(movie) {
             <div class="info-film-block">
               <div class="info-film-item">
                 <p class="info-film-item-text">Popularity</p>
-                <p class="info-film--popularity text-color-white">${Number(
+                <p class="info-film-popularity text-color-white">${Number(
                   movie.popularity.toFixed(1)
                 )}</p>
               </div>
 
               <div class="info-film-item">
                 <p class="info-film-item-text">Genre</p>
-                <p class="info-film--genre-style text-color-white genre-padding-bottom">${
+                <p class="info-film-genre-style text-color-white genre-padding-bottom">${
                   movie.genres
                 }</p>
               </div>

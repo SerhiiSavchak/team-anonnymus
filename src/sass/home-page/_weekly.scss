@@ -1,5 +1,4 @@
 .weekly-section {
-  background-color: #111111;
   padding-top: 40px;
   padding-bottom: 32px;
 }
@@ -10,7 +9,7 @@
   // padding-top:40px;
 }
 .weekly-title {
-  color: #ffffff;
+  color: $white-color;
   font-size: 16px;
   line-height: 1.19px;
 }
@@ -18,12 +17,11 @@
 .weekly-info {
   font-size: 16px;
   line-height: 1.18;
-  color: #ffffff;
+  color: $white-color;
 }
 
 .weekly-btn-link {
-  color: #f87719;
-  font-size: 16px;
+  color: $accent-color;
   line-height: 1.19px;
   text-decoration: none;
 }
@@ -65,15 +63,15 @@
 }
 
 .weekly-link {
-  color: #ffffff;
-  font-size: 16px;
+  color: $white-color;
+
   line-height: 1.18;
   position: relative;
   // z-index:1;
 }
 
 .weekly-info-title {
-  color: #ffffff;
+  color: $white-color;
   font-size: 12px;
   line-height: 1.67;
   text-transform: uppercase;
@@ -95,7 +93,7 @@
 .info-movie {
   display: flex;
   min-width: 112px;
-  color: #b7b7b7;
+  color: $card-desc-color;
   font-size: 12px;
   line-height: 1.67;
 }
@@ -124,7 +122,6 @@ img {
     line-height: 1.19px;
   }
   .weekly-btn-link {
-    font-size: 16px;
     line-height: 1.19px;
   }
   .weekly-top-wrap {
