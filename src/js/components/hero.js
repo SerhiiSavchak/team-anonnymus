@@ -54,12 +54,14 @@ projector, screen, and speakers.`;
   document.querySelector('.hero-black-btn').classList.add('visuality-hidden');
   document.querySelector('.hero-btn').classList.add('visuality-hidden');
 
-  const ereoBtn = `<a href="./src/catalog.html" class="hero-link">
+  const errorBtn = `<a href="./src/catalog.html" class="hero-link">
                 <button type="button" class="hero-start-btn">Get Started</button></a>`;
 
-  heroSection.insertAdjacentHTML('beforeend', ereoBtn);
+  document
+    .querySelector('.hero-text-cont')
+    .insertAdjacentHTML('beforeend', errorBtn);
   heroSection.style.backgroundImage =
-    'linear-gradient(86.77deg,#111111 30.38%,rgba(17, 17, 17, 0) 65.61%),url(..srcimageshome-pagehero-home1x-mobile.jpg)';
+    'linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("/src/images/home-page/hero-home@1x-desc.jpg")';
 }
 
 function onPageLoad() {
@@ -168,8 +170,7 @@ heroSection.addEventListener('click', watchFilm);
 
 function watchFilm() {
   fetchFilmByID().catch(error => {
-    console.log(error.message);
-
+    console.log('on fetch error1');
     onModalError();
   });
 }
@@ -188,6 +189,8 @@ async function fetchFilmByID() {
 
   let response = await axios.get(URL, options);
   if (response.status !== 200) {
+    console.log('on fetch error2');
+
     throw new Error(response);
   } else {
     const data = response;
@@ -197,29 +200,16 @@ async function fetchFilmByID() {
 }
 
 function addKey(data) {
-  const curentKey = data.data.results[0].key;
-  //console.log(data.data);
+  const randomTrailer =
+    Math.floor(Math.random() * (data.data.results.length - 0 + 1)) + 0;
+  const curentKey = data.data.results[randomTrailer].key;
   videoModal.src = `https://www.youtube.com/embed/${curentKey}`;
 }
 
 function onModalError() {
   //  .modal
   videoModal.classList.add('visuality-hidden');
-  const errorText = `<p>OOPS...
-    We are very sorry!
-    But we couldn’t find the trailer.</p>
-<picture>
-    <source srcset="
-                            src\images\error\error-@1x-mobile.png 1x, 
-                            src\images\error\error-@2x-mobile.png 2x" media="(max-width: 768px)">
-    <source srcset="
-                            src\images\error\error-@1x-tablet.png 1x, 
-                            src\images\error\error-@2x-tablet.png 2x" media="(min-width: 768px)">
-    <source srcset="
-                            src\images\error\error-@1x-desctop.png 1x, 
-                            src\images\error\error-@2x-desctop.png 2x" media="(min-width: 1200px)">
-    <img class="hero-error-img" src="src\images\error\error-@1x-mobile.png " alt="Error" width="200">
-</picture>`;
-
-  refs.modal.insertAdjacentHTML('afterbegin', errorText);
+  document
+    .querySelector('.hero-modal-error')
+    .classList.remove('visuality-hidden');
 }
