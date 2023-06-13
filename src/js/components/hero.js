@@ -2,7 +2,7 @@
 import axios from 'axios';
 import Vimeo from '@vimeo/player';
 import { selectMovie } from './modal';
-
+import img from '../../images/home-page/hero-home@1x-desc.jpg';
 const heroSection = document.querySelector('.hero');
 const videoModal = document.querySelector('iframe');
 
@@ -61,8 +61,7 @@ projector, screen, and speakers.`;
   document
     .querySelector('.hero-text-cont')
     .insertAdjacentHTML('beforeend', errorBtn);
-  heroSection.style.backgroundImage =
-    'linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("../images/home-page/hero-home@1x-desc.jpg")';
+  heroSection.style.backgroundImage = `linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("${img}")`;
 }
 
 function onPageLoad() {
@@ -73,14 +72,15 @@ function onPageLoad() {
         .querySelector('.hero-text-cont')
         .classList.remove('visuality-hidden');
     })
+
     .catch(error => {
       console.log(error.message);
       onEror();
     });
 
-  setInterval(() => {
-    fetchTrandingFilmDay();
-  }, 20000);
+  // setInterval(() => {
+  //   fetchTrandingFilmDay();
+  // }, 20000);
 }
 
 window.addEventListener('load', onPageLoad);
