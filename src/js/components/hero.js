@@ -55,7 +55,7 @@ projector, screen, and speakers.`;
   document.querySelector('.hero-black-btn').classList.add('visuality-hidden');
   document.querySelector('.hero-btn').classList.add('visuality-hidden');
 
-  const errorBtn = `<a href="./src/catalog.html" class="hero-link">
+  const errorBtn = `<a href="/catalog.html" class="hero-link">
                 <button type="button" class="hero-start-btn">Get Started</button></a>`;
 
   document
