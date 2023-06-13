@@ -186,12 +186,12 @@ async function fetchFilmByID() {
     },
   };
 
-  const URL = `https://asdapi.themoviedb.org/3/movie/${filmID}/videos?language=en-US,`;
+  const URL = `https://api.themoviedb.org/3/movie/${filmID}/videos?language=en-US,`;
 
   let response = await axios.get(URL, options);
   if (response.status !== 200) {
     console.log("on fetch error2");
-    onModalError();
+    
     throw new Error(response);
   } else {
     const data = response;
@@ -201,8 +201,10 @@ async function fetchFilmByID() {
 }
 
 function addKey(data) {
-  const curentKey = data.data.results[0].key;
-  //console.log(data.data);
+
+  const randomTrailer =
+    Math.floor(Math.random() * (data.data.results.length - 0 + 1)) + 0;
+const curentKey = data.data.results[randomTrailer].key;
   videoModal.src = `https://www.youtube.com/embed/${curentKey}`;
 }
 
