@@ -12,4 +12,32 @@
     </p>
     <a href="" class="hero-btn btn link">Get Started</a>
   </div>
+  <div class="hero-backdrop visuality-hidden">
+    <div class="hero-modal">
+      <svg class="hero-modal-close">
+        <use href="/src/images/spite/sprite.svg#icon-cross"></use>
+      </svg>
+      <p class="hero-error-text">
+        OOPS... <br />We are very sorry!<br />
+        But we couldn’t find the trailer.
+      </p>
+      <picture class="hero-picture">
+        <source
+          media="(min-width:1280px)"
+          type="image/jpeg"
+          srcset="/src/images/error/error-@1x-desctop.png"
+        />
+        <source
+          media="(min-width:768px)"
+          type="image/jpeg"
+          srcset="/src/images/error/error-@1x-tablet.png"
+        />
+        <img
+          class="hero-error-img"
+          src="/src/images/error/error-@1x-mobile.png"
+          alt="error"
+        />
+      </picture>
+    </div>
+  </div>
 </section>

@@ -19,8 +19,15 @@ const options = {
 
 const heroSection = document.querySelector('.hero-section');
 const heroCont = document.querySelector('.hero-container');
-
+const btnClose = document.querySelector('.hero-modal-close');
+const backdropModal = document.querySelector('.hero-backdrop');
 window.addEventListener('load', onPageLoad);
+
+btnClose.addEventListener('click', onBtnCloseClick);
+
+function onBtnCloseClick(evt) {
+  backdropModal.classList.remove('.visuality-hidden');
+}
 
 function onPageLoad() {
   fetchTranding(BASE_URL, END_POINT, options).then(res => {
@@ -37,15 +44,19 @@ async function fetchTranding(BASE_URL, END_POINT, options) {
 }
 
 function createMarkup(data) {
-  heroSection.style.backgroundImage = `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
-  return `  <h1 class="hero-title">${data.title}</h1>
-  <p class="hero-text">
-  ${data.overview}
+  heroSection.style.backgroundImage = `linear-gradient(
+    86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original/${data.backdrop_path}")`;
+
+  return `  <h1 class="hero-title-resp">${data.title}</h1>
+  <p class="hero-text-resp">
+  ${data.overview.split('').slice(0, 150).join('') + '...'}
 </p>
-  <p class="hero-text-big">
-    ${data.overview}
+  <p class="hero-text-big-resp">
+    ${data.overview.split('').slice(0, 225).join('') + '...'}
   </p>
-  <a href="" class="hero-btn btn link">Watch trailer</a><a href="" class="hero-btn-black  link" data-id="${data.id}">More details</a>`;
+  <a href="" class="hero-btn-resp btn link">Watch trailer</a><a href="" class="hero-btn-black  link" data-id="${
+    data.id
+  }">More details</a>`;
 }
 
 function addMarkup(markup) {
