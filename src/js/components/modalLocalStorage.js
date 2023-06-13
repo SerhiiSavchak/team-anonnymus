@@ -48,12 +48,14 @@ async function AddMovieBtnClick(movieID) {
       genres: movieInfo.genres,
     };
 
-    const savedMovies = Storage.load(STORAGE_LIBRARY_KEY);
+    let savedMovies = Storage.load(STORAGE_LIBRARY_KEY);
+
     if (!savedMovies) {
       savedMovies = [];
     }
 
     savedMovies.push(movie);
+
     Storage.save(STORAGE_LIBRARY_KEY, savedMovies);
   } catch (error) {
     console.log(error);
