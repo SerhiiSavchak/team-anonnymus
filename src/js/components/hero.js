@@ -11,24 +11,25 @@ let filmID = '';
 // Fetch Fetch Fetch Fetch Fetch
 
 async function fetchTrandingFilmDay() {
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
-    },
-  };
+  try {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
+      },
+    };
 
-  const URL = `https://api.themoviedb.org/3/trending/movie/day?language=en-US`;
+    const URL = `https://apdsgsi.themoviedb.org/3/trending/movie/day?language=en-US`;
 
-  let response = await axios.get(URL, options);
-  if (response.status !== 200) {
-    throw new Error(response);
-  } else {
+    let response = await axios.get(URL, options);
     const data = response;
 
     firstHeroMarkup(data);
+  } catch (error) {
+    onEror();
+    console.log(error.message);
   }
 }
 
@@ -60,8 +61,8 @@ projector, screen, and speakers.`;
   document
     .querySelector('.hero-text-cont')
     .insertAdjacentHTML('beforeend', errorBtn);
-  heroSection.style.backgroundImage =
-    'linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("/src/images/home-page/hero-home@1x-desc.jpg")';
+  heroSection.style.background =
+    'linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("../images/home-page/hero-home@1x-desc.jpg")';
 }
 
 function onPageLoad() {
