@@ -61,7 +61,7 @@ projector, screen, and speakers.`;
   document
     .querySelector('.hero-text-cont')
     .insertAdjacentHTML('beforeend', errorBtn);
-  heroSection.style.background =
+  heroSection.style.backgroundImage =
     'linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("../images/home-page/hero-home@1x-desc.jpg")';
 }
 
