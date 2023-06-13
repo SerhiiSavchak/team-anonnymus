@@ -1,1 +1,0 @@
-{"mappings":"gfAAAA,EAAA,S","sources":["src/library.js"],"sourcesContent":["import './js/components/header';\n\nimport './js/components/library-list';\nimport './js/components/modal';\nimport './js/components/footer';\n"],"names":["parcelRequire"],"version":3,"file":"library.9fb1ca73.js.map"}
