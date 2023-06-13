@@ -117,7 +117,7 @@ function firstHeroMarkup(data) {
 
   getFilmID(fetchInfo);
   // добавление дата-атрибута
-  btnDetailsRef = document.querySelector('.hero-black-btn');
+  const btnDetailsRef = document.querySelector('.hero-black-btn');
   btnDetailsRef.dataset.id = filmID;
   btnDetailsRef.addEventListener('click', selectMovie);
 }
@@ -170,7 +170,7 @@ heroSection.addEventListener('click', watchFilm);
 
 function watchFilm() {
   fetchFilmByID().catch(error => {
-    console.log('on fetch error1');
+    console.log(error.message);
     onModalError();
   });
 }
