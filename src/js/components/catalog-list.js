@@ -120,7 +120,7 @@ function generateMarkup(movie) {
   console.log(movie);
   const markup = movie
     .map(
-      movie => `<li class="catalog-movie">
+      movie => `<li data-id="${movie.id}" class="catalog-movie">
         <a class="catalog-item-link" href="">
             <img class="catalog-list-img" src="https://image.tmdb.org/t/p/w500${
               movie.poster
