@@ -1,3 +1,5 @@
+import { selectMovie } from './modal';
+
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const END_POINT =
   'trending/movie/week?language=en-US&include_adult=false&include_video=false&page=1&per_page=10';
@@ -38,6 +40,7 @@ function onPageLoad() {
     console.log(response);
     renderMarkup(response.slice(0, perPage)).then(markup => {
       addMarkup(ulRef, markup);
+      ulRef.addEventListener('click', selectMovie);
     });
   });
 }

@@ -58,7 +58,7 @@ function createMarkup(movie) {
   if (movie.overview.length > 300) {
     textContent = movie.overview.split('').slice(0, 300).join('') + '...';
   }
-  console.log(movie.id);
+
   if (IsMovieInLibrary(movie.id)) {
     textButton = 'Remove from my library';
   } else {
@@ -135,53 +135,10 @@ window.addEventListener('load', onPageLoad);
 
 function onPageLoad() {
   fetchMovieDetails().then(movie => {
-    console.log(movie);
     upcomingList.insertAdjacentHTML('beforeend', createMarkup(movie));
     // кнопка добавления удаления фильма
     const addRemoveBtnRef = document.querySelector('.js-add-remove-library');
-    console.log(addRemoveBtnRef);
+
     addRemoveBtnRef.addEventListener('click', onAddRemoveMovie);
   });
-}
-
-{
-  /* <div>
-        <h3 class="upcoming-film-title">${movie.title}</h3>
-        
-        <div class ="info-film">
-            <div>
-              <div class="info-film-item">
-                <p>Release date</p>
-                <p class="release-date">${(movie.release_date).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}</p>
-              </div>
-
-              <div class="info-film-item">
-                <p>Vote / Votes</p>
-                <p class="votes-count"><span>${movie.vote_average}</span><b>/</b><span>${movie.vote_count}</span></p>
-              </div>
-            </div>
-            
-            <div>
-              <div class="info-film-item">
-                <p>Popularity</p>
-                <p class="text-color-white">${(Number(movie.popularity.toFixed(1)))}</p>
-              </div>
-
-              <div class="info-film-item">
-                <p>Genre</p>
-                <p class="genre-style text-color-white">${movie.genres}</p>
-              </div>
-            </div> 
-             
-        </div>
-    
-  
-      <h3 class="film-description-title">ABOUT</h3>
-      <p class="film-description">${textContent}</p>
-      <button class="btn">add to my library</button>
-    </div>
-  </div>`;
-
-
- */
 }

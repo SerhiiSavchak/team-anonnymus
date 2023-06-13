@@ -84,7 +84,7 @@
     border: 1px solid $accent-color;
   }
 }
-.hero-btn-black {
+.hero-btn-details {
   margin-left: 8px;
   font-size: 12px;
   font-weight: 500;
@@ -99,7 +99,7 @@
   color: $white-color;
 }
 
-.hero-btn-black:is(:hover, :focus) {
+.hero-btn-details:is(:hover, :focus) {
   background-color: $white-color;
   color: $accent-color;
   border-color: transparent;
@@ -166,7 +166,7 @@
     line-height: 1.14;
     padding: 12px 24px;
   }
-  .hero-btn-black {
+  .hero-btn-details {
     font-size: 14px;
     line-height: 1.43;
     padding: 10px 24px;
@@ -226,7 +226,7 @@
     line-height: 1.5;
   }
 
-  .hero-btn-black {
+  .hero-btn-details {
     padding: 12px 24px;
     font-size: 16px;
     line-height: 1.5;

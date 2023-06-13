@@ -15,7 +15,7 @@ function generateMarkup(data) {
     .map(
       movie => ` 
         <li class="weekly-item" data-id="${movie.id}">
-          <a class="weekly-link link" href="">
+          <div class="weekly-wrap" ">
               <img class="weekly-poster-list" src="https://image.tmdb.org/t/p/w500/${
                 movie.poster
               }" alt="${movie.title}" />       
@@ -30,7 +30,8 @@ function generateMarkup(data) {
                         4
                       )}</p>
                   </div>
-          </div></a>     
+          </div>
+          </div>     
       </li>
        `
     )

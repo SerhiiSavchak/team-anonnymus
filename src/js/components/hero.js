@@ -33,7 +33,10 @@ function onPageLoad() {
   fetchTranding(BASE_URL, END_POINT, options).then(res => {
     const markup = createMarkup(res);
     addMarkup(heroCont, markup);
+
     const heroBtnTrailer = document.querySelector('.js-open-video');
+    const heroBtnDetails = document.querySelector('.hero-btn-details');
+    heroBtnDetails.addEventListener('click', selectMovie);
 
     heroBtnTrailer.addEventListener('click', onBtnOpenClick);
   });
@@ -87,7 +90,9 @@ async function fetchVideo(id, options) {
 // MARKUP
 function createMarkup(data) {
   heroSectionRef.style.backgroundImage = `linear-gradient(
-    86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original/${data.backdrop_path}")`;
+    86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original/${
+      data.backdrop_path || data.poster_path
+    }")`;
 
   return `  <h1 class="hero-title-resp">${data.title}</h1>
   <p class="hero-text-resp">
@@ -98,7 +103,7 @@ function createMarkup(data) {
   </p>
   <button type="button" class="hero-btn-resp js-open-video" data-id="${
     data.id
-  }" >Watch trailer</button> <button type="button"  class="hero-btn-black link" data-id="${
+  }" >Watch trailer</button> <button type="button"  class="hero-btn-details link" data-id="${
     data.id
   }">More details</button>`;
 }
