@@ -1,7 +1,13 @@
 import { toggleModal } from '../utils/modalUtils.js';
 import { getInfoMovieByID } from '../api/fetchModal.js';
 import { URL_FOR_IMG } from '../api/apiKey.js';
-import { textButton, modalWindowRef } from '../refs/modalRefs.js';
+import { modalWindowRef } from '../refs/modalRefs.js';
+import {
+  onAddRemoveMovie,
+  IsMovieInLibrary,
+} from '../components/modalLocalStorage.js';
+
+let textButton = '';
 
 async function createModalMarkup(movieID) {
   modalWindowRef.innerHTML = '';
@@ -9,6 +15,13 @@ async function createModalMarkup(movieID) {
     const response = await getInfoMovieByID(movieID);
     const movieInfo = response.data;
     toggleModal();
+
+    if (IsMovieInLibrary(movieID)) {
+      textButton = 'Remove from my library';
+    } else {
+      textButton = 'Add to my library';
+    }
+
     // приведем полученные данные к нужному виду
     const movieInfoForMarkup = {
       poster: `${URL_FOR_IMG}${movieInfo.poster_path}`,
@@ -18,14 +31,16 @@ async function createModalMarkup(movieID) {
       popularity: movieInfo.popularity.toFixed(1),
       genres: movieInfo.genres.map(({ name }) => name).join(' '),
       overview: movieInfo.overview,
+      id: movieID,
       textButton,
     };
 
     modalWindowRef.innerHTML = getModalMarkup(movieInfoForMarkup);
-    const closeModalBtn = document.querySelector('.modal-close-btn');
 
-    // кнопка закрытия окна
-    closeModalBtn.addEventListener('click', toggleModal);
+    const closeModalBtn = document.querySelector('.modal-button');
+
+    // кнопка добавления удаления фильма
+    closeModalBtn.addEventListener('click', onAddRemoveMovie);
   } catch (error) {
     console.log(error);
   }
@@ -39,6 +54,7 @@ function getModalMarkup({
   popularity,
   genres,
   overview,
+  id,
   textButton,
 }) {
   return `
@@ -72,7 +88,7 @@ function getModalMarkup({
           ${overview}
         </p>
   
-        <button class="modal-button" type="button">${textButton}</button>
+        <button class="modal-button" type="button" data-id="${id}">${textButton}</button>
       </div>
         `;
 }
