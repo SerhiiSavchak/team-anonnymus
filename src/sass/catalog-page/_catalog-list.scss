@@ -1,244 +1,246 @@
-
-
 .search-form {
-    display: flex;
-    justify-content: center;
-    padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
 }
 
-
 .catalog {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .catalog-list {
-    // margin-top: 16px;
-    padding-bottom: 40px;
-    padding-inline-start: 0px;
+  // margin-top: 16px;
+  padding-bottom: 40px;
+  padding-inline-start: 0px;
 }
 
-
 .catalog-movie {
-    list-style-type: none;
-    position: relative;
-    width: 280px;
-    margin-bottom: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
-    border-radius: 5px;
-    overflow: hidden;
+  list-style-type: none;
+  position: relative;
+  width: 280px;
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+  border-radius: 5px;
+  overflow: hidden;
 
-    
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
-        border-radius: 5px;
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 63.48%,
+      rgba(0, 0, 0, 0.9) 92.16%
+    );
+    border-radius: 5px;
+  }
 }
 
 .catalog-movie-desc {
-    position: absolute;
-    z-index: 3;
-    bottom: 12px;
-    left: 12px;
+  position: absolute;
+  z-index: 3;
+  bottom: 12px;
+  left: 12px;
 }
 
-
-
 .catalog-list-img {
-    width: 100%;
-    height: auto;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
-    border-radius: 5px;
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+  border-radius: 5px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 .catalog-item-title {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 20px;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    color: $white-color;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  color: $white-color;
 }
 
 .catalog-item-movie {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 20px;
-    color: $card-desc-color;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  color: $card-desc-color;
 }
 
 .error-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .no-results-message {
-    margin-top: 48px;
-    max-width: 280px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    color: #111111;
-    text-align: center;
+  margin-top: 48px;
+  max-width: 280px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  color: #111111;
+  text-align: center;
 }
 
 .search-form-input {
-    width: 224px;
-    height: 40px;
-    border: 1px solid black;
-    border-radius: 8px;
-    padding: 10px 142px 10px 20px;
-    margin-right: 16px;
+  width: 224px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 10px 142px 10px 20px;
+  margin-right: 16px;
 
-    &::placeholder {
-        width: 44px;
-        height: 16px;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 16px;
-        align-items: center;
-        text-align: center;
-        color: #B7B7B7;
-    }
-
+  &::placeholder {
+    width: 44px;
+    height: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    align-items: center;
+    text-align: center;
+    color: #b7b7b7;
+  }
 }
 
-
 @media screen and (max-width: 767px) {
-    .container {
-        max-width: 375px;
-    }
+  .container {
+    max-width: 375px;
+  }
 
-    .btn-search {
-        padding: 11px;
-    }
+  .btn-search {
+    padding: 11px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .search-form{
-        padding-top: 60px;
-    }
+  .search-form {
+    padding-top: 60px;
+  }
 
-    .container {
-        width: 768px;
-        padding: 0 32px;
-    }
+  .container {
+    width: 768px;
+    padding: 0 32px;
+  }
 
-    .btn-search {
-        padding: 13px;
-        width: 44px;
-        height: 44px;
-    }
+  .btn-search {
+    padding: 13px;
+    width: 44px;
+    height: 44px;
+  }
 
-    .catalog-movie {
-        width: calc((100% - 32px) / 3);
-        margin-bottom: 0px;
-    }
+  .catalog-movie {
+    width: calc((100% - 32px) / 3);
+    margin: 0;
+  }
 
-    .search-form-input {
-        width: 204px;
-        height: 44px;
-    }
+  .search-form-input {
+    width: 204px;
+    height: 44px;
+  }
 
+  .catalog-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 28px;
+  }
 
-    .catalog-list {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 16px;
-        row-gap: 28px;
-    }
+  .no-results-message {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    max-width: 513px;
+    margin-top: 80px;
+  }
 
-    .no-results-message {
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 32px;
-        max-width: 513px;
-        margin-top: 80px;
-    }
+  .catalog-item-title {
+    margin-bottom: 5px;
+    line-height: 18px;
+  }
 
-    .catalog-item-title {
-        margin-bottom: 5px;
-        line-height: 18px;
-    }
-    
-    .catalog-item-movie {
-        line-height: 18px;
-    }
+  .catalog-item-movie {
+    line-height: 18px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .search-form{
-        padding-top: 80px;
-    }
+  .search-form {
+    padding-top: 80px;
+  }
 
-    .container {
-        width: 1280px;
-    }
+  .container {
+    width: 1280px;
+  }
 
-    .btn-search {
-        padding: 14px;
-        width: 48px;
-        height: 48px;
-    }
+  .btn-search {
+    padding: 14px;
+    width: 48px;
+    height: 48px;
+  }
 
-    .catalog-movie {
-        width: calc((100% - 32px) / 3);
-    }
+  .catalog-movie {
+    width: calc((100% - 32px) / 3);
+  }
 
-    .search-form-input {
-        width: 334px;
-        height: 48px;
-    
-        &::placeholder {
-            width: 50px;
-            height: 19px;
-            font-size: 16px;
-            line-height: 19px;
-        }
-    }
+  .search-form-input {
+    width: 334px;
+    height: 48px;
 
-    .catalog-list {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 16px;
-        row-gap: 32px;
+    &::placeholder {
+      width: 50px;
+      height: 19px;
+      font-size: 16px;
+      line-height: 19px;
     }
+  }
 
-    .no-results-message {
-        font-weight: 400;
-        font-size: 32px;
-        line-height: 36px;
-        max-width: 684px;
-        margin-top: 120px;
-    }
+  .catalog-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 32px;
+  }
 
-    .catalog-item-title {
-        margin-bottom: 8px;
-        font-size: 20px;
-        line-height: 23px;
-    }
-    
-    .catalog-item-movie {
-        font-size: 20px;
-        line-height: 23px;
-    }
+  .no-results-message {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 36px;
+    max-width: 684px;
+    margin-top: 120px;
+  }
+
+  .catalog-item-title {
+    margin-bottom: 8px;
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .catalog-item-movie {
+    font-size: 20px;
+    line-height: 23px;
+  }
 }
