@@ -211,7 +211,9 @@ function onModalError() {
   videoModal.classList.add('visuality-hidden');
 document
   .querySelector('.hero-modal-error')
-  .classList.remove('visuality-hidden');
+    .classList.remove('visuality-hidden');
+  
+  
 }
 
 
