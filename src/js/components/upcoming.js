@@ -3,7 +3,7 @@ const END_POINT_UPCOMING = 'movie/upcoming';
 const END_POINT_GENRE = 'genre/movie/list?language=en';
 const API_KEY = 'api_key=bd0a4499e3f0b036025d12595397227a';
 
-const upcomingList = document.querySelector('.upcoming-response-content-js');
+const upcomingList = document.querySelector('.upcoming-container ');
 
 const options = {
   method: 'GET',
@@ -67,7 +67,7 @@ function createMarkup(movie) {
         }" alt="poster_path" style="width:auto;">
     </picture>
 
-    <div>
+    <div class="upcoming-info-wrap">
         <h3 class="upcoming-film-title">${movie.title}</h3>
         
         <div class ="info-film">
