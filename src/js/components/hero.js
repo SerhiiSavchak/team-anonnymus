@@ -34,7 +34,7 @@ function onPageLoad() {
     const markup = createMarkup(res);
     addMarkup(heroCont, markup);
     const heroBtnTrailer = document.querySelector('.js-open-video');
-    iFrameRef = document.querySelector('.iframe-hero');
+
     heroBtnTrailer.addEventListener('click', onBtnOpenClick);
   });
 }
