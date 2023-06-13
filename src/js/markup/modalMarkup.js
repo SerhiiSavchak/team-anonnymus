@@ -42,10 +42,9 @@ async function createModalMarkup(movieID) {
 
     modalWindowRef.innerHTML = getModalMarkup(movieInfoForMarkup);
 
-    const closeModalBtn = document.querySelector('.modal-button');
-
     // кнопка добавления удаления фильма
-    closeModalBtn.addEventListener('click', onAddRemoveMovie);
+    const addRemoveBtnRef = document.querySelector('.modal-button');
+    addRemoveBtnRef.addEventListener('click', onAddRemoveMovie);
   } catch (error) {
     console.log(error);
   }
