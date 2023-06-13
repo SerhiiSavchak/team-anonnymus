@@ -1,3 +1,8 @@
+import {
+  onAddRemoveMovie,
+  IsMovieInLibrary,
+} from '../components/modalLocalStorage.js';
+
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const END_POINT_UPCOMING = 'movie/upcoming';
 const END_POINT_GENRE = 'genre/movie/list?language=en';
@@ -52,6 +57,12 @@ function createMarkup(movie) {
   let textContent = movie.overview;
   if (movie.overview.length > 300) {
     textContent = movie.overview.split('').slice(0, 300).join('') + '...';
+  }
+  console.log(movie.id);
+  if (IsMovieInLibrary(movie.id)) {
+    textButton = 'Remove from my library';
+  } else {
+    textButton = 'Add to my library';
   }
   const message = `<h3 class="upcoming-alert">Ops! No upcoming films...</h3>`;
   let filmContent = `
@@ -110,7 +121,9 @@ function createMarkup(movie) {
         <div class ="info-film-overview">
       <h3 class="film-description-title">ABOUT</h3>
       <p class="film-description">${textContent}</p>
-      <button class="btn">add to my library</button>
+      <button class="btn js-add-remove-library" type="button" data-id="${
+        movie.id
+      }">${textButton}</button>
       </div>
     </div>
   </div>`;
@@ -122,7 +135,12 @@ window.addEventListener('load', onPageLoad);
 
 function onPageLoad() {
   fetchMovieDetails().then(movie => {
+    console.log(movie);
     upcomingList.insertAdjacentHTML('beforeend', createMarkup(movie));
+    // кнопка добавления удаления фильма
+    const addRemoveBtnRef = document.querySelector('.js-add-remove-library');
+    console.log(addRemoveBtnRef);
+    addRemoveBtnRef.addEventListener('click', onAddRemoveMovie);
   });
 }
 
