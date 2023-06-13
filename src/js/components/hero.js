@@ -169,9 +169,8 @@ function getFilmID(fetchInfo) {
 heroSection.addEventListener('click', watchFilm);
 
 function watchFilm() {
-  fetchFilmByID()
-    .catch(error => {
-    console.log("on fetch error1");
+  fetchFilmByID().catch(error => {
+    console.log('on fetch error1');
     onModalError();
   });
 }
@@ -190,8 +189,8 @@ async function fetchFilmByID() {
 
   let response = await axios.get(URL, options);
   if (response.status !== 200) {
-    console.log("on fetch error2");
-    
+    console.log('on fetch error2');
+
     throw new Error(response);
   } else {
     const data = response;
@@ -201,21 +200,16 @@ async function fetchFilmByID() {
 }
 
 function addKey(data) {
-
   const randomTrailer =
     Math.floor(Math.random() * (data.data.results.length - 0 + 1)) + 0;
-const curentKey = data.data.results[randomTrailer].key;
+  const curentKey = data.data.results[randomTrailer].key;
   videoModal.src = `https://www.youtube.com/embed/${curentKey}`;
 }
 
 function onModalError() {
   //  .modal
   videoModal.classList.add('visuality-hidden');
-document
-  .querySelector('.hero-modal-error')
+  document
+    .querySelector('.hero-modal-error')
     .classList.remove('visuality-hidden');
-  
-  
 }
-
-
