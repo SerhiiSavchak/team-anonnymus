@@ -1,0 +1,365 @@
+.hero-section {
+  background-image: linear-gradient(
+      86.77deg,
+      #111111 30.38%,
+      rgba(17, 17, 17, 0) 65.61%
+    ),
+    url(/src/images/home-page/hero-home@1x-desc.jpg);
+  max-width: 375px;
+  background-position: 20% 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: fit-content;
+
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+.hero-container {
+  padding-left: 40px;
+}
+
+.hero-title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  max-width: 199px;
+  margin-bottom: 8px;
+
+  /* White */
+
+  color: $white-color;
+}
+
+.hero-title-resp {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.18;
+  max-width: 350px;
+  margin-bottom: 8px;
+
+  /* White */
+
+  color: $white-color;
+}
+
+.hero-text {
+  font-size: 14px;
+  line-height: 1.14;
+
+  color: $main-text-color;
+  max-width: 166px;
+  margin-bottom: 20px;
+}
+
+.hero-text-resp {
+  font-size: 14px;
+  line-height: 1.14;
+  color: $main-text-color;
+  max-width: 250px;
+  margin-bottom: 20px;
+}
+
+.hero-text-big,
+.hero-text-big-resp {
+  display: none;
+}
+.hero-btn {
+  font-weight: 500;
+}
+.js-open-video {
+  font-size: 12px;
+  border: transparent;
+  background: $btn-bg-color;
+  color: $btn-color;
+  border-radius: 74px;
+  font-weight: 500;
+  padding: 12 24px;
+
+  transition: color $cubic-bezier, border $cubic-bezier;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    background: $white-color;
+    border: 1px solid $accent-color;
+  }
+}
+.hero-btn-black {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.16;
+  padding: 12px 24px;
+  border: 1px solid $accent-color;
+  border-radius: 74px;
+  transition: border $cubic-bezier, color $cubic-bezier,
+    background-color $cubic-bezier;
+  background-color: transparent;
+
+  color: $white-color;
+}
+
+.hero-btn-black:is(:hover, :focus) {
+  background-color: $white-color;
+  color: $accent-color;
+  border-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-section {
+    height: fit-content;
+    background-image: linear-gradient(
+        83.16deg,
+        #111111 36.85%,
+        rgba(17, 17, 17, 0) 60.05%
+      ),
+      url(/src/images/home-page/hero-home@1x-desc.jpg);
+    max-width: 768px;
+    background-position: 20% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 62px;
+    padding-top: 62px;
+  }
+  .hero-container {
+    padding-left: 32px;
+  }
+  .container {
+  }
+  .hero-title {
+    max-width: 332px;
+    font-size: 44px;
+    line-height: 1.18;
+  }
+
+  .hero-title-resp {
+    max-width: 450px;
+    font-size: 44px;
+    line-height: 1.18;
+  }
+
+  .hero-text-big {
+    margin-bottom: 32px;
+    display: block;
+    color: $main-text-color;
+    max-width: 357px;
+    font-size: 14px;
+    line-height: 1.14;
+  }
+
+  .hero-text-big-resp {
+    width: 400px;
+    margin-bottom: 32px;
+    display: block;
+    color: $main-text-color;
+
+    font-size: 14px;
+    line-height: 1.14;
+  }
+
+  .hero-text,
+  .hero-text-resp {
+    display: none;
+  }
+  .js-open-video {
+    font-size: 14px;
+    line-height: 1.14;
+    padding: 12px 24px;
+  }
+  .hero-btn-black {
+    font-size: 14px;
+    line-height: 1.43;
+    padding: 10px 24px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-section {
+    height: fit-content;
+    padding-top: 169px;
+    padding-bottom: 169px;
+    max-width: 1280px;
+    background: linear-gradient(
+        83.16deg,
+        #111111 36.85%,
+        rgba(17, 17, 17, 0) 60.05%
+      ),
+      url(/src/images/home-page/hero-home@1x-desc.jpg);
+    background-position: 20% 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .hero-container {
+  }
+
+  .hero-title {
+    font-size: 64px;
+    line-height: 1.17;
+    max-width: 464px;
+    margin-bottom: 16px;
+  }
+
+  .hero-title-resp {
+    font-size: 64px;
+    line-height: 1.17;
+    max-width: 670px;
+    margin-bottom: 16px;
+  }
+
+  .hero-text {
+  }
+  .hero-text-big {
+    font-size: 19px;
+    line-height: 1.18;
+    width: 464px;
+  }
+  .hero-text-big-resp {
+    width: 450px;
+    font-size: 19px;
+    margin-bottom: 36px;
+    line-height: 1.18;
+  }
+
+  .js-open-video {
+    padding: 12px 24px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .hero-btn-black {
+    padding: 12px 24px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+// modal
+.hero-backdrop {
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(46, 47, 66, 0.4);
+  transition-property: opacity, visibility, transform;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.hero-modal {
+  padding-top: 60px;
+  padding-bottom: 8px;
+  padding-left: 13px;
+  width: 280px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: #111111;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 16px;
+  height: 289px;
+}
+
+.hero-modal-close {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 24.5px;
+  right: 24.5px;
+  stroke: $white-color;
+  transition: stroke $cubic-bezier;
+}
+.hero-modal-close:is(:hover, :focus) {
+  stroke: $accent-color;
+}
+
+.hero-picture {
+  margin: 0 auto;
+}
+
+.hero-error-img {
+  margin: 0 auto;
+}
+.hero-error-text {
+  margin: 0 auto;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 1.18;
+  width: 214px;
+
+  color: $white-color;
+}
+
+.iframe {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-modal {
+    padding-top: 55px;
+    padding-left: 74px;
+
+    padding-bottom: 16px;
+    display: flex;
+    width: 609px;
+    height: 400px;
+  }
+  .hero-modal-close {
+  }
+  .hero-error-img {
+    width: 296px;
+    height: 260px;
+  }
+
+  .iframe-hero {
+    width: 450px;
+    height: 300px;
+  }
+
+  .hero-picture {
+    margin-top: 80px;
+    margin-left: 204px;
+    display: block;
+  }
+  .hero-error-text {
+    position: absolute;
+    font-size: 24px;
+    margin-bottom: 0;
+    width: unset;
+    width: 321px;
+    line-height: 1.16;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero-modal {
+    width: 700px;
+    padding-top: 45px;
+    padding-left: 44px;
+  }
+  .hero-modal-close {
+  }
+
+  .iframe-hero {
+    width: 600px;
+    height: 300px;
+  }
+
+  .hero-picture {
+    margin-top: 77px;
+    margin-left: 277px;
+    width: 363px;
+    height: 318px;
+  }
+  .hero-error-img {
+  }
+  .hero-error-text {
+  }
+}
