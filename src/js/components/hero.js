@@ -7,7 +7,7 @@ const heroSection = document.querySelector('.hero');
 const videoModal = document.querySelector('iframe');
 
 let filmID = '';
-
+let heroTimerId = null;
 // Fetch Fetch Fetch Fetch Fetch
 
 async function fetchTrandingFilmDay() {
@@ -77,7 +77,7 @@ function onPageLoad() {
       onEror();
     });
 
-  let heroTimerId = setInterval(() => {
+  heroTimerId = setInterval(() => {
     fetchTrandingFilmDay();
   }, 20000);
 }

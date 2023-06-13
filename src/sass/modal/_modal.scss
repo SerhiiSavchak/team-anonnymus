@@ -8,6 +8,9 @@
   background: rgba(46, 47, 66, 0.4);
   transition: visibility 250ms var(--cubic), opacity 250ms var(--cubic);
 }
+::-webkit-scrollbar {
+  background-color: transparent;
+}
 
 .modal-window {
   position: absolute;
