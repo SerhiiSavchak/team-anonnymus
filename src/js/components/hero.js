@@ -1,10 +1,33 @@
-import axios from 'axios';
 import Vimeo from '@vimeo/player';
 import { selectMovie } from './modal';
 import img from '../../images/home-page/hero-home@1x-desc.jpg';
 import { async } from '@vimeo/player';
 
-import { BASE_URL } from '../api/apiKey';
+import axios from 'axios';
+
+import { BASE_URL, API_KEY } from '../api/apiKey';
+
+function getTrandingDay() {
+  return axios.get(`${BASE_URL}trending/all/day?language=en-US`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+}
+
+async function createHeroMarkup() {
+  try {
+    const response = await getTrandingDay();
+
+    const movieInfo =
+      response.data.results[Math.floor(Math.random() * (20 - 1 + 1)) + 1];
+    const markup = createMarkup(movieInfo);
+    addMarkup(markup);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 const END_POINT = 'trending/movie/day?language=en-US';
 
 const options = {
@@ -29,8 +52,10 @@ btnCloseRef.addEventListener('click', onBtnCloseClick);
 
 // LISTENERS
 
+createHeroMarkup();
+
 function onPageLoad() {
-  fetchTranding(BASE_URL, END_POINT, options).then(res => {
+  createHeroMarkup().then(res => {
     const markup = createMarkup(res);
     addMarkup(heroCont, markup);
 
@@ -60,28 +85,15 @@ function onBtnOpenClick(evt) {
 
 // FETCH
 
-async function fetchTranding(BASE_URL, END_POINT, options) {
-  try {
-    const response = await fetch(`${BASE_URL}${END_POINT}`, options);
-    const data = await response.json();
-
-    return data.results[Math.floor(Math.random() * (20 - 1 + 1)) + 1];
-  } catch (error) {
-    console.log(error.message);
-    stopInterval(intervalId);
-  }
-}
-
 async function fetchVideo(id, options) {
   try {
-    const response = await fetch(
+    const response = await axios.get(
       `
   ${BASE_URL}movie/${id}/videos`,
       options
     );
-    const data = await response.json();
 
-    return data.results[0].key;
+    return response.results[0].key;
   } catch (error) {
     console.log(error);
   }

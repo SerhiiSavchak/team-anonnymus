@@ -3,8 +3,6 @@ import { toggleModal } from '../utils/modalUtils.js';
 
 const closeModalBtn = document.querySelector('.modal-close-btn');
 
-console.log(closeModalBtn);
-
 // кнопка закрытия окна
 
 closeModalBtn.addEventListener('click', toggleModal);

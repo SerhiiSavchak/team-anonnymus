@@ -54,6 +54,8 @@ async function fetchMovieDetails() {
 }
 
 function createMarkup(movie) {
+  console.log(movie);
+
   let textContent = movie.overview;
   if (movie.overview.length > 300) {
     textContent = movie.overview.split('').slice(0, 300).join('') + '...';
