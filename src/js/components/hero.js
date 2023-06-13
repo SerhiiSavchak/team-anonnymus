@@ -29,6 +29,13 @@ async function fetchTrandingFilmDay() {
     const data = response;
 
     firstHeroMarkup(data);
+<<<<<<< Updated upstream
+=======
+  } catch (error) {
+    clearInterval(heroTimerId);
+    onEror();
+    console.log(error.message);
+>>>>>>> Stashed changes
   }
 }
 
@@ -77,7 +84,11 @@ function onPageLoad() {
       onEror();
     });
 
+<<<<<<< Updated upstream
   setInterval(() => {
+=======
+  heroTimerId = setInterval(() => {
+>>>>>>> Stashed changes
     fetchTrandingFilmDay();
   }, 20000);
 }
