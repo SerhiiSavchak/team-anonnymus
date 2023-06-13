@@ -1,4 +1,6 @@
 .header {
+  height: 48px;
+
   z-index: 100;
   background-color: $mobile-bg-color;
   width: 100%;
@@ -155,6 +157,9 @@
 
 @media screen and (min-width: 768px) {
   .header {
+    height: 60px;
+    display: flex;
+    align-items: center;
   }
   .header-container {
     max-width: 768px;
