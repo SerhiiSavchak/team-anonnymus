@@ -21,7 +21,7 @@ async function fetchTrandingFilmDay() {
       },
     };
 
-    const URL = `https://apdsgsi.themoviedb.org/3/trending/movie/day?language=en-US`;
+    const URL = `https://api.themoviedb.org/3/trending/movie/day?language=en-US`;
 
     let response = await axios.get(URL, options);
     const data = response;
