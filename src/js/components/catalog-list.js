@@ -37,7 +37,6 @@ function onPageLoad() {
   const endpoint = `trending/movie/week?language=en-US&include_adult=false&include_video=false&page=1&per_page=${perPage}`;
 
   fetchData(endpoint, options).then(response => {
-    console.log(response);
     renderMarkup(response.slice(0, perPage)).then(markup => {
       addMarkup(ulRef, markup);
       ulRef.addEventListener('click', selectMovie);
@@ -60,8 +59,6 @@ function onSearchSubmit(event) {
     const searchEndpoint = `search/movie?query=${searchValue}&language=en-US&page=1&per_page=${perPage}`;
 
     fetchData(searchEndpoint, options).then(response => {
-      console.clear();
-      console.log(response);
       if (response.length > 0) {
         renderMarkup(response.slice(0, perPage)).then(markup => {
           addMarkup(ulRef, markup);
@@ -114,13 +111,12 @@ async function fetchGenres(options) {
 function renderMarkup(movieData) {
   return fetchGenres(options).then(genreData => {
     const transformedData = transformData(movieData, genreData);
-    console.log(transformedData);
+
     return generateMarkup(transformedData);
   });
 }
 
 function generateMarkup(movie) {
-  console.log(movie);
   const markup = movie
     .map(
       movie => `<li data-id="${movie.id}" class="catalog-movie">

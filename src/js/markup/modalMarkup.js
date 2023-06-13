@@ -11,10 +11,11 @@ let textButton = '';
 
 async function createModalMarkup(movieID) {
   modalWindowRef.innerHTML = '';
+
   try {
     const response = await getInfoMovieByID(movieID);
     const movieInfo = response.data;
-    console.log(movieInfo);
+
     // переключение видимости
     toggleModal();
 

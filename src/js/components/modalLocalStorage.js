@@ -45,7 +45,11 @@ async function AddMovieBtnClick(movieID) {
       vote_average: movieInfo.vote_average.toFixed(1),
       vote_count: movieInfo.vote_count,
       popularity: movieInfo.popularity.toFixed(1),
-      genres: movieInfo.genres,
+      release: movieInfo.release_date.slice(0, 4),
+      genres: movieInfo.genres
+        .slice(0, 2)
+        .map(({ name }) => name)
+        .join(' '),
     };
 
     let savedMovies = Storage.load(STORAGE_LIBRARY_KEY);
