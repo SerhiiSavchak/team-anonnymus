@@ -59,6 +59,7 @@ function createMarkup(movie) {
   <div class ="upcoming-section-wrap">
   
     <picture class="upcoming-poster">
+    
         <source media="(min-width:768px)" srcset="https://image.tmdb.org/t/p/original${
           movie.backdrop_path
         }">

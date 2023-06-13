@@ -1,217 +1,113 @@
-//console.log('hello');
 import axios from 'axios';
 import Vimeo from '@vimeo/player';
 import { selectMovie } from './modal';
 import img from '../../images/home-page/hero-home@1x-desc.jpg';
-const heroSection = document.querySelector('.hero');
-const videoModal = document.querySelector('iframe');
+import { async } from '@vimeo/player';
 
-let filmID = '';
-let heroTimerId = null;
-// Fetch Fetch Fetch Fetch Fetch
+import { BASE_URL } from '../api/apiKey';
+const END_POINT = 'trending/movie/day?language=en-US';
 
-async function fetchTrandingFilmDay() {
-  try {
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
-      },
-    };
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization:
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
+  },
+};
 
-    const URL = `https://api.themoviedb.org/3/trending/movie/day?language=en-US`;
-
-    let response = await axios.get(URL, options);
-    const data = response;
-
-    firstHeroMarkup(data);
-  } catch (error) {
-    clearInterval(heroTimerId);
-    onEror();
-    console.log(error.message);
-  }
-}
-
-function onEror() {
-  document.querySelector('.hero-title').textContent =
-    'Let’s Make Your Own Cinema';
-  // heroWrap()
-  document.querySelector(
-    '.hero-text-big'
-  ).textContent = `Is a guide to creating a personalized movie theater experience. You'll need a
-projector, screen, and speakers. Decorate
-your space, choose your films, and stock up on snacks for the full experience.`;
-
-  document.querySelector(
-    '.hero-text-mobile'
-  ).textContent = `Is a guide to creating a personalized movie theater experience. You'll need a
-projector, screen, and speakers.`;
-  document.querySelector('.hero-rating').classList.add('visuality-hidden');
-  document
-    .querySelector('.hero-text-cont')
-    .classList.remove('visuality-hidden');
-
-  document.querySelector('.hero-black-btn').classList.add('visuality-hidden');
-  document.querySelector('.hero-btn').classList.add('visuality-hidden');
-
-  const errorBtn = `<a href="/catalog.html" class="hero-link">
-                <button type="button" class="hero-start-btn">Get Started</button></a>`;
-
-  document
-    .querySelector('.hero-text-cont')
-    .insertAdjacentHTML('beforeend', errorBtn);
-  heroSection.style.backgroundImage = `linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("${img}")`;
-}
-function onPageLoad() {
-  //console.log('hello onPageLoad');
-  fetchTrandingFilmDay()
-    .then(data => {
-      document
-        .querySelector('.hero-text-cont')
-        .classList.remove('visuality-hidden');
-    })
-    .catch(error => {
-      console.log(error.message);
-      onEror();
-    });
-
-  heroTimerId = setInterval(() => {
-    fetchTrandingFilmDay();
-  }, 20000);
-}
+let intervalId = null;
+const heroSectionRef = document.querySelector('.hero-section');
+const heroCont = document.querySelector('.hero-container');
+const btnCloseRef = document.querySelector('.hero-modal-close');
+const backdropModalRef = document.querySelector('.hero-backdrop');
+const modalWrapRef = document.querySelector('.modal-wrap');
 
 window.addEventListener('load', onPageLoad);
 
-function heroRandomaizer() {
-  return Math.floor(Math.random() * (19 - 0 + 1)) + 0;
-}
+btnCloseRef.addEventListener('click', onBtnCloseClick);
 
-function firstHeroMarkup(data) {
-  const kaleidoscope = heroRandomaizer();
-  const fetchInfo = data.data.results[kaleidoscope];
+// LISTENERS
 
-  // start staer
-  document.querySelector('.rating_value').textContent =
-    fetchInfo.vote_average.toFixed(1);
-
-  const ratingActiveWidth = fetchInfo.vote_average / 0.05 / 2;
-  document.querySelector(
-    '.rating_active'
-  ).style.width = `${ratingActiveWidth}%`;
-  // end staer
-
-  document.querySelector(
-    '.hero-title'
-  ).textContent = `${fetchInfo.original_title}`;
-  document.querySelector('.hero-text-big').textContent = `${fetchInfo.overview
-    .split(' ')
-    .slice(0, 50)
-    .join(' ')}...`;
-
-  document.querySelector(
-    '.hero-text-mobile'
-  ).textContent = `${fetchInfo.overview.split(' ').slice(0, 25).join(' ')}...`;
-
-  heroSection.style.backgroundImage = `linear-gradient(
-      86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url(https://image.tmdb.org/t/p/original/${fetchInfo.backdrop_path})`;
-
-  getFilmID(fetchInfo);
-  // добавление дата-атрибута
-  const btnDetailsRef = document.querySelector('.hero-black-btn');
-  btnDetailsRef.dataset.id = filmID;
-  btnDetailsRef.addEventListener('click', selectMovie);
-}
-
-function heroWrap() {
-  const box = `<div class="hero-text-cont ">
-  <h2 class="hero-title"></h2>
-        <!-- rating -->
-        <div class="hero-rating">
-            <div class="hero-rating_body">
-                <div class="rating_active"></div>
-            </div>
-            <div class="rating_value"></div>
-        </div>
-        <!-- end rating -->
-        <p class="hero-text-mobile"></p>
-        <p class="hero-text-big"></p>
-        <div class="hero-btn">
-            <button type="button" class="btn" data-modal-open>Watch trailer</button>
-            <button type="button" class="hero-black-btn">
-                More details
-            </button>
-        </div>
-        </div>`;
-  heroSection.insertAdjacentHTML('afterbegin', box);
-}
-
-heroWrap();
-
-// Modal// Modal// Modal
-
-const refs = {
-  openModalBtn: document.querySelector('[data-modal-open]'),
-  closeModalBtn: document.querySelector('[data-modal-close]'),
-  modal: document.querySelector('[data-modal]'),
-};
-
-refs.openModalBtn.addEventListener('click', toggleModal);
-refs.closeModalBtn.addEventListener('click', toggleModal);
-
-function toggleModal() {
-  refs.modal.classList.toggle('is-hidden');
-}
-
-function getFilmID(fetchInfo) {
-  return (filmID = fetchInfo.id);
-}
-
-heroSection.addEventListener('click', watchFilm);
-
-function watchFilm() {
-  fetchFilmByID().catch(error => {
-    console.log(error.message);
-    onModalError();
+function onPageLoad() {
+  fetchTranding(BASE_URL, END_POINT, options).then(res => {
+    const markup = createMarkup(res);
+    addMarkup(heroCont, markup);
+    const heroBtnTrailer = document.querySelector('.js-open-video');
+    iFrameRef = document.querySelector('.iframe-hero');
+    heroBtnTrailer.addEventListener('click', onBtnOpenClick);
   });
 }
 
-async function fetchFilmByID() {
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
-    },
-  };
+function onBtnCloseClick(evt) {
+  backdropModalRef.classList.add('visuality-hidden');
+}
 
-  const URL = `https://api.themoviedb.org/3/movie/${filmID}/videos?language=en-US,`;
+function onBtnOpenClick(evt) {
+  backdropModalRef.classList.remove('visuality-hidden');
+  console.log(evt.target.dataset.id);
 
-  let response = await axios.get(URL, options);
-  if (response.status !== 200) {
-    console.log('on fetch error2');
+  fetchVideo(evt.target.dataset.id, options).then(res => {
+    const markup = createVideoMarkup(res);
+    console.log(markup);
 
-    throw new Error(response);
-  } else {
-    const data = response;
-    //console.log(data.data.results[0].key);
-    addKey(data);
+    addMarkup(modalWrapRef, markup);
+  });
+}
+
+// FETCH
+
+async function fetchTranding(BASE_URL, END_POINT, options) {
+  try {
+    const response = await fetch(`${BASE_URL}${END_POINT}`, options);
+    const data = await response.json();
+
+    return data.results[Math.floor(Math.random() * (20 - 1 + 1)) + 1];
+  } catch (error) {
+    console.log(error.message);
+    stopInterval(intervalId);
   }
 }
 
-function addKey(data) {
-  const randomTrailer =
-    Math.floor(Math.random() * (data.data.results.length - 0 + 1)) + 0;
-  const curentKey = data.data.results[randomTrailer].key;
-  videoModal.src = `https://www.youtube.com/embed/${curentKey}`;
+async function fetchVideo(id, options) {
+  try {
+    const response = await fetch(
+      `
+  ${BASE_URL}movie/${id}/videos`,
+      options
+    );
+    const data = await response.json();
+
+    return data.results[0].key;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function onModalError() {
-  //  .modal
-  videoModal.classList.add('visuality-hidden');
-  document
-    .querySelector('.hero-modal-error')
-    .classList.remove('visuality-hidden');
+// MARKUP
+function createMarkup(data) {
+  heroSectionRef.style.backgroundImage = `linear-gradient(
+    86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original/${data.backdrop_path}")`;
+
+  return `  <h1 class="hero-title-resp">${data.title}</h1>
+  <p class="hero-text-resp">
+  ${data.overview.split('').slice(0, 150).join('') + '...'}
+</p>
+  <p class="hero-text-big-resp">
+    ${data.overview.split('').slice(0, 225).join('') + '...'}
+  </p>
+  <button type="button" class="hero-btn-resp js-open-video" data-id="${
+    data.id
+  }" >Watch trailer</button> <button type="button"  class="hero-btn-black link" data-id="${
+    data.id
+  }">More details</button>`;
+}
+
+function createVideoMarkup(key) {
+  const videoUrl = `https://www.youtube.com/embed/${key}`;
+  return `<iframe  class="iframe-hero" width="250" height="150"  src="${videoUrl}"></iframe>`;
+}
+
+function addMarkup(element, markup) {
+  element.innerHTML = markup;
 }
