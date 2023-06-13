@@ -118,9 +118,7 @@ function firstHeroMarkup(data) {
 
   getFilmID(fetchInfo);
   // добавление дата-атрибута
-  btnDetailsRef = document.querySelector('.hero-black-btn');
-  btnDetailsRef.dataset.id = filmID;
-  btnDetailsRef.addEventListener('click', selectMovie);
+
 }
 
 function heroWrap() {
