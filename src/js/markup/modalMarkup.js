@@ -8,6 +8,8 @@ async function createModalMarkup(movieID) {
   try {
     const response = await getInfoMovieByID(movieID);
     const movieInfo = response.data;
+    console.log(movieInfo);
+
     toggleModal();
     // приведем полученные данные к нужному виду
     const movieInfoForMarkup = {
@@ -16,7 +18,10 @@ async function createModalMarkup(movieID) {
       vote_average: movieInfo.vote_average.toFixed(1),
       vote_count: movieInfo.vote_count,
       popularity: movieInfo.popularity.toFixed(1),
-      genres: movieInfo.genres.map(({ name }) => name).join(' '),
+      genres: movieInfo.genres
+        .slice(0, 2)
+        .map(({ name }) => name)
+        .join(' '),
       overview: movieInfo.overview,
       textButton,
     };
