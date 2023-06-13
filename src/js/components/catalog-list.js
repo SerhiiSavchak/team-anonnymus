@@ -13,6 +13,7 @@ const options = {
 const ulRef = document.querySelector('.catalog-list');
 const searchForm = document.querySelector('.search-form');
 const searchInput = document.querySelector('.search-form-input');
+const errorContainer = document.querySelector('.error-container');
 
 // WORKSPACE
 window.addEventListener('load', onPageLoad);
@@ -62,26 +63,33 @@ function onSearchSubmit(event) {
                     renderMarkup(response.slice(0, perPage)).then(markup => {
                         addMarkup(ulRef, markup);
                     });
+                    hideNoResultsMessage();
                 } else {
                     showNoResultsMessage();
                 }
             });
+    } else {
+        onPageLoad();
+        hideNoResultsMessage(); 
+    }
+}
+
+// ---- Функція для приховування повідомлення про відсутність результатів
+function hideNoResultsMessage() {
+    const errorMessage = errorContainer.querySelector('.no-results-message');
+    if (errorMessage) {
+        errorMessage.remove();
     }
 }
 
 
+
 function showNoResultsMessage() {
-    const errorMessageContainer = document.createElement('div'); // Створюємо <div> контейнер
-    errorMessageContainer.classList.add('error-container'); // Додаємо клас 'error-container'
-
-    const errorMessage = document.createElement('p'); // Створюємо <p> елемент
-    errorMessage.textContent = "OOPS... We are very sorry! We don't have any results matching your search";
-    errorMessage.classList.add('no-results-message'); // Додаємо клас 'no-results-message'
-
-    errorMessageContainer.appendChild(errorMessage); // Додаємо <p> елемент до <div> контейнера
-
+    const errorMessage = document.createElement('p');
+    errorMessage.classList.add('no-results-message');
+    errorMessage.textContent = "OOPS... We are very sorry! We don't have any results matching your search.";
+    errorContainer.appendChild(errorMessage);
     ulRef.innerHTML = '';
-    ulRef.appendChild(errorMessageContainer); // Додаємо <div> контейнер до ulRef
 }
 
 
@@ -156,3 +164,7 @@ function transformData(movieData, genreData) {
 
     return transformedMovies;
 }
+
+
+
+
