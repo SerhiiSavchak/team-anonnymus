@@ -15,7 +15,7 @@ async function createModalMarkup(movieID) {
     const response = await getInfoMovieByID(movieID);
     const movieInfo = response.data;
     console.log(movieInfo);
-
+    // переключение видимости
     toggleModal();
 
     if (IsMovieInLibrary(movieID)) {
