@@ -191,7 +191,6 @@
     line-height: 1.19;
     color: $white-color;
   }
-  
 }
 
 @media screen and (min-width: 767px) {
@@ -279,7 +278,7 @@
   }
 
   .video {
-   width: 560px;
+    width: 560px;
     height: 400px;
   }
 
@@ -290,14 +289,13 @@
     color: $white-color;
   }
   .modal-hero {
-   display: flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-end;
 
     width: 610px;
     height: 400px;
   }
-  
 }
 
 @media screen and (min-width: 1280px) {
@@ -312,7 +310,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100% 0%;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: auto;
   }
 
@@ -375,7 +373,6 @@
     width: 700px;
     height: 400px;
   }
-  
 }
 
 // rating
