@@ -93,7 +93,9 @@ function firstHeroMarkup(data) {
   const fetchInfo = data.data.results[kaleidoscope];
 
   // start staer
-  document.querySelector('.rating_value').textContent = fetchInfo.vote_average;
+  document.querySelector('.rating_value').textContent =
+    fetchInfo.vote_average.toFixed(1);
+
   const ratingActiveWidth = fetchInfo.vote_average / 0.05 / 2;
   document.querySelector(
     '.rating_active'
