@@ -129,7 +129,8 @@ function heroWrap() {
             <div class="hero-rating_body">
                 <div class="rating_active"></div>
             </div>
-            <div class="rating_value"></div>
+            
+            
         </div>
         <!-- end rating -->
         <p class="hero-text-mobile"></p>
