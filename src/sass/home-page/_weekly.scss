@@ -9,6 +9,7 @@
   // padding-top:40px;
 }
 .weekly-title {
+  font-weight: 500;
   color: $white-color;
   font-size: 16px;
   line-height: 1.19px;
@@ -117,10 +118,7 @@ img {
     padding-right: 20px;
     min-width: 320px;
   }
-  .weekly-tittle {
-    font-size: 16px;
-    line-height: 1.19px;
-  }
+
   .weekly-btn-link {
     line-height: 1.19px;
   }
@@ -184,7 +182,7 @@ img {
   }
   .weekly-title {
     font-size: 28px;
-    line-height: 1.18px;
+    line-height: 1.18;
   }
   .weekly-btn-link {
     font-size: 28px;
