@@ -24,21 +24,15 @@ async function fetchTrandingFilmDay() {
 
   let response = await axios.get(URL, options);
   if (response.status !== 200) {
-    throw new Error(response);
-  } else {
-    const data = response;
-
-    firstHeroMarkup(data);
-<<<<<<< Updated upstream
-=======
-  } catch (error) {
     clearInterval(heroTimerId);
     onEror();
     console.log(error.message);
->>>>>>> Stashed changes
+    throw new Error(response);
+  } else {
+    const data = response;
+    firstHeroMarkup(data);
   }
 }
-
 function onEror() {
   document.querySelector('.hero-title').textContent =
     'Let’s Make Your Own Cinema';
@@ -84,11 +78,7 @@ function onPageLoad() {
       onEror();
     });
 
-<<<<<<< Updated upstream
-  setInterval(() => {
-=======
   heroTimerId = setInterval(() => {
->>>>>>> Stashed changes
     fetchTrandingFilmDay();
   }, 20000);
 }
