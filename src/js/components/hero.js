@@ -28,6 +28,7 @@ async function fetchTrandingFilmDay() {
 
     firstHeroMarkup(data);
   } catch (error) {
+    clearInterval(heroTimerId);
     onEror();
     console.log(error.message);
   }
@@ -63,7 +64,6 @@ projector, screen, and speakers.`;
     .insertAdjacentHTML('beforeend', errorBtn);
   heroSection.style.backgroundImage = `linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("${img}")`;
 }
-
 function onPageLoad() {
   //console.log('hello onPageLoad');
   fetchTrandingFilmDay()
@@ -72,15 +72,14 @@ function onPageLoad() {
         .querySelector('.hero-text-cont')
         .classList.remove('visuality-hidden');
     })
-
     .catch(error => {
       console.log(error.message);
       onEror();
     });
 
-  // setInterval(() => {
-  //   fetchTrandingFilmDay();
-  // }, 20000);
+  let heroTimerId = setInterval(() => {
+    fetchTrandingFilmDay();
+  }, 20000);
 }
 
 window.addEventListener('load', onPageLoad);
