@@ -1,1 +1,0 @@
-{"mappings":"oeAAAA,EAAA,S","sources":["src/catalog.js"],"sourcesContent":["import './js/components/header';\nimport './js/components/hero';\nimport './js/components/catalog-list';\nimport './js/components/modal';\nimport './js/components/footer';\n"],"names":["parcelRequire"],"version":3,"file":"catalog.89d87422.js.map"}
