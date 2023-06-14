@@ -26,10 +26,17 @@ async function createHeroMarkup() {
     const markup = createMarkup(movieInfo);
     addMarkup(heroCont, markup);
     console.log(markup);
+
     const heroBtnTrailer = document.querySelector('.js-open-video');
     const heroBtnDetails = document.querySelector('.hero-btn-details');
     console.log(heroBtnTrailer);
     console.log(heroBtnDetails);
+
+    const ratingActiveWidth = movieInfo.vote_average / 0.05 / 2;
+    document.querySelector(
+      '.rating_active'
+    ).style.width = `${ratingActiveWidth}%`;
+
     heroBtnDetails.addEventListener('click', selectMovie);
 
     heroBtnTrailer.addEventListener('click', onBtnOpenClick);
@@ -63,7 +70,7 @@ btnCloseRef.addEventListener('click', onBtnCloseClick);
 // LISTENERS
 
 function onPageLoad() {
-  createHeroMarkup();
+ createHeroMarkup();
 }
 
 function onBtnCloseClick(evt) {
@@ -99,7 +106,7 @@ async function fetchVideo(id, options) {
 
 // MARKUP
 function createMarkup(data) {
-  console.log(data);
+  console.log(data.vote_average);
 
   heroSectionRef.style.backgroundImage = `linear-gradient(
     86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original${
@@ -107,6 +114,16 @@ function createMarkup(data) {
     }")`;
 
   return `  <h1 class="hero-title-resp">${data.title || data.name}</h1>
+  
+  <div class="hero-rating">
+            <div class="hero-rating_body">
+                <div class="rating_active"></div>
+            </div>
+            <div class="rating_value visuality-hidden">${
+              data.vote_average
+            }</div>
+            </div>
+
   <p class="hero-text-resp">
   ${data.overview.split('').slice(0, 150).join('') + '...'}
 </p>
