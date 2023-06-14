@@ -13,7 +13,6 @@ function renderStorageData() {
     const markup = generateMarkup(savedMovies);
 
     addMarkup(libraryUlRef, markup);
-    console.log(libraryUlRef);
 
     libraryUlRef.addEventListener('click', selectMovie);
   }
