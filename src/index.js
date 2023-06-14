@@ -4,3 +4,5 @@ import './js/components/weekly';
 import './js/components/upcoming';
 import './js/components/modal';
 import './js/components/footer';
+import './js/utils/scroll-up';
+import './js/utils/loader';

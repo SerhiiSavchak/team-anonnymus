@@ -20,9 +20,9 @@ function generateMarkup(data) {
                 movie.poster
               }" alt="${movie.title}" />       
           <div class="weekly-info">
-              <h2 data-id="${movie.id} class="weekly-info-title">${
+              <h3  data-id="${movie.id}" class="weekly-info-title">${
         movie.title
-      }</h2>
+      }</h3>
                   <div class="info-movie">
                       <p data-id="${movie.id} class="weekly-info-genre">${
         movie.genreFirst

@@ -1,6 +1,7 @@
 /* utils */
 @import './utils/variables';
 @import './utils/hidden';
+@import './utils/scroll-up.scss';
 
 /* base */
 @import './base/common';
@@ -14,4 +15,3 @@
 @import './library-page/library-hero';
 @import './library-page/library-list';
 @import './footer/footer';
-@import './modal/modal';
