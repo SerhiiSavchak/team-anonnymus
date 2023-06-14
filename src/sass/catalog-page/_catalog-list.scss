@@ -133,11 +133,12 @@
 }
 
 .search-form-input {
+  outline: none;
   width: 224px;
   height: 40px;
   border: 1px solid black;
   border-radius: 8px;
-  padding: 10px 142px 10px 20px;
+  padding: 10px 40px 10px 20px;
   margin-right: 16px;
 
   &::placeholder {
