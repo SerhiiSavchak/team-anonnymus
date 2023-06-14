@@ -101,8 +101,10 @@ async function fetchVideo(id, options) {
 
 // MARKUP
 function createMarkup(data) {
+  console.log(data);
+
   heroSectionRef.style.backgroundImage = `linear-gradient(
-    86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original/${
+    86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original${
       data.backdrop_path || data.poster_path
     }")`;
 

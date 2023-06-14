@@ -141,6 +141,8 @@ function onPageLoad() {
     // кнопка добавления удаления фильма
     const addRemoveBtnRef = document.querySelector('.js-add-remove-library');
 
+    console.log(addRemoveBtnRef);
+
     addRemoveBtnRef.addEventListener('click', onAddRemoveMovie);
   });
 }
