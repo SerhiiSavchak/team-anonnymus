@@ -9,7 +9,7 @@ import { BASE_URL, API_KEY } from '../api/apiKey';
 import { mark } from '@vimeo/player';
 
 function getTrandingDay() {
-  return axios.get(`${BASE_URL}trending/all/day?language=en-US`, {
+  return axios.get(`${BASE_URL}trenпуфывывпding/all/day?language=en-US`, {
     params: {
       api_key: API_KEY,
     },
