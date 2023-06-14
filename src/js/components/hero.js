@@ -21,7 +21,7 @@ async function createHeroMarkup() {
     const response = await getTrandingDay();
 
     const movieInfo =
-      response.data.results[Math.floor(Math.random() * (20 - 1 + 1)) + 1];
+      response.data.results[Math.floor(Math.random() * (19 - 1 + 1)) + 1];
 
     const markup = createMarkup(movieInfo);
     addMarkup(heroCont, markup);
