@@ -25,11 +25,10 @@ async function createHeroMarkup() {
 
     const markup = createMarkup(movieInfo);
     addMarkup(heroCont, markup);
-    console.log(markup);
+
     const heroBtnTrailer = document.querySelector('.js-open-video');
     const heroBtnDetails = document.querySelector('.hero-btn-details');
-    console.log(heroBtnTrailer);
-    console.log(heroBtnDetails);
+
     heroBtnDetails.addEventListener('click', selectMovie);
 
     heroBtnTrailer.addEventListener('click', onBtnOpenClick);
@@ -99,8 +98,6 @@ async function fetchVideo(id, options) {
 
 // MARKUP
 function createMarkup(data) {
-  console.log(data);
-
   heroSectionRef.style.backgroundImage = `linear-gradient(
     86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original${
       data.backdrop_path || data.poster_path

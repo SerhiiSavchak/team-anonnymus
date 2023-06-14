@@ -47,11 +47,35 @@
   }
 }
 
+.btn-clear {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+}
+
+.clear-icon {
+  width: 20px;
+  height: 20px;
+  stroke: $btn-color;
+  transition: stroke $cubic-bezier;
+}
+.clear-icon:is(:hover, :focus) {
+  stroke: $accent-color;
+}
+
 .catalog-movie-desc {
   position: absolute;
   z-index: 3;
   bottom: 12px;
   left: 12px;
+}
+
+.search-form-wrapper {
+  position: relative;
 }
 
 .catalog-list-img {
