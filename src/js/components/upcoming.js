@@ -18,6 +18,7 @@ const options = {
       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
   },
 };
+let textButton = '';
 
 async function fetchGenres() {
   try {
@@ -54,8 +55,6 @@ async function fetchMovieDetails() {
 }
 
 function createMarkup(movie) {
-  console.log(movie);
-
   let textContent = movie.overview;
   if (movie.overview.length > 300) {
     textContent = movie.overview.split('').slice(0, 300).join('') + '...';
@@ -140,8 +139,6 @@ function onPageLoad() {
     upcomingList.insertAdjacentHTML('beforeend', createMarkup(movie));
     // кнопка добавления удаления фильма
     const addRemoveBtnRef = document.querySelector('.js-add-remove-library');
-
-    console.log(addRemoveBtnRef);
 
     addRemoveBtnRef.addEventListener('click', onAddRemoveMovie);
   });

@@ -6,6 +6,7 @@ import { async } from '@vimeo/player';
 import axios from 'axios';
 
 import { BASE_URL, API_KEY } from '../api/apiKey';
+import { mark } from '@vimeo/player';
 
 function getTrandingDay() {
   return axios.get(`${BASE_URL}trending/all/day?language=en-US`, {
@@ -21,8 +22,17 @@ async function createHeroMarkup() {
 
     const movieInfo =
       response.data.results[Math.floor(Math.random() * (20 - 1 + 1)) + 1];
+
     const markup = createMarkup(movieInfo);
-    addMarkup(markup);
+    addMarkup(heroCont, markup);
+    console.log(markup);
+    const heroBtnTrailer = document.querySelector('.js-open-video');
+    const heroBtnDetails = document.querySelector('.hero-btn-details');
+    console.log(heroBtnTrailer);
+    console.log(heroBtnDetails);
+    heroBtnDetails.addEventListener('click', selectMovie);
+
+    heroBtnTrailer.addEventListener('click', onBtnOpenClick);
   } catch (error) {
     console.log(error);
   }
@@ -52,19 +62,8 @@ btnCloseRef.addEventListener('click', onBtnCloseClick);
 
 // LISTENERS
 
-createHeroMarkup();
-
 function onPageLoad() {
-  createHeroMarkup().then(res => {
-    const markup = createMarkup(res);
-    addMarkup(heroCont, markup);
-
-    const heroBtnTrailer = document.querySelector('.js-open-video');
-    const heroBtnDetails = document.querySelector('.hero-btn-details');
-    heroBtnDetails.addEventListener('click', selectMovie);
-
-    heroBtnTrailer.addEventListener('click', onBtnOpenClick);
-  });
+  createHeroMarkup();
 }
 
 function onBtnCloseClick(evt) {
@@ -77,7 +76,6 @@ function onBtnOpenClick(evt) {
 
   fetchVideo(evt.target.dataset.id, options).then(res => {
     const markup = createVideoMarkup(res);
-    console.log(markup);
 
     addMarkup(modalWrapRef, markup);
   });
@@ -108,7 +106,7 @@ function createMarkup(data) {
       data.backdrop_path || data.poster_path
     }")`;
 
-  return `  <h1 class="hero-title-resp">${data.title}</h1>
+  return `  <h1 class="hero-title-resp">${data.title || data.name}</h1>
   <p class="hero-text-resp">
   ${data.overview.split('').slice(0, 150).join('') + '...'}
 </p>
