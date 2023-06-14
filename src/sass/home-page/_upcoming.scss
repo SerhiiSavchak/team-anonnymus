@@ -113,6 +113,21 @@ p.text-color-white {
   .upcoming-section {
     padding-bottom: 77px;
   }
+  .upcoming-poster {
+    position: relative;
+  }
+
+  .upcoming-poster::after {
+    content: '';
+    background: linear-gradient(307.47deg, #0003 23.85%, #0000 47.27%);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 2;
+    height: 100%;
+  }
 
   .upcoming-section-title {
     padding-left: 0px;
