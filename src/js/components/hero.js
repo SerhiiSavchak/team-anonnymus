@@ -21,13 +21,21 @@ async function createHeroMarkup() {
     const response = await getTrandingDay();
 
     const movieInfo =
-      response.data.results[Math.floor(Math.random() * (20 - 1 + 1)) + 1];
+      response.data.results[Math.floor(Math.random() * (19 - 1 + 1)) + 1];
 
     const markup = createMarkup(movieInfo);
     addMarkup(heroCont, markup);
 
+
     const heroBtnTrailer = document.querySelector('.js-open-video');
     const heroBtnDetails = document.querySelector('.hero-btn-details');
+    console.log(heroBtnTrailer);
+    console.log(heroBtnDetails);
+
+    const ratingActiveWidth = movieInfo.vote_average / 0.05 / 2;
+    document.querySelector(
+      '.rating_active'
+    ).style.width = `${ratingActiveWidth}%`;
 
     heroBtnDetails.addEventListener('click', selectMovie);
 
@@ -36,6 +44,9 @@ async function createHeroMarkup() {
     console.log(error);
   }
 }
+  
+
+console.log("ho");
 
 const END_POINT = 'trending/movie/day?language=en-US';
 
@@ -62,7 +73,7 @@ btnCloseRef.addEventListener('click', onBtnCloseClick);
 // LISTENERS
 
 function onPageLoad() {
-  createHeroMarkup();
+ createHeroMarkup();
 }
 
 function onBtnCloseClick(evt) {
@@ -98,12 +109,25 @@ async function fetchVideo(id, options) {
 
 // MARKUP
 function createMarkup(data) {
+
+
+
   heroSectionRef.style.backgroundImage = `linear-gradient(
     86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original${
       data.backdrop_path || data.poster_path
     }")`;
 
   return `  <h1 class="hero-title-resp">${data.title || data.name}</h1>
+  
+  <div class="hero-rating">
+            <div class="hero-rating_body">
+                <div class="rating_active"></div>
+            </div>
+            <div class="rating_value visuality-hidden">${
+              data.vote_average
+            }</div>
+            </div>
+
   <p class="hero-text-resp">
   ${data.overview.split('').slice(0, 150).join('') + '...'}
 </p>
