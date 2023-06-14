@@ -8,7 +8,14 @@ const closeModalBtn = document.querySelector('.modal-close-btn');
 closeModalBtn.addEventListener('click', toggleModal);
 
 export function selectMovie(event) {
-  if (event.target.nodeName !== 'LI' && event.target.nodeName !== 'BUTTON') {
+  console.log(event.target.nodeName);
+
+  if (
+    event.target.nodeName !== 'LI' &&
+    event.target.nodeName !== 'H2' &&
+    event.target.nodeName !== 'P' &&
+    event.target.nodeName !== 'BUTTON'
+  ) {
     return;
   }
 

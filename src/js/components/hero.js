@@ -76,6 +76,8 @@ function onPageLoad() {
 
 function onBtnCloseClick(evt) {
   backdropModalRef.classList.add('visuality-hidden');
+  const iframe = document.querySelector('.iframe-hero');
+  iframe.src = '';
 }
 
 function onBtnOpenClick(evt) {

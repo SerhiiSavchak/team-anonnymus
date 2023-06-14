@@ -57,7 +57,7 @@ async function fetchMovieDetails() {
 function createMarkup(movie) {
   let textContent = movie.overview;
   if (movie.overview.length > 300) {
-    textContent = movie.overview.split('').slice(0, 300).join('') + '...';
+    textContent = movie.overview;
   }
 
   if (IsMovieInLibrary(movie.id)) {
