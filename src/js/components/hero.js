@@ -78,11 +78,13 @@ function onBtnCloseClick(evt) {
   backdropModalRef.classList.add('visuality-hidden');
   const iframe = document.querySelector('.iframe-hero');
   iframe.src = '';
+  document.body.classList.remove('scroll-block');
 }
 
 function onBtnOpenClick(evt) {
   backdropModalRef.classList.remove('visuality-hidden');
   console.log(evt.target.dataset.id);
+  document.body.classList.add('scroll-block');
 
   fetchVideo(evt.target.dataset.id, options).then(res => {
     const markup = createVideoMarkup(res);
