@@ -28,14 +28,14 @@ function generateMarkup(data) {
   const markup = data
     .map(
       movie => ` <li data-id="${movie.id}" class="library-list-item">
-         <a class="library-item-link" href="">
+         <div class="library-item-wrap" href="">
            <img class="library-list-img" src="${movie.poster}" alt="${movie.title}" />
            <div class="library-item-desc">
              <div class="title-genre-date">
-               <p class="library-item-title">${movie.title}</p>
-               <p class="library-item-genre-date">
+               <h2 data-id="${movie.id}" class="library-item-title">${movie.title}</h2>
+               <p data-id="${movie.id}" class="library-item-genre-date">
                  ${movie.genres} |
-                 <span class="library-item-date">
+                 <span data-id="${movie.id}" class="library-item-date">
                    ${movie.release}
                  </span>
                </p>
@@ -55,7 +55,7 @@ function generateMarkup(data) {
                </div>
              </div>
            </div>
-         </a>
+         </div>
        </li>`
     )
     .join('');

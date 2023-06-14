@@ -135,20 +135,22 @@ function generateMarkup(movie) {
   const markup = movie
     .map(
       movie => `<li data-id="${movie.id}" class="catalog-movie">
-        <a class="catalog-item-link" href="">
+        <div class="catalog-item-link" href="">
             <img class="catalog-list-img" src="https://image.tmdb.org/t/p/w500${
               movie.poster
             }" alt="${movie.title}" />
             <div class="catalog-movie-desc">
-            <p class="catalog-item-title">${movie.title}</p>
-            <p class="catalog-item-movie">
+            <p  class="catalog-item-title" data-id="${movie.id}">${
+        movie.title
+      }</p>
+            <p class="catalog-item-movie" data-id="${movie.id}" >
                 ${movie.genreFirst}, ${movie.genreSecond} | 
-                <span class="catalog-item-date">
+                <span data-id="${movie.id} class="catalog-item-date">
                     ${movie.release_date.slice(0, 4)}
                 </span> 
             </p>
             </div>
-            </a> 
+            </div> 
         </li>`
     )
     .join('');

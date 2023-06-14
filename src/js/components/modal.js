@@ -14,6 +14,7 @@ export function selectMovie(event) {
     event.target.nodeName !== 'LI' &&
     event.target.nodeName !== 'H2' &&
     event.target.nodeName !== 'P' &&
+    event.target.nodeName !== 'SPAN' &&
     event.target.nodeName !== 'BUTTON'
   ) {
     return;
