@@ -26,11 +26,8 @@ async function createHeroMarkup() {
     const markup = createMarkup(movieInfo);
     addMarkup(heroCont, markup);
 
-
     const heroBtnTrailer = document.querySelector('.js-open-video');
     const heroBtnDetails = document.querySelector('.hero-btn-details');
-    console.log(heroBtnTrailer);
-    console.log(heroBtnDetails);
 
     const ratingActiveWidth = movieInfo.vote_average / 0.05 / 2;
     document.querySelector(
@@ -41,12 +38,10 @@ async function createHeroMarkup() {
 
     heroBtnTrailer.addEventListener('click', onBtnOpenClick);
   } catch (error) {
+    clearInterval(intervalId);
     console.log(error);
   }
 }
-  
-
-console.log("ho");
 
 const END_POINT = 'trending/movie/day?language=en-US';
 
@@ -73,7 +68,10 @@ btnCloseRef.addEventListener('click', onBtnCloseClick);
 // LISTENERS
 
 function onPageLoad() {
- createHeroMarkup();
+  createHeroMarkup();
+  intervalId = setInterval(() => {
+    createHeroMarkup();
+  }, 20000);
 }
 
 function onBtnCloseClick(evt) {
@@ -109,9 +107,6 @@ async function fetchVideo(id, options) {
 
 // MARKUP
 function createMarkup(data) {
-
-
-
   heroSectionRef.style.backgroundImage = `linear-gradient(
     86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%), url("https://image.tmdb.org/t/p/original${
       data.backdrop_path || data.poster_path
