@@ -44,6 +44,9 @@ async function createHeroMarkup() {
     console.log(error);
   }
 }
+  
+
+console.log("ho");
 
 const END_POINT = 'trending/movie/day?language=en-US';
 
