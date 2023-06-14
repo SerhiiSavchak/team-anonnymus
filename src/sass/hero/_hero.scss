@@ -385,8 +385,8 @@
 
 .hero-modal-close {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   top: 24.5px;
   right: 24.5px;
   stroke: $white-color;
@@ -413,13 +413,13 @@
   color: $white-color;
 }
 
-.iframe {
+.iframe-hero {
   padding: 0;
+
   margin: 0;
   position: absolute;
-  top: 0;
-  left: 50px;
-  width: 100px;
+  top: 58px;
+  left: 13px;
 }
 
 @media screen and (min-width: 768px) {
@@ -433,6 +433,10 @@
     height: 400px;
   }
   .hero-modal-close {
+    width: 16px;
+    top: 21.5px;
+    right: 21.5px;
+    height: 16px;
   }
   .hero-error-img {
     width: 296px;
@@ -440,8 +444,9 @@
   }
 
   .iframe-hero {
-    width: 450px;
+    width: 570px;
     height: 300px;
+    left: 17px;
   }
 
   .hero-picture {
@@ -469,8 +474,10 @@
   }
 
   .iframe-hero {
-    width: 600px;
-    height: 300px;
+    width: 620px;
+    height: 320px;
+    left: 40px;
+    top: 48px;
   }
 
   .hero-picture {

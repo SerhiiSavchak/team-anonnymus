@@ -142,7 +142,7 @@ function createMarkup(data) {
 
 function createVideoMarkup(key) {
   const videoUrl = `https://www.youtube.com/embed/${key}`;
-  return `<iframe  class="iframe-hero" width="250" height="150"  src="${videoUrl}"></iframe>`;
+  return `<iframe autoplay;  class="iframe-hero" width="250" height="175"  src="${videoUrl}"></iframe>`;
 }
 
 function addMarkup(element, markup) {
