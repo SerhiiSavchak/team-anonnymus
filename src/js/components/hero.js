@@ -41,12 +41,12 @@ async function createHeroMarkup() {
 
     heroBtnTrailer.addEventListener('click', onBtnOpenClick);
   } catch (error) {
+    clearInterval(intervalId);
     console.log(error);
   }
 }
-  
 
-console.log("ho");
+console.log('ho');
 
 const END_POINT = 'trending/movie/day?language=en-US';
 
@@ -73,7 +73,10 @@ btnCloseRef.addEventListener('click', onBtnCloseClick);
 // LISTENERS
 
 function onPageLoad() {
- createHeroMarkup();
+  createHeroMarkup();
+  intervalId = setInterval(() => {
+    createHeroMarkup();
+  }, 20000);
 }
 
 function onBtnCloseClick(evt) {
