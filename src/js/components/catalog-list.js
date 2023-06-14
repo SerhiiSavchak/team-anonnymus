@@ -18,10 +18,12 @@ const ulRef = document.querySelector('.catalog-list');
 const searchForm = document.querySelector('.search-form');
 const searchInput = document.querySelector('.search-form-input');
 const errorContainer = document.querySelector('.error-container');
+const btnClear = document.querySelector('.btn-clear');
 
 // WORKSPACE
 window.addEventListener('load', onPageLoad);
 searchForm.addEventListener('submit', onSearchSubmit);
+btnClear.addEventListener('click', onBtnClearClick);
 
 // LISTENER
 function onPageLoad() {
@@ -44,6 +46,7 @@ function onPageLoad() {
   });
 }
 
+searchInput.addEventListener('input', onCatalogInput);
 function onSearchSubmit(event) {
   event.preventDefault();
   const searchValue = searchInput.value.trim();
@@ -72,6 +75,18 @@ function onSearchSubmit(event) {
     onPageLoad();
     hideNoResultsMessage();
   }
+}
+
+function onBtnClearClick(evt) {
+  searchInput.value = '';
+}
+
+function onCatalogInput(evt) {
+  if (evt.target.value.length === 0) {
+    btnClear.style.display = 'none';
+    return;
+  }
+  btnClear.style.display = 'block';
 }
 
 // ---- Функція для приховування повідомлення про відсутність результатів

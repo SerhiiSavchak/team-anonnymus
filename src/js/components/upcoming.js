@@ -69,17 +69,14 @@ function createMarkup(movie) {
   let filmContent = `
   
   <div class ="upcoming-section-wrap">
-  
     <picture class="upcoming-poster">
-    
-        <source media="(min-width:768px)" srcset="https://image.tmdb.org/t/p/original${
-          movie.backdrop_path
-        }">
-        <img src="https://image.tmdb.org/t/p/w500${
-          movie.poster_path
-        }" alt="poster_path" style="width:auto;">
-    </picture>
-
+    <source media="(min-width:768px)" srcset="https://image.tmdb.org/t/p/original${
+      movie.backdrop_path
+    }">
+    <img src="https://image.tmdb.org/t/p/w500${
+      movie.poster_path
+    }" alt="poster_path" style="width:auto;">
+</picture>
     <div class="upcoming-info-wrap">
         <h3 class="upcoming-film-title">${movie.title}</h3>
         

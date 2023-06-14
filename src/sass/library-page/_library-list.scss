@@ -1,54 +1,79 @@
 // стили контейнера
-.library-list-container {
-  margin-top: 16px;
-  margin-bottom: 40px;
-  padding-inline-start: 0px;
+
+.library-section {
+  padding-top: 92px;
+  padding-bottom: 102px;
   @media screen and (min-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 28px 16px;
-  }
-  @media screen and (min-width: 1280px) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 32px 16px;
+    padding-top: 140px;
+    padding-bottom: 140px;
+    @media screen and (min-width: 1280px) {
+      padding-top: 176px;
+      padding-bottom: 178px;
+    }
   }
 }
+
+.library-list-container {
+  @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1280px) {
+    }
+  }
+}
+
+.movies-list {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px 16px;
+    @media screen and (min-width: 1280px) {
+      gap: 32px 16px;
+    }
+  }
+}
+
 // Стили елемента галереи фильмов
 .library-list-item {
   position: relative;
   width: 280px;
-  margin-bottom: 16px;
-  margin-left: auto;
-  margin-right: auto;
+
   border-radius: 5px;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
-  list-style-type: none;  
-  
-  &:last-child {
-    margin-bottom: 0;
-  }
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
   &:hover,
   &:focus {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   }
   @media screen and (min-width: 768px) {
-    width: 224px;
-    margin-bottom: 0px;
+    width: calc((100% - 32px) / 3);
   }
 
   @media screen and (min-width: 1280px) {
-    width: 395px;
+    width: 394px;
   }
   // позиционирование градиента, текста, постера
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 63.48%,
+      rgba(0, 0, 0, 0.9) 92.16%
+    );
     border-radius: 5px;
   }
   .library-list-img {
@@ -67,10 +92,8 @@
     }
 
     @media screen and (min-width: 1280px) {
-      
       bottom: 20px;
       left: 20px;
-      
     }
   }
   // стили рейтинга
@@ -81,14 +104,14 @@
     bottom: 12px;
     right: 12px;
     font-size: 16px;
-    line-height:20px;
-    
+    line-height: 20px;
+
     @media screen and (min-width: 768px) {
       width: 62px;
       font-size: 12px;
       bottom: 12px;
       right: 12px;
-      line-height:18px;
+      line-height: 18px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -96,11 +119,10 @@
       font-size: 20px;
       bottom: 24px;
       right: 20px;
-      
     }
   }
   .rating_value {
-    font-size:14px;
+    font-size: 14px;
     line-height: 20px;
     padding: 0px 0px 0px 10px;
     opacity: 0;
@@ -109,29 +131,34 @@
     position: relative;
     &::before {
       display: block;
-      content: "★ ★ ★ ★ ★";
-      color: white;}
+      content: '★ ★ ★ ★ ★';
+      color: white;
+    }
   }
-  .rating__active{
+  .rating__active {
     position: absolute;
     width: 0%;
     height: 100%;
-    top:0;
+    top: 0;
     left: 0;
-    color:#F8F8F8;
+    color: #f8f8f8;
     // overflow:hidden;
     &::before {
       position: absolute;
       width: 100%;
       height: 100%;
-      top:0;
+      top: 0;
       left: 0;
-      overflow:hidden;
-      content: "★ ★ ★ ★ ★";
-      -webkit-background-clip: text; 
-      -webkit-text-fill-color: transparent; 
-      background-image: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%); 
-      background-color: #ffffff; 
+      overflow: hidden;
+      content: '★ ★ ★ ★ ★';
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(
+        141.22deg,
+        #f84119 9.4%,
+        rgba(248, 159, 25, 0.68) 91.91%
+      );
+      background-color: #ffffff;
     }
   }
   .rating__items {
@@ -159,7 +186,6 @@
   color: $card-desc-color;
   @media screen and (min-width: 768px) {
     line-height: 1.5;
-    
   }
   @media screen and (min-width: 1280px) {
     font-size: 20px;
@@ -174,7 +200,6 @@
   text-transform: uppercase;
   @media screen and (min-width: 768px) {
     line-height: 1.5;
-    
   }
   @media screen and (min-width: 1280px) {
     font-size: 20px;
@@ -200,7 +225,6 @@
     margin-left: 0px;
     width: 144px;
     height: 44px;
-    
   }
   @media screen and (min-width: 1280px) {
     width: 260px;
@@ -218,4 +242,3 @@
   line-height: 20px;
   color: #282828;
 }
-
