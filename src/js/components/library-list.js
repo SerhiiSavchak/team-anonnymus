@@ -2,7 +2,7 @@ import Storage from '../api/localStorageAPI';
 import { selectMovie } from '../components/modal';
 const STORAGE_LIBRARY_KEY = 'movieLibrary';
 
-const libraryUlRef = document.querySelector('.library-list-container');
+const libraryUlRef = document.querySelector('.movies-list');
 
 function renderStorageData() {
   const savedMovies = Storage.load(STORAGE_LIBRARY_KEY);
@@ -69,7 +69,7 @@ function addMarkup(element, markup) {
 }
 
 function renderEmptyLocalMarkup() {
-  const container = document.getElementById('movies-container');
+  const container = document.querySelector('.library-container');
   const failureText = `
     <p>OOPS...<br>
     We are very sorry!<br>
