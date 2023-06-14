@@ -91,7 +91,7 @@ async function fetchVideo(id, options) {
       options
     );
 
-    return response.results[0].key;
+    return response.data.results[0].key;
   } catch (error) {
     console.log(error);
   }
