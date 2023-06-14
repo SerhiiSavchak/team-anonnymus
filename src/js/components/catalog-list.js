@@ -1,17 +1,41 @@
 import { selectMovie } from './modal';
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+import { getTrendingMovie } from '../api/fetchTranding.js';
+import { getGenres } from '../api/fetchGenres.js';
+import { getQuerryMovie } from '../api/fetchQuerry';
 
-const BASE_URL = 'https://api.themoviedb.org/3/';
-const END_POINT =
-  'trending/movie/week?language=en-US&include_adult=false&include_video=false&page=1&per_page=10';
-const STORAGE_KEY = 'ID';
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
+// pagination
+const containerTui = document.getElementById('tui-pagination-container');
+const optionsTui = {
+  // below default value of options
+  totalItems: 0,
+  itemsPerPage: 20,
+  visiblePages: 5,
+  page: 1,
+  centerAlign: true,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn tui-num-page">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected tui-num-page">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{page}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}"></span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip tui-order-{{type}}-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
   },
 };
+const pagination = new Pagination(containerTui, optionsTui);
+const page = pagination.getCurrentPage();
 
 // REFS
 const ulRef = document.querySelector('.catalog-list');
@@ -20,59 +44,111 @@ const searchInput = document.querySelector('.search-form-input');
 const errorContainer = document.querySelector('.error-container');
 const btnClear = document.querySelector('.btn-clear');
 
-// WORKSPACE
-window.addEventListener('load', onPageLoad);
-searchForm.addEventListener('submit', onSearchSubmit);
-btnClear.addEventListener('click', onBtnClearClick);
+pagination.on('afterMove', onClickPage);
 
-// LISTENER
-function onPageLoad() {
-  const screenWidth = window.innerWidth;
-  let perPage;
+async function onPageLoad() {
+  try {
+    const responseMovie = await createMarkupPage(page);
 
-  if (screenWidth >= 768) {
-    perPage = 20;
-  } else {
-    perPage = 10;
+    pagination.reset(responseMovie.data.total_results);
+    containerTui.classList.remove('visuality-hidden');
+  } catch (error) {
+    console.log(error);
   }
-
-  const endpoint = `trending/movie/week?language=en-US&include_adult=false&include_video=false&page=1&per_page=${perPage}`;
-
-  fetchData(endpoint, options).then(response => {
-    renderMarkup(response.slice(0, perPage)).then(markup => {
-      addMarkup(ulRef, markup);
-      ulRef.addEventListener('click', selectMovie);
-    });
-  });
 }
 
-searchInput.addEventListener('input', onCatalogInput);
-function onSearchSubmit(event) {
-  event.preventDefault();
-  const searchValue = searchInput.value.trim();
-  let perPage;
+async function createMarkupPage(selectPage) {
+  const responseMovie = await getTrendingMovie(selectPage);
+  const responseGenre = await getGenres();
 
-  if (window.innerWidth >= 768) {
-    perPage = 20;
-  } else {
-    perPage = 10;
+  // преобразование данных
+  const transformedData = transformData(
+    responseMovie.data.results,
+    responseGenre.data.genres
+  );
+
+  const markup = generateMarkup(transformedData);
+
+  addMarkup(ulRef, markup);
+  ulRef.addEventListener('click', selectMovie);
+  return responseMovie;
+}
+
+async function createMarkupPageSearch(selectPage, searchQuery) {
+  const responseMovie = await getQuerryMovie(selectPage, searchQuery);
+  const responseGenre = await getGenres();
+
+  // преобразование данных
+  const transformedData = transformData(
+    responseMovie.data.results,
+    responseGenre.data.genres
+  );
+
+  const markup = generateMarkup(transformedData);
+
+  addMarkup(ulRef, markup);
+  ulRef.addEventListener('click', selectMovie);
+  return responseMovie;
+}
+
+async function onClickPage(event) {
+  const currentPage = event.page;
+
+  try {
+    const responseMovie = await createMarkupPage(currentPage);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function onClickPageSearch(event) {
+  const currentPage = event.page;
+  const searchQuery = searchInput.value.trim();
+  try {
+    const responseMovie = await createMarkupPageSearch(
+      currentPage,
+      searchQuery
+    );
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function onSearchFormSubmit(event) {
+  event.preventDefault();
+
+  pagination.off('afterMove', onClickPage);
+  containerTui.classList.add('visuality-hidden');
+  const searchQuery = searchInput.value.trim();
+
+  if (!searchQuery) {
+    return alert('Введіть ваш запит');
   }
 
-  if (searchValue !== '') {
-    const searchEndpoint = `search/movie?query=${searchValue}&language=en-US&page=1&per_page=${perPage}`;
+  try {
+    const responseMovie = await createMarkupPageSearch(page, searchQuery);
 
-    fetchData(searchEndpoint, options).then(response => {
-      if (response.length !== 0) {
-        renderMarkup(response.slice(0, perPage)).then(markup => {
-          addMarkup(ulRef, markup);
-        });
-      }
-      errorContainer.innerHTML = `<p class="catalog-error-text">OOPS...<br>
+    pagination.reset(responseMovie.data.total_results);
+    containerTui.classList.remove('visuality-hidden');
+
+    pagination.on('afterMove', onClickPageSearch);
+
+    if (responseMovie.data.total_results <= 20) {
+      containerTui.classList.add('visuality-hidden');
+    }
+  } catch (error) {
+    errorContainer.innerHTML = `<p class="catalog-error-text">OOPS...<br>
       We are very sorry!<br>
       We don’t have any results matching your search.</p>`;
-    });
   }
 }
+
+// WORKSPACE
+window.addEventListener('load', onPageLoad);
+searchForm.addEventListener('submit', onSearchFormSubmit);
+btnClear.addEventListener('click', onBtnClearClick);
+
+searchInput.addEventListener('input', onCatalogInput);
 
 function onBtnClearClick(evt) {
   searchInput.value = '';
@@ -84,38 +160,6 @@ function onCatalogInput(evt) {
     return;
   }
   btnClear.style.display = 'block';
-}
-
-// FETCH
-async function fetchData(endpoint, options) {
-  try {
-    const response = await fetch(`${BASE_URL}${endpoint}`, options);
-    const data = await response.json();
-    return data.results.slice(0, 20);
-  } catch (error) {
-    console.log(error);
-    return (errorContainer.innerHTML = `<p class="catalog-error-text">OOPS...<br>
-    We are very sorry!<br>
-    We don’t have any results matching your search.</p>`);
-  }
-}
-
-async function fetchGenres(options) {
-  const response = await fetch(
-    'https://api.themoviedb.org/3/genre/movie/list?language=en',
-    options
-  );
-  const data = await response.json();
-  return data.genres;
-}
-
-// MARKUP
-function renderMarkup(movieData) {
-  return fetchGenres(options).then(genreData => {
-    const transformedData = transformData(movieData, genreData);
-
-    return generateMarkup(transformedData);
-  });
 }
 
 function generateMarkup(movie) {
