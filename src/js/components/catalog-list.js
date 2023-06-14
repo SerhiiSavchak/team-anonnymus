@@ -62,18 +62,15 @@ function onSearchSubmit(event) {
     const searchEndpoint = `search/movie?query=${searchValue}&language=en-US&page=1&per_page=${perPage}`;
 
     fetchData(searchEndpoint, options).then(response => {
-      if (response.length > 0) {
+      if (response.length !== 0) {
         renderMarkup(response.slice(0, perPage)).then(markup => {
           addMarkup(ulRef, markup);
         });
-        hideNoResultsMessage();
-      } else {
-        showNoResultsMessage();
       }
+      errorContainer.innerHTML = `<p class="catalog-error-text">OOPS...<br>
+      We are very sorry!<br>
+      We don’t have any results matching your search.</p>`;
     });
-  } else {
-    onPageLoad();
-    hideNoResultsMessage();
   }
 }
 
@@ -89,28 +86,18 @@ function onCatalogInput(evt) {
   btnClear.style.display = 'block';
 }
 
-// ---- Функція для приховування повідомлення про відсутність результатів
-function hideNoResultsMessage() {
-  const errorMessage = errorContainer.querySelector('.no-results-message');
-  if (errorMessage) {
-    errorMessage.remove();
-  }
-}
-
-function showNoResultsMessage() {
-  const errorMessage = document.createElement('p');
-  errorMessage.classList.add('no-results-message');
-  errorMessage.textContent =
-    "OOPS... We are very sorry! We don't have any results matching your search.";
-  errorContainer.appendChild(errorMessage);
-  ulRef.innerHTML = '';
-}
-
 // FETCH
 async function fetchData(endpoint, options) {
-  const response = await fetch(`${BASE_URL}${endpoint}`, options);
-  const data = await response.json();
-  return data.results.slice(0, 20);
+  try {
+    const response = await fetch(`${BASE_URL}${endpoint}`, options);
+    const data = await response.json();
+    return data.results.slice(0, 20);
+  } catch (error) {
+    console.log(error);
+    return (errorContainer.innerHTML = `<p class="catalog-error-text">OOPS...<br>
+    We are very sorry!<br>
+    We don’t have any results matching your search.</p>`);
+  }
 }
 
 async function fetchGenres(options) {
