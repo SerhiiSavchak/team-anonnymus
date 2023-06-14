@@ -14,6 +14,7 @@ async function createModalMarkup(movieID) {
 
   try {
     const response = await getInfoMovieByID(movieID);
+
     const movieInfo = response.data;
 
     // переключение видимости

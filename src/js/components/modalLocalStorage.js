@@ -1,19 +1,21 @@
 import Storage from '../api/localStorageAPI';
 import { getInfoMovieByID } from '../api/fetchModal.js';
 import { URL_FOR_IMG } from '../api/apiKey.js';
-
+import { renderStorageData } from '../components/library-list';
+import { toggleModal } from '../utils/modalUtils';
 const STORAGE_LIBRARY_KEY = 'movieLibrary';
 
 export function onAddRemoveMovie(event) {
-  const savedMovies = Storage.load(STORAGE_LIBRARY_KEY);
-
   const movieID = event.target.dataset.id;
   if (event.target.textContent === 'Add to my library') {
     AddMovieBtnClick(movieID);
     event.target.textContent = 'Remove from my library';
+    renderStorageData();
   } else {
     RemoveBtnClick(movieID);
     event.target.textContent = 'Add to my library';
+    renderStorageData();
+    toggleModal();
   }
 }
 

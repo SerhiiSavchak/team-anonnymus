@@ -8,8 +8,6 @@ const closeModalBtn = document.querySelector('.modal-close-btn');
 closeModalBtn.addEventListener('click', toggleModal);
 
 export function selectMovie(event) {
-  console.log(event.target.nodeName);
-
   if (
     event.target.nodeName !== 'LI' &&
     event.target.nodeName !== 'H2' &&
@@ -21,6 +19,6 @@ export function selectMovie(event) {
   }
 
   const movieID = event.target.dataset.id;
-  console.log(movieID);
+
   createModalMarkup(movieID);
 }
