@@ -8,7 +8,9 @@
  <symbol id="icon-halfofmoon" viewBox="0 0 32 32"><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.133" d="M2.189 16.585c.515 7.14 6.772 12.948 14.261 13.267 5.283.222 10.008-2.163 12.843-5.92 1.174-1.539.544-2.565-1.417-2.218-.959.166-1.947.236-2.978.194-7.002-.277-12.729-5.947-12.757-12.643a11.998 11.998 0 0 1 1.074-5.06c.773-1.719-.157-2.537-1.947-1.802-5.67 2.315-9.55 7.847-9.078 14.182z" style="stroke:var(--color1, #fff)"/></symbol>
 
 
-
+<symbol id="icon-close" viewBox="0 0 32 32">
+<path fill="none"  style="" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M30 30l-28-28M30 2l-28 28"></path>
+</symbol>
 
 
 <symbol id="icon-for-button" viewBox="0 0 32 32"><path  d="M4.708 4.708c6.26-6.26 16.391-6.28 22.627-.043s6.217 16.367-.043 22.627c-6.26 6.26-16.391 6.28-22.627.043s-6.217-16.367.043-22.627z" style="fill:"/><path fill="none" stroke="#000" stroke-linecap="round" stroke-width="2.133" d="M25.203 6.354c5.118 5.47 5.099 14.358-.043 19.853" style="stroke:var(--color11, #000)"/></symbol>

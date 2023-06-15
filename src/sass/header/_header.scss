@@ -179,6 +179,10 @@ body .light {
   transition: color 500ms linear, ease-in-out 500ms;
 }
 
+.light .mob-menu-item {
+  background-color: $white-color;
+}
+
 .button-switch {
   outline: none;
   display: flex;

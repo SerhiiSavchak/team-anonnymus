@@ -27,7 +27,7 @@
 .modal-close-btn {
   position: absolute;
   top: 20px;
-  right: 5px;
+  right: 11px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -38,6 +38,9 @@
 }
 
 .modal-close-icon {
+  width: 13px;
+  height: 13px;
+
   stroke: $main-text-color;
   fill: $main-text-color;
   transition: stroke $cubic-bezier;
@@ -167,6 +170,10 @@
   .modal-close-btn {
     top: 24px;
     right: 24px;
+  }
+  .modal-close-icon {
+    width: 15px;
+    height: 15px;
   }
 
   .modal-img-poster {
