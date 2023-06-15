@@ -2,6 +2,8 @@ import {
   onAddRemoveMovie,
   IsMovieInLibrary,
 } from '../components/modalLocalStorage.js';
+import { getGenres } from '../api/fetchGenres.js';
+import { getUpcoming } from '../api/fetchUpcoming.js';
 
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const END_POINT_UPCOMING = 'movie/upcoming';
@@ -20,38 +22,31 @@ const options = {
 };
 let textButton = '';
 
-async function fetchGenres() {
-  try {
-    const response = await fetch(`${BASE_URL}${END_POINT_GENRE}`, options);
-    const data = await response.json();
-
-    return data.genres;
-  } catch (error) {
-    console.log(error.message);
-  }
-}
-
-async function fetchData() {
-  try {
-    const response = await fetch(`${BASE_URL}${END_POINT_UPCOMING}`, options);
-    const data = await response.json();
-
-    return data.results[Math.floor(Math.random() * data.results.length)];
-  } catch (error) {
-    console.log(error.message);
-  }
-}
+window.addEventListener('load', onPageLoad);
 
 async function fetchMovieDetails() {
-  const movie = await fetchData();
-  const genreData = await fetchGenres();
+  try {
+    const responseMovie = await getUpcoming();
+    const movie =
+      responseMovie.data.results[
+        Math.floor(Math.random() * responseMovie.data.results.length)
+      ];
 
-  movie.genres = movie.genre_ids
-    .map(id => genreData.find(genre => genre.id === id).name)
-    .slice(0, 2)
-    .join(', ');
+    const responseGenre = await getGenres();
+    const genreData = responseGenre.data.genres;
 
-  return movie;
+    const genres = movie.genre_ids
+      .map(id => genreData.find(genre => genre.id === id).name)
+      .slice(0, 2)
+      .join(', ');
+    movie.genres = genres;
+    upcomingList.insertAdjacentHTML('beforeend', createMarkup(movie));
+    // кнопка добавления удаления фильма
+    const addRemoveBtnRef = document.querySelector('.js-add-remove-library');
+    addRemoveBtnRef.addEventListener('click', onAddRemoveMovie);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
 function createMarkup(movie) {
@@ -66,8 +61,7 @@ function createMarkup(movie) {
     textButton = 'Add to my library';
   }
   const message = `<h3 class="upcoming-alert">Ops! No upcoming films...</h3>`;
-  let filmContent = `
-  
+  let filmContent = ` 
   <div class ="upcoming-section-wrap">
     <picture class="upcoming-poster">
     <source media="(min-width:768px)" srcset="https://image.tmdb.org/t/p/original${
@@ -131,14 +125,6 @@ function createMarkup(movie) {
   return !movie.results ? filmContent : message;
 }
 
-window.addEventListener('load', onPageLoad);
-
 function onPageLoad() {
-  fetchMovieDetails().then(movie => {
-    upcomingList.insertAdjacentHTML('beforeend', createMarkup(movie));
-    // кнопка добавления удаления фильма
-    const addRemoveBtnRef = document.querySelector('.js-add-remove-library');
-
-    addRemoveBtnRef.addEventListener('click', onAddRemoveMovie);
-  });
+  fetchMovieDetails();
 }
