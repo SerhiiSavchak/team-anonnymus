@@ -20,9 +20,9 @@ export function onAddRemoveMovie(event) {
 
     event.target.textContent = 'Add to my library';
     if (window.location.pathname === `/library.html`) {
-      renderStorageData();
       toggleModal();
     }
+    renderStorageData();
   }
 }
 
