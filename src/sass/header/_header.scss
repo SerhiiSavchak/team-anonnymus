@@ -166,7 +166,8 @@ body .light {
   color: $upcoming-black-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
-.light .film-description-title {
+.light .film-description-title,
+.light .upcoming-film-title {
   color: $btn-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
