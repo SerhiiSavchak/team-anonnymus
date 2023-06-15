@@ -14,6 +14,7 @@
 }
 
 .modal-window {
+  overflow: auto;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   position: absolute;
   top: 50%;
@@ -130,7 +131,7 @@
   line-height: 1.67;
   margin-bottom: 16px;
   color: $card-desc-color;
-  width: 100%;
+  max-width: 260px;
   max-height: 110px;
   scroll-behavior: smooth;
   overflow-y: auto;
@@ -150,7 +151,7 @@
 }
 
 .modal-button:hover,
-.modal-button:focus {
+modal-about-tex .modal-button:focus {
   background: $white-color;
   color: $accent-color;
   border: none;
@@ -159,8 +160,7 @@
 @media screen and (max-width: 767px) {
   .modal-window {
     max-width: 280px;
-
-    overflow-y: auto;
+    padding-left: 25px;
   }
 }
 
@@ -211,6 +211,7 @@
   .modal-about-text {
     margin-bottom: 24px;
     max-height: 130px;
+    max-width: 100%;
   }
 }
 

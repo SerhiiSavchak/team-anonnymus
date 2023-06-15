@@ -182,6 +182,7 @@
 .catalog-gallery-pagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 16px;
 
   margin-left: auto;
@@ -310,9 +311,11 @@
 
 .tui-next::after {
   background-image: url(../images/pag-right-arr.svg);
+  content: '';
 }
 .tui-prev::after {
   background-image: url(../images/pag-left-arr.svg);
+  content: '';
 }
 .tui-num-page {
   color: $card-desc-color;

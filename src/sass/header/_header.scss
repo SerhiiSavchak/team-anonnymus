@@ -111,6 +111,11 @@ body .light {
   background-color: $white-color;
   transition: background-color 500ms linear, ease-in-out 500ms;
 }
+
+.light .modal-window {
+  background-color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
 .light .header-item {
   color: $grey-color;
   transition: color 500ms linear, ease-in-out 500ms;
@@ -128,6 +133,35 @@ body .light {
   transition: color 500ms linear, ease-in-out 500ms;
 }
 
+.light .tui-page-btn.tui-next {
+  background-image: url(../images/right-arrow-light.svg);
+  background-size: contain;
+  width: 60px;
+  height: 40px;
+  background-repeat: no-repeat;
+
+  content: '';
+}
+
+.light .tui-page-btn.tui-prev {
+  display: flex;
+  justify-content: center;
+  flex-grow: 0;
+  width: 25px;
+
+  height: 31px;
+  flex-shrink: 1;
+}
+.light .tui-prev {
+  content: '';
+  margin-left: 10px;
+  background-image: url(../images/left-arrow-light.svg);
+  width: 60px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .light .film-description {
   color: $upcoming-black-color;
   transition: color 500ms linear, ease-in-out 500ms;
@@ -142,10 +176,40 @@ body .light {
   color: $btn-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
-.light .info-film-item-text {
+
+.light .info-film-item-text,
+.light .modal-stat-param,
+.light .modal-title,
+.light .modal-about,
+.light .modal-stat-values-text {
   color: $btn-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
+
+.light .modal-button {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+.light .modal-close-icon {
+  stroke: $btn-color;
+  transition: stroke 500ms linear, ease-in-out 500ms;
+}
+
+.light .modal-vote,
+.light .modal-votes {
+  background-color: $main-text-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .modal-about-text {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
 .light .library-error-text {
   color: $btn-color;
   transition: color 500ms linear, ease-in-out 500ms;
