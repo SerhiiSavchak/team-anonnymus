@@ -1,28 +1,30 @@
-import { fetchData } from '../api/fetchWeekly';
-import { fetchGenres } from '../api/fetchWeekly';
-import { weeklyUlRef } from '../refs/weeklyRefs';
-import { options } from '../api/apiKey';
+import { getTrendingMovie } from '../api/fetchTranding';
+import { getGenres } from '../api/fetchGenres';
+import { transformData } from '../utils/weeklyUtils';
 import { selectMovie } from './modal';
-
 import { renderMarkup, addMarkup } from '../markup/weeklyMarkup';
 
-const END_POINT = 'trending/all/week?language=en-US';
-
+const weeklyWrap = document.querySelector('.weekly-list');
 // WORKSPACE
 
 window.addEventListener('load', onPageLoad);
 
 // LISTENERS
 function onPageLoad() {
-  const genrePromise = fetchGenres(options);
+  fetchMovieDetails();
+}
 
-  fetchData(END_POINT, options).then(movieData => {
-    //console.log(movieData);
+async function fetchMovieDetails() {
+  try {
+    const responseMovie = await getTrendingMovie();
+    const movie = responseMovie.data.results.slice(0, 3);
 
-    genrePromise.then(genreData => {
-      const markup = renderMarkup(movieData, genreData);
-      addMarkup(weeklyUlRef, markup);
-      weeklyUlRef.addEventListener('click', selectMovie);
-    });
-  });
+    const responseGenre = await getGenres();
+
+    const genreData = responseGenre.data.genres;
+
+    const markup = renderMarkup(movie, genreData);
+    addMarkup(weeklyWrap, markup);
+    weeklyWrap.addEventListener('click', selectMovie);
+  } catch (error) {}
 }
