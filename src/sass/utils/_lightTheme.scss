@@ -1,0 +1,190 @@
+.dark {
+  background-color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+
+body .dark {
+  background-color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.dark .header {
+  background-color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.dark .header-item {
+  color: $card-desc-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.dark .hero-content {
+  background-color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.dark .span-name {
+  color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.dark .my-library-content-text-message {
+  color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+///////---------Fix for dark transition -------- //////////
+.light {
+  background-color: $white-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+///////---------Fix for dark transition -------- //////////
+body .light {
+  background-color: $white-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+
+.light .header {
+  background-color: $white-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+
+.light .modal-window {
+  background-color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .header-item {
+  color: $grey-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .weekly-title {
+  color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.light .header-logo-link {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .menu-open-btn {
+  color: $grey-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .tui-page-btn.tui-next {
+  background-image: url(../images/right-arrow-light.svg);
+  background-size: contain;
+  width: 60px;
+  height: 40px;
+  background-repeat: no-repeat;
+
+  content: '';
+}
+
+.light .tui-page-btn.tui-prev {
+  display: flex;
+  justify-content: center;
+  flex-grow: 0;
+  width: 25px;
+
+  height: 31px;
+  flex-shrink: 1;
+}
+.light .tui-prev {
+  content: '';
+  margin-left: 10px;
+  background-image: url(../images/left-arrow-light.svg);
+  width: 60px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.light .film-description {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .film-description-title,
+.light .upcoming-film-title {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .hero-modal {
+  background-color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .hero-modal-close {
+  stroke: $btn-color;
+  transition: stroke 500ms linear, ease-in-out 500ms;
+}
+
+.light .upcoming-section-title,
+.light .weekly-title {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .info-film-item-text,
+.light .modal-stat-param,
+.light .modal-title,
+.light .modal-about,
+.light .modal-stat-values-text {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .modal-button {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+.light .modal-close-icon {
+  stroke: $btn-color;
+  transition: stroke 500ms linear, ease-in-out 500ms;
+}
+
+.light .modal-vote,
+.light .modal-votes {
+  background-color: $main-text-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .modal-about-text {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .library-error-text {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .footer-text,
+.light .footer-bottom-text {
+  color: $grey-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .info-film-genre-style,
+.light .info-film-popularity {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .upcoming-info-span {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .upcoming-info-span {
+  background-color: $main-text-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .menu-container {
+  background-color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .mob-menu-item {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .mob-menu-item {
+  background-color: $white-color;
+}
