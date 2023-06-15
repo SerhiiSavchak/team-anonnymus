@@ -170,6 +170,14 @@ body .light {
   color: $btn-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
+.light .hero-modal {
+  background-color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .hero-modal-close {
+  stroke: $btn-color;
+  transition: stroke 500ms linear, ease-in-out 500ms;
+}
 
 .light .upcoming-section-title,
 .light .weekly-title {
