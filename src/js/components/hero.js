@@ -4,6 +4,7 @@ import img from '../../images/home-page/hero-home@1x-desc.jpg';
 import { async } from '@vimeo/player';
 import { Notify } from 'notiflix';
 import axios from 'axios';
+import { imgError } from '../../images/error/error-@1x-mobile.png';
 
 import { BASE_URL, API_KEY } from '../api/apiKey';
 import { mark } from '@vimeo/player';
@@ -40,7 +41,6 @@ async function createHeroMarkup() {
   } catch (error) {
     clearInterval(intervalId);
     console.log(error);
-    Notify.info('Cant find film');
   }
 }
 
@@ -69,10 +69,14 @@ btnCloseRef.addEventListener('click', onBtnCloseClick);
 // LISTENERS
 
 function onPageLoad() {
-  createHeroMarkup();
-  intervalId = setInterval(() => {
+  try {
     createHeroMarkup();
-  }, 20000);
+    intervalId = setInterval(() => {
+      createHeroMarkup();
+    }, 20000);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function onBtnCloseClick(evt) {
@@ -89,7 +93,29 @@ function onBtnOpenClick(evt) {
   document.body.classList.add('scroll-block');
 
   fetchVideo(evt.target.dataset.id, options).then(res => {
-    const markup = createVideoMarkup(res);
+    const markup = res
+      ? createVideoMarkup(res)
+      : ` <p class="hero-error-text">
+    OOPS... <br />We are very sorry!<br />
+    But we couldn’t find the trailer.
+  </p>
+  <picture class="hero-picture">
+    <source
+      media="(min-width:1280px)"
+     
+      srcset="/images/error/error-@1x-desctop.png"
+    />
+    <source
+      media="(min-width:768px)"
+      
+      srcset="/images/error/error-@1x-tablet.png"
+    />
+    <img
+      class="hero-error-img" 
+      src="/images/error/error-@1x-mobile.png"
+      alt="error"
+    />
+  </picture>`;
 
     addMarkup(modalWrapRef, markup);
   });
@@ -108,7 +134,7 @@ async function fetchVideo(id, options) {
     return response.data.results[0].key;
   } catch (error) {
     console.log(error);
-    Notify.info('Sorry,we cant find thrailer');
+    Notify.info('Sorry,we couldnt find thrailer');
   }
 }
 
@@ -145,7 +171,9 @@ function createMarkup(data) {
 
 function createVideoMarkup(key) {
   const videoUrl = `https://www.youtube.com/embed/${key}`;
-  return `<iframe autoplay;  class="iframe-hero" width="250" height="175"  src="${videoUrl}"></iframe>`;
+  return `<iframe autoplay; frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media;  gyroscope; picture-in-picture; web-share"
+  allowfullscreen  class="iframe-hero" width="250" height="175"  src="${videoUrl}"></iframe>`;
 }
 
 function addMarkup(element, markup) {
