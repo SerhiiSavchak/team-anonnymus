@@ -45,10 +45,10 @@ export function updateBtnNames(lastPage) {
   const firstButton = pagination.querySelector('.tui-first');
   const lastButton = pagination.querySelector('.tui-last');
   const pageButton = pagination.querySelectorAll('.tui-num-page');
+  const tuiPageBtn = pagination.querySelectorAll('.tui-page-btn');
 
   firstButton.textContent = '01';
   lastButton.textContent = addLeadingZero(lastPage);
-
   pageButton.forEach(
     page => (page.textContent = addLeadingZero(page.textContent))
   );
@@ -68,7 +68,7 @@ async function onPageLoad() {
     const responseMovie = await createMarkupPage(page);
 
     pagination.reset(responseMovie.data.total_results);
-
+    updateBtnNames(responseMovie.data.total_pages);
     containerTui.classList.remove('visuality-hidden');
   } catch (error) {
     console.log(error);
@@ -86,8 +86,9 @@ async function createMarkupPage(selectPage) {
   );
 
   const markup = generateMarkup(transformedData);
-
+  updateBtnNames(responseMovie.data.total_pages);
   addMarkup(ulRef, markup);
+
   ulRef.addEventListener('click', selectMovie);
   return responseMovie;
 }
@@ -103,7 +104,7 @@ async function createMarkupPageSearch(selectPage, searchQuery) {
   );
 
   const markup = generateMarkup(transformedData);
-
+  updateBtnNames(responseMovie.data.total_pages);
   addMarkup(ulRef, markup);
   ulRef.addEventListener('click', selectMovie);
   return responseMovie;
@@ -147,6 +148,7 @@ async function onSearchFormSubmit(event) {
     const responseMovie = await createMarkupPageSearch(page, searchQuery);
 
     pagination.reset(responseMovie.data.total_results);
+    updateBtnNames(responseMovie.data.total_pages);
     containerTui.classList.remove('visuality-hidden');
 
     pagination.on('afterMove', onClickPageSearch);
