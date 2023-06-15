@@ -82,6 +82,7 @@ function onPageLoad() {
 function onBtnCloseClick(evt) {
   backdropModalRef.classList.add('visuality-hidden');
   const iframe = document.querySelector('.iframe-hero');
+
   iframe.src = '';
   document.body.classList.remove('scroll-block');
 }
@@ -89,10 +90,11 @@ function onBtnCloseClick(evt) {
 function onBtnOpenClick(evt) {
   backdropModalRef.classList.remove('visuality-hidden');
 
-  console.log(evt.target.dataset.id);
   document.body.classList.add('scroll-block');
 
   fetchVideo(evt.target.dataset.id, options).then(res => {
+    console.log(res);
+
     const markup = res
       ? createVideoMarkup(res)
       : ` <p class="hero-error-text">
@@ -103,16 +105,16 @@ function onBtnOpenClick(evt) {
     <source
       media="(min-width:1280px)"
      
-      srcset="/images/error/error-@1x-desctop.png"
+      srcset="./images/error/error-@1x-desctop.png"
     />
     <source
       media="(min-width:768px)"
       
-      srcset="/images/error/error-@1x-tablet.png"
+      srcset="./images/error/error-@1x-tablet.png"
     />
     <img
       class="hero-error-img" 
-      src="/images/error/error-@1x-mobile.png"
+      src="./images/error/error-@1x-mobile.png"
       alt="error"
     />
   </picture>`;
@@ -171,9 +173,9 @@ function createMarkup(data) {
 
 function createVideoMarkup(key) {
   const videoUrl = `https://www.youtube.com/embed/${key}`;
-  return `<iframe autoplay; frameborder="0"
+  return `<iframe class="iframe-hero" autoplay; frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media;  gyroscope; picture-in-picture; web-share"
-  allowfullscreen  class="iframe-hero" width="250" height="175"  src="${videoUrl}"></iframe>`;
+  allowfullscreen   width="250" height="175" src="${videoUrl}"></iframe>`;
 }
 
 function addMarkup(element, markup) {
