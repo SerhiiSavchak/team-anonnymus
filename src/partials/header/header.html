@@ -24,26 +24,26 @@
       </ul>
 
       <button type="button" class="menu-open-btn" data-menu-open>menu</button>
-      <button type="button" class="header-btn-switch" id="switch">
-        <svg
-          id="sun"
-          class="switch-icon no-active"
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-        >
-          <use href="./images/spite/sprite.svg#icon-sun"></use>
-        </svg>
-        <svg
-          id="moon"
-          class="switch-icon active"
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-        >
-          <use href="./images/spite/sprite.svg#icon-moon"></use>
-        </svg>
-      </button>
+        <!-- Розмітка переключателя теми -->
+        <div class="theme-switch">
+          <div class="theme-switch__control">
+            <input
+              class="theme-switch__toggle"
+              type="checkbox"
+              name="theme"
+              id="theme-switch-toggle"
+              aria-label="Переключить между тёмной и светлой темой"
+            />
+            <label
+              aria-hidden="true"
+              class="theme-switch__track"
+              for="theme-switch-toggle"
+            >
+            </label>
+            <div aria-hidden="true" class="theme-switch__marker"></div>
+          </div>
+        </div>
+      </div>
     </nav>
   </div>
   <div class="mob-menu" hidden data-menu>
