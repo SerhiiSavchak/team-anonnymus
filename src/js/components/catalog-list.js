@@ -149,11 +149,13 @@ async function onSearchFormSubmit(event) {
 
     pagination.reset(responseMovie.data.total_results);
     updateBtnNames(responseMovie.data.total_pages);
+
     containerTui.classList.remove('visuality-hidden');
 
     pagination.on('afterMove', onClickPageSearch);
 
     if (responseMovie.data.total_results <= 20) {
+      console.log(responseMovie.data.total_pages);
       containerTui.classList.add('visuality-hidden');
     }
   } catch (error) {
