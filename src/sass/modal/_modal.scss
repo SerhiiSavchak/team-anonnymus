@@ -146,13 +146,27 @@
   padding: 12px 24px;
   color: $white-color;
   border: 1px solid $accent-color;
-  background-color: transparent;
-  transition: background-color $cubic-bezier, color $cubic-bezier;
+  background-color: $btn-color;
+  transition: background-color $cubic-bezier,
+    border $cubic-bezier color $cubic-bezier;
 }
 
 .modal-button:hover,
-modal-about-tex .modal-button:focus {
-  background: $white-color;
+.modal-button:focus {
+  background-color: $white-color;
+  color: $accent-color;
+  border: none;
+}
+
+.light .modal-button {
+  color: $btn-color;
+  border: 1px solid $accent-color;
+  background-color: $white-color;
+}
+
+.light .modal-button:hover,
+.light .modal-button:focus {
+  background-color: $btn-color;
   color: $accent-color;
   border: none;
 }

@@ -2,7 +2,7 @@ import Vimeo from '@vimeo/player';
 import { selectMovie } from './modal';
 import img from '../../images/home-page/hero-home@1x-desc.jpg';
 import { async } from '@vimeo/player';
-
+import { Notify } from 'notiflix';
 import axios from 'axios';
 
 import { BASE_URL, API_KEY } from '../api/apiKey';
@@ -40,6 +40,7 @@ async function createHeroMarkup() {
   } catch (error) {
     clearInterval(intervalId);
     console.log(error);
+    Notify.info('Cant find film');
   }
 }
 
@@ -107,6 +108,7 @@ async function fetchVideo(id, options) {
     return response.data.results[0].key;
   } catch (error) {
     console.log(error);
+    Notify.info('Sorry,we cant find thrailer');
   }
 }
 
