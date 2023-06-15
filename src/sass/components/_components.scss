@@ -6,20 +6,34 @@
 }
 
 .btn {
-  border: transparent;
   background: $btn-bg-color;
   color: $btn-color;
   border-radius: 74px;
   font-weight: 500;
-  padding: 10 24px;
+  border: transparent;
+  padding: 12 24px;
+  line-height: 1.16;
 
-  transition: color $cubic-bezier, border $cubic-bezier;
+  transition: color $cubic-bezier, background-color $cubic-bezier,
+    border $cubic-bezier box-shadow $cubic-bezier;
   &:hover,
   &:focus {
+    border: $accent-color;
     color: $accent-color;
-    background: $white-color;
-    border: 1px solid $accent-color;
+    background: transparent;
+    background-color: $white-color;
+    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   }
+}
+.light .btn {
+  background-color: $white-color;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+}
+
+.light .btn:hover,
+.light .btn:hover {
+  color: $accent-color;
+  background-color: $btn-color;
 }
 
 .btn-search {
@@ -45,12 +59,7 @@
     max-width: 375px;
   }
 
-  .btn {
-    padding: 12px 24px;
-    font-size: 12px;
-    line-height: 1.16;
-  }
-  .btn-search {
+  search {
     padding: 11px;
   }
 }
@@ -63,7 +72,6 @@
   .btn {
     font-size: 14px;
     line-height: 1.14;
-    padding: 12px 24px;
   }
   .btn-search {
     padding: 13px;

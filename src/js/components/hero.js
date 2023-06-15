@@ -134,7 +134,7 @@ function createMarkup(data) {
   <p class="hero-text-big-resp">
     ${data.overview.split('').slice(0, 225).join('') + '...'}
   </p>
-  <button type="button" class="hero-btn-resp js-open-video" data-id="${
+  <button type="button" class="hero-btn-resp btn js-open-video" data-id="${
     data.id
   }" >Watch trailer</button> <button type="button"  class="hero-btn-details link" data-id="${
     data.id
