@@ -4,7 +4,7 @@ import img from '../../images/home-page/hero-home@1x-desc.jpg';
 import { async } from '@vimeo/player';
 import { Notify } from 'notiflix';
 import axios from 'axios';
-import { imgError } from '../../images/error/error-@1x-mobile.png';
+import imgError from '../../images/error/error-@1x-mobile.png';
 
 import { BASE_URL, API_KEY } from '../api/apiKey';
 import { mark } from '@vimeo/player';
@@ -105,16 +105,16 @@ function onBtnOpenClick(evt) {
     <source
       media="(min-width:1280px)"
      
-      srcset="./images/error/error-@1x-desctop.png"
+      srcset="${imgError}"
     />
     <source
       media="(min-width:768px)"
       
-      srcset="./images/error/error-@1x-tablet.png"
+      srcset="${imgError}"
     />
     <img
       class="hero-error-img" 
-      src="./images/error/error-@1x-mobile.png"
+      src="${imgError}"
       alt="error"
     />
   </picture>`;

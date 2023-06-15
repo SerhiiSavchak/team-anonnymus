@@ -158,11 +158,12 @@ async function onSearchFormSubmit(event) {
       console.log(responseMovie.data.total_pages);
       containerTui.classList.add('visuality-hidden');
     }
-  } catch (error) {
-    errorContainer.innerHTML = `<p class="catalog-error-text">OOPS...<br>
+    if (!responseMovie.data.total_results) {
+      errorContainer.innerHTML = `<p class="catalog-error-text">OOPS...<br>
       We are very sorry!<br>
       We don’t have any results matching your search.</p>`;
-  }
+    }
+  } catch (error) {}
 }
 
 // WORKSPACE
