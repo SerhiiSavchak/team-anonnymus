@@ -50,6 +50,7 @@ searchInput.addEventListener('input', onCatalogInput);
 function onSearchSubmit(event) {
   event.preventDefault();
   const searchValue = searchInput.value.trim();
+
   let perPage;
 
   if (window.innerWidth >= 768) {
@@ -59,15 +60,15 @@ function onSearchSubmit(event) {
   }
 
   if (searchValue !== '') {
-    const searchEndpoint = `search/movie?query=${searchValue}&language=en-US&page=1&per_page=${perPage}`;
+    const searchEndpoint = `search/movie?query=${searchValue}&include_adult=false&language=en-US&page=1&per_page=${perPage}`;
 
     fetchData(searchEndpoint, options).then(response => {
       if (response.length !== 0) {
         renderMarkup(response.slice(0, perPage)).then(markup => {
           addMarkup(ulRef, markup);
         });
-      }
-      errorContainer.innerHTML = `<p class="catalog-error-text">OOPS...<br>
+      } else
+        errorContainer.innerHTML = `<p class="catalog-error-text">OOPS...<br>
       We are very sorry!<br>
       We don’t have any results matching your search.</p>`;
     });
