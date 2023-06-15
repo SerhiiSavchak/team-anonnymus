@@ -66,10 +66,12 @@
 }
 
 .button-switch {
+  outline: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 4px 3px;
+  width: 60px;
   gap: 22px;
   background: $btn-bg-color;
   border-radius: 74px;
