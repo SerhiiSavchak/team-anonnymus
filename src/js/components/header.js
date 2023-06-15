@@ -49,30 +49,14 @@ const timeout = setTimeout(() => {}, 500);
 //   }
 // });
 
-(() => {
-  const refs = {
-    openMenuBtn: document.querySelector('[data-menu-open]'),
-    closeMenuBtn: document.querySelector('[data-menu-close]'),
-    menu: document.querySelector('[data-menu]'),
-  };
+const openMenuBtn = document.querySelector('[data-menu-open]');
+const closeMenuBtn = document.querySelector('[data-menu-close]');
+const mobMenu = document.querySelector('[data-menu]');
 
-  refs.openMenuBtn.addEventListener('click', openMenu);
-  refs.closeMenuBtn.addEventListener('click', closeMenu);
+openMenuBtn.addEventListener('click', function () {
+  mobMenu.classList.add('open');
+});
 
-  function openMenu() {
-    refs.menu.removeAttribute('hidden');
-    window.addEventListener('resize', checkWindowWidth);
-  }
-
-  function closeMenu() {
-    refs.menu.setAttribute('hidden', true);
-    window.removeEventListener('resize', checkWindowWidth);
-  }
-
-  function checkWindowWidth() {
-    const screenWidth = window.innerWidth;
-    if (screenWidth > 767) {
-      closeMenu();
-    }
-  }
-})();
+closeMenuBtn.addEventListener('click', function () {
+  mobMenu.classList.remove('open');
+});
