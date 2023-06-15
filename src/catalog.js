@@ -1,3 +1,4 @@
+import './js/utils/theme';
 import './js/components/header';
 import './js/components/hero';
 import './js/components/catalog-list';

@@ -54,26 +54,129 @@
   text-align: center;
 }
 
-.switch-icon {
+.switch-moon,
+.switch-sun,
+.switch-elipse {
   width: 24px;
   height: 24px;
   stroke: white;
   transition: opacity 0.3s ease;
   background-position: center;
+  background-color: transparent;
 }
 
-.active {
-  opacity: 1;
+.button-switch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 3px;
+  gap: 22px;
+  background: $btn-bg-color;
+  border-radius: 74px;
+  border: none;
+
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
+}
+.icon-halfofmoon {
+  @media screen and (min-width: 768px) {
+    width: 10px;
+    height: 10px;
+  }
 }
 
-.no-active {
-  opacity: 0;
+.icon-moon-right {
+  @media screen and (min-width: 768px) {
+    width: 13px;
+    height: 13px;
+  }
 }
-.span-name {
-  color: $white-color;
+
+/////// ------------ ДОДАВ СТИЛІ ДЛЯ КНОПКИ --------------- /////////////
+.icon-moon-left {
+  @media screen and (min-width: 768px) {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.icon-sun {
+  @media screen and (min-width: 768px) {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+///////---------Fix for dark transition -------- //////////
+.dark {
+  background-color: $white-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+///////---------Fix for dark transition -------- //////////
+
+.dark .header {
+  background-color: $white-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.dark .header-item {
+  color: $grey-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.dark .weekly-title {
+  color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.dark .header-logo-link {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.dark .menu-open-btn {
+  color: $grey-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.dark .film-description {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.dark .film-description-title {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.dark .upcoming-section-title,
+.dark .weekly-title {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.dark .info-film-item-text {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.dark .footer-text,
+.dark .footer-bottom-text {
+  color: $grey-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.dark .info-film-genre-style,
+.dark .info-film-popularity {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.dark .upcoming-info-span {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.dark .upcoming-info-span {
+  background-color: $main-text-color;
+  transition: color 500ms linear, ease-in-out 500ms;
 }
 
 // ============================ MENU ==================================//
+
 .menu-open-btn {
   background: transparent;
   border: none;
@@ -174,6 +277,9 @@
     gap: 32px;
   }
 
+  .header-item {
+    font-size: 13px;
+  }
   .header-logo {
     margin-right: 8px;
   }
@@ -192,7 +298,9 @@
   .header-container {
     max-width: 1280px;
   }
-
+  .header-item {
+    font-size: 14px;
+  }
   .menu-container {
     display: none;
   }
