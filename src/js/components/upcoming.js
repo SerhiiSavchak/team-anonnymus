@@ -92,9 +92,11 @@ function createMarkup(movie) {
 
               <div class="info-film-item">
                 <p class="info-film-item-text">Vote / Votes</p>
-                <p class="info-film-votes-count"><span>${
+                <p class="info-film-votes-count"><span class="upcoming-info-span">${
                   movie.vote_average
-                }</span><b>/</b><span>${movie.vote_count}</span></p>
+                }</span ><b>/</b><span class="upcoming-info-span">${
+    movie.vote_count
+  }</span></p>
               </div>
             </div>
             
