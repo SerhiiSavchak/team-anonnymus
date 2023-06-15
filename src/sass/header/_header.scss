@@ -65,6 +65,108 @@
   background-color: transparent;
 }
 
+.dark {
+  background-color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+
+body .dark {
+  background-color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.dark .header {
+  background-color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.dark .header-item {
+  color: $card-desc-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.dark .hero-content {
+  background-color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.dark .logo-title {
+  color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.dark .my-library-content-text-message {
+  color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+///////---------Fix for dark transition -------- //////////
+.light {
+  background-color: $white-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+///////---------Fix for dark transition -------- //////////
+body .light {
+  background-color: $white-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+
+.light .header {
+  background-color: $white-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.light .header-item {
+  color: $grey-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .weekly-title {
+  color: $btn-color;
+  transition: background-color 500ms linear, ease-in-out 500ms;
+}
+.light .header-logo-link {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .menu-open-btn {
+  color: $grey-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .film-description {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .film-description-title {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .upcoming-section-title,
+.light .weekly-title {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .info-film-item-text {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .footer-text,
+.light .footer-bottom-text {
+  color: $grey-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
+.light .info-film-genre-style,
+.light .info-film-popularity {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .upcoming-info-span {
+  color: $upcoming-black-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .upcoming-info-span {
+  background-color: $main-text-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+
 .button-switch {
   outline: none;
   display: flex;
@@ -108,73 +210,6 @@
     width: 13px;
     height: 13px;
   }
-}
-
-///////---------Fix for dark transition -------- //////////
-.dark {
-  background-color: $white-color;
-  transition: background-color 500ms linear, ease-in-out 500ms;
-}
-///////---------Fix for dark transition -------- //////////
-
-.dark .header {
-  background-color: $white-color;
-  transition: background-color 500ms linear, ease-in-out 500ms;
-}
-.dark .header-item {
-  color: $grey-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-.dark .weekly-title {
-  color: $btn-color;
-  transition: background-color 500ms linear, ease-in-out 500ms;
-}
-.dark .header-logo-link {
-  color: $btn-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-.dark .menu-open-btn {
-  color: $grey-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-
-.dark .film-description {
-  color: $upcoming-black-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-.dark .film-description-title {
-  color: $btn-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-
-.dark .upcoming-section-title,
-.dark .weekly-title {
-  color: $btn-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-.dark .info-film-item-text {
-  color: $btn-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-
-.dark .footer-text,
-.dark .footer-bottom-text {
-  color: $grey-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-
-.dark .info-film-genre-style,
-.dark .info-film-popularity {
-  color: $upcoming-black-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-.dark .upcoming-info-span {
-  color: $upcoming-black-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-.dark .upcoming-info-span {
-  background-color: $main-text-color;
-  transition: color 500ms linear, ease-in-out 500ms;
 }
 
 // ============================ MENU ==================================//
