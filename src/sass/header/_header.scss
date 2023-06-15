@@ -86,7 +86,7 @@ body .dark {
   background-color: $btn-color;
   transition: background-color 500ms linear, ease-in-out 500ms;
 }
-.dark .logo-title {
+.dark .span-name {
   color: $white-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
@@ -146,6 +146,10 @@ body .light {
   color: $btn-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
+.light .library-error-text {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
 
 .light .footer-text,
 .light .footer-bottom-text {
@@ -164,6 +168,14 @@ body .light {
 }
 .light .upcoming-info-span {
   background-color: $main-text-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .menu-container {
+  background-color: $white-color;
+  transition: color 500ms linear, ease-in-out 500ms;
+}
+.light .mob-menu-item {
+  color: $btn-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
 
