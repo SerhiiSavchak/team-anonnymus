@@ -1,13 +1,12 @@
 import Vimeo from '@vimeo/player';
 import { selectMovie } from './modal';
-import img from '../../images/home-page/hero-home@1x-desc.jpg';
-import { async } from '@vimeo/player';
 import { Notify } from 'notiflix';
 import axios from 'axios';
 import imgError from '../../images/error/error-@1x-mobile.png';
+import imgErrorTablet from '../../images/error/error-@1x-tablet.png';
+import imgErrorDesc from '../../images/error/error-@1x-desctop.png';
 
 import { BASE_URL, API_KEY } from '../api/apiKey';
-import { mark } from '@vimeo/player';
 
 function getTrandingDay() {
   return axios.get(`${BASE_URL}trending/all/day?language=en-US`, {
@@ -81,10 +80,13 @@ function onPageLoad() {
 
 function onBtnCloseClick(evt) {
   backdropModalRef.classList.add('visuality-hidden');
-  const iframe = document.querySelector('.iframe-hero');
+  if (document.querySelector('.iframe-hero')) {
+    const iframe = document.querySelector('.iframe-hero');
 
-  iframe.src = '';
-  document.body.classList.remove('scroll-block');
+    iframe.src = '';
+    document.body.classList.remove('scroll-block');
+  }
+  backdropModalRef.classList.add('visuality-hidden');
 }
 
 function onBtnOpenClick(evt) {
@@ -105,12 +107,12 @@ function onBtnOpenClick(evt) {
     <source
       media="(min-width:1280px)"
      
-      srcset="${imgError}"
+      srcset="${imgErrorDesc}"
     />
     <source
       media="(min-width:768px)"
       
-      srcset="${imgError}"
+      srcset="${imgErrorTablet}"
     />
     <img
       class="hero-error-img" 
