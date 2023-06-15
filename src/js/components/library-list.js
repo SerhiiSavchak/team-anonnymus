@@ -42,21 +42,7 @@ function generateMarkup(data) {
                </p>
              </div>
            </div>
-           <div class="library-item-rating">
-             <div class="rating_value">${movie.vote_average}</div>
-             <div class="rating-body">
-               <div class="rating__active" data-rating="${movie.vote_average}">
-                 <div class="rating__items">
-                   <input type="radio" class="rating__item" value="1" name="rating">
-                   <input type="radio" class="rating__item" value="2" name="rating">
-                   <input type="radio" class="rating__item" value="3" name="rating">
-                   <input type="radio" class="rating__item" value="4" name="rating">
-                   <input type="radio" class="rating__item" value="5" name="rating">
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
+          
        </li>`
     )
     .join('');
