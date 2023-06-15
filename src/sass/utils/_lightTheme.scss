@@ -66,6 +66,17 @@ body .light {
   transition: color 500ms linear, ease-in-out 500ms;
 }
 
+.light .btn {
+  background-color: $white-color;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+}
+
+.light .btn:hover,
+.light .btn:hover {
+  color: $accent-color;
+  background-color: $btn-color;
+}
+
 .light .tui-page-btn.tui-next {
   background-image: url(../images/right-arrow-light.svg);
   background-size: contain;
