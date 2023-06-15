@@ -73,6 +73,5 @@ function renderEmptyLocalMarkup() {
   We are very sorry!<br>
   We don’t have any results matching your search.</p>
   <a href="./catalog.html" class="library-error-btn btn link">Search movie</a>`;
-  // container.innerHTML = failureText;
-  console.log(location);
+  container.innerHTML = failureText;
 }
