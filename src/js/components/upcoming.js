@@ -5,21 +5,8 @@ import {
 import { getGenres } from '../api/fetchGenres.js';
 import { getUpcoming } from '../api/fetchUpcoming.js';
 
-const BASE_URL = 'https://api.themoviedb.org/3/';
-const END_POINT_UPCOMING = 'movie/upcoming';
-const END_POINT_GENRE = 'genre/movie/list?language=en';
-const API_KEY = 'api_key=bd0a4499e3f0b036025d12595397227a';
-
 const upcomingList = document.querySelector('.upcoming-container ');
 
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDBhNDQ5OWUzZjBiMDM2MDI1ZDEyNTk1Mzk3MjI3YSIsInN1YiI6IjY0N2YxZDM3Y2FlZjJkMDEzNjJjZDBjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.04GEOyHwNXnOZB4gUWNaiyPlLlOZ0z9Ttfl7T5UFMuk',
-  },
-};
 let textButton = '';
 
 window.addEventListener('load', onPageLoad);
@@ -47,6 +34,10 @@ async function fetchMovieDetails() {
   } catch (error) {
     console.log(error.message);
   }
+}
+
+function onPageLoad() {
+  fetchMovieDetails();
 }
 
 function createMarkup(movie) {
@@ -123,8 +114,4 @@ function createMarkup(movie) {
   </div>`;
 
   return !movie.results ? filmContent : message;
-}
-
-function onPageLoad() {
-  fetchMovieDetails();
 }

@@ -5,7 +5,7 @@ const STORAGE_LIBRARY_KEY = 'movieLibrary';
 const container = document.querySelector('.library-container');
 const libraryUlRef = document.querySelector('.movies-list');
 
-export function renderStorageData() {
+function renderStorageData() {
   const savedMovies = Storage.load(STORAGE_LIBRARY_KEY);
 
   if (!savedMovies || savedMovies.length === 0) {
