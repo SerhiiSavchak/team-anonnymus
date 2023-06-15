@@ -83,6 +83,7 @@ function onBtnCloseClick(evt) {
 
 function onBtnOpenClick(evt) {
   backdropModalRef.classList.remove('visuality-hidden');
+
   console.log(evt.target.dataset.id);
   document.body.classList.add('scroll-block');
 
