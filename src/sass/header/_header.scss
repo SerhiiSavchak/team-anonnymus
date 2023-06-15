@@ -21,6 +21,7 @@
 }
 
 .header-item {
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -63,6 +64,37 @@
   transition: opacity 0.3s ease;
   background-position: center;
   background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .home .header-item.home::after {
+    content: ' ';
+    position: absolute;
+    width: 50px;
+    height: 3.5px;
+    bottom: -20;
+    left: -5;
+    background: $btn-bg-color;
+  }
+  .lib .header-item.lib::after {
+    content: ' ';
+    position: absolute;
+    width: 80px;
+    height: 3.5px;
+    bottom: -20;
+    left: -2;
+    background: $btn-bg-color;
+  }
+
+  .catal .header-item.catal::after {
+    content: ' ';
+    position: absolute;
+    width: 70px;
+    height: 3.5px;
+    bottom: -20;
+    left: -5;
+    background: $btn-bg-color;
+  }
 }
 
 .button-switch {
@@ -159,10 +191,40 @@
 }
 
 .mob-menu-item {
+  position: relative;
   font-size: 14px;
   line-height: 1.14;
   color: $white-color;
   text-transform: uppercase;
+}
+
+.home .mob-menu-item.home::after {
+  content: ' ';
+  position: absolute;
+  width: 65px;
+  height: 3.5px;
+  bottom: -6;
+  left: -11;
+  background: $btn-bg-color;
+}
+.lib .mob-menu-item.lib::after {
+  content: ' ';
+  position: absolute;
+  width: 85px;
+  height: 3.5px;
+  bottom: -4;
+  left: -2;
+  background: $btn-bg-color;
+}
+
+.catal .mob-menu-item.catal::after {
+  content: ' ';
+  position: absolute;
+  width: 75px;
+  height: 3.5px;
+  bottom: -3;
+  left: -5;
+  background: $btn-bg-color;
 }
 
 .menu-close-btn {
