@@ -1,5 +1,5 @@
 const bodyStyle = document.querySelector('body');
-const themSwitcherButton = document.querySelector('.button-switch');
+const themSwitcherButton = document.querySelector('.theme-switch-btn');
 const halfofmoon = document.querySelector('.icon-halfofmoon');
 const moonLeft = document.querySelector('.icon-moon-left');
 
