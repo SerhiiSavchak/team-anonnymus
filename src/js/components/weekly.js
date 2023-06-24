@@ -1,6 +1,5 @@
 import { getTrendingMovie } from '../api/fetchTranding';
 import { getGenres } from '../api/fetchGenres';
-import { transformData } from '../utils/weeklyUtils';
 import { selectMovie } from './modal';
 import { renderMarkup, addMarkup } from '../markup/weeklyMarkup';
 

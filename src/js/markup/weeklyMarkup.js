@@ -16,7 +16,7 @@ function generateMarkup(data) {
       movie => ` 
         <li class="weekly-item" data-id="${movie.id}">
           <div class="weekly-wrap" ">
-              <img class="weekly-poster-list" src="https://image.tmdb.org/t/p/w500/${
+              <img class="weekly-poster-img" src="https://image.tmdb.org/t/p/w500/${
                 movie.poster
               }" alt="${movie.title}" />       
           <div class="weekly-info">
