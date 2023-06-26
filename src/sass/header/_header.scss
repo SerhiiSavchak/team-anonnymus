@@ -1,15 +1,32 @@
 .header {
   height: 48px;
-
   z-index: 100;
   background-color: $mobile-bg-color;
   width: 100%;
+  @media screen and (min-width: 768px) {
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.header-container {
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+  }
 }
 
 .header-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 
 .header-logo-link {
@@ -20,7 +37,37 @@
   align-items: center;
 }
 
-.header-item {
+.header-logo {
+  @media screen and (min-width: 768px) {
+    margin-right: 8px;
+  }
+}
+
+.header-logo-span {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.header-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 59px;
+    margin-right: 169px;
+    gap: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 307px;
+    margin-right: 417px;
+  }
+}
+
+.header-link {
   position: relative;
   font-weight: 500;
   font-size: 14px;
@@ -29,44 +76,23 @@
   text-align: center;
   text-transform: uppercase;
   color: $card-desc-color;
-}
-
-.header-list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @media screen and (min-width: 768px) {
+    font-size: 13px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 14px;
+  }
 }
 
 .header-link:hover,
-.header-link:focus {
+.header-link:focus,
+.mob-menu-link:hover,
+.mob-menu-link:focus {
   color: $accent-color;
   transition: $cubic-bezier;
 }
 
-.header-btn-switch {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 18px;
-  border: none;
-  border-radius: 194px;
-  background: $btn-bg-color;
-  text-align: center;
-}
-
-.switch-moon,
-.switch-sun,
-.switch-elipse {
-  width: 24px;
-  height: 24px;
-  stroke: white;
-  transition: opacity 0.3s ease;
-  background-position: center;
-  background-color: transparent;
-}
-
-.button-switch {
+.theme-switch-btn {
   outline: none;
   display: flex;
   justify-content: space-between;
@@ -77,9 +103,10 @@
   background: $btn-bg-color;
   border-radius: 74px;
   border: none;
-
   @media screen and (min-width: 768px) {
     gap: 16px;
+    min-width: 60px;
+    min-height: 24px;
   }
 }
 .icon-halfofmoon {
@@ -96,7 +123,6 @@
   }
 }
 
-/////// ------------ ДОДАВ СТИЛІ ДЛЯ КНОПКИ --------------- /////////////
 .icon-moon-left {
   @media screen and (min-width: 768px) {
     width: 13px;
@@ -111,26 +137,7 @@
   }
 }
 
-// ============================ MENU ==================================//
-
-.menu-open-btn {
-  background: transparent;
-  border: none;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.17;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  text-transform: uppercase;
-  color: $card-desc-color;
-}
-
-.menu-open-btn:hover,
-.menu-open-btn:focus {
-  color: $accent-color;
-  transition: $cubic-bezier;
-}
+// Mob-menu
 
 .mob-menu {
   position: fixed;
@@ -144,18 +151,43 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
+
 .mob-menu.open {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.3s ease;
 }
 
-.menu-container {
+.menu-open-btn {
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: $card-desc-color;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.menu-open-btn:hover,
+.menu-open-btn:focus {
+  color: $accent-color;
+  transition: $cubic-bezier;
+}
+
+.mob-menu-container {
   height: 100vh;
   position: relative;
   width: 60%;
-
   background-color: $mobile-bg-color;
   padding: 80px 105px 144px 20px;
   border-radius: 0px 8px 8px 0px;
@@ -163,25 +195,26 @@
   transform: translateX(-100%);
   transition: transform 0.3s ease;
 }
-.mob-menu.open .menu-container {
+
+.mob-menu.open .mob-menu-container {
   transform: translateY(0);
 }
-.menu-list {
+
+.mob-menu-list {
   width: 79px;
   gap: 24px;
   display: flex;
   flex-direction: column;
 }
 
-.mob-menu-item {
-  position: relative;
+.mob-menu-link {
   font-size: 14px;
   line-height: 1.14;
   color: $white-color;
   text-transform: uppercase;
 }
 
-.menu-close-btn {
+.mob-menu-close-btn {
   display: block;
   background-color: transparent;
   position: absolute;
@@ -189,75 +222,4 @@
   left: 0;
   transform: translate(0);
   border: none;
-}
-
-.svg-close {
-  stroke: $white-color;
-}
-
-.switch-icon use {
-  fill: transparent;
-}
-// ============================ \MENU\ ==================================//
-
-@media screen and (max-width: 767px) {
-  .header-list {
-    display: none;
-  }
-  .span-name {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .header {
-    height: 60px;
-    display: flex;
-    align-items: center;
-  }
-  .header-container {
-    max-width: 768px;
-  }
-  .header-nav {
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .header-list {
-    margin-left: 59px;
-    margin-right: 169px;
-    gap: 32px;
-  }
-
-  .header-item {
-    font-size: 13px;
-  }
-  .header-logo {
-    margin-right: 8px;
-  }
-  .button-switch {
-    min-width: 60px;
-    min-height: 24px;
-  }
-  .menu-open-btn {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .header {
-  }
-  .header-container {
-    max-width: 1280px;
-  }
-  .header-item {
-    font-size: 14px;
-  }
-  .menu-container {
-    display: none;
-  }
-
-  .header-list {
-    margin-left: 307px;
-    margin-right: 417px;
-  }
 }
