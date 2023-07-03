@@ -49,7 +49,7 @@ body .light {
   background-color: $white-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
-.light .header-item {
+.light .header-link {
   color: $grey-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
@@ -187,17 +187,14 @@ body .light {
   background-color: $main-text-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
-.light .menu-container {
+.light .mob-menu-container {
   background-color: $white-color;
-  transition: color 500ms linear, ease-in-out 500ms;
-}
-.light .mob-menu-item {
-  color: $btn-color;
   transition: color 500ms linear, ease-in-out 500ms;
 }
 
-.light .mob-menu-item {
-  background-color: $white-color;
+.light .mob-menu-link {
+  color: $btn-color;
+  transition: color 500ms linear, ease-in-out 500ms;
 }
 
 .light .hero-error-text {
