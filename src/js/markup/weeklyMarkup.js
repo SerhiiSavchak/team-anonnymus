@@ -1,13 +1,9 @@
 import { transformData } from '../utils/weeklyUtils';
-
+import { addMarkup } from '../utils/addMarkup';
 function renderMarkup(movieData, genreData) {
   const transformedData = transformData(movieData, genreData);
 
   return generateMarkup(transformedData);
-}
-
-function addMarkup(element, markup) {
-  element.innerHTML = markup;
 }
 
 function generateMarkup(data) {
