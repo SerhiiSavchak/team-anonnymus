@@ -8,10 +8,7 @@
   flex-direction: column;
   margin: 0 auto;
 }
-.info-film-block {
-  margin: 0;
-  padding: 0;
-}
+
 .upcoming-section-title {
   font-weight: 500;
   line-height: 19px;
@@ -35,11 +32,11 @@
   text-transform: uppercase;
 }
 
-.info-film {
+.upcoming-info-film-wrap {
   margin-bottom: 20px;
 }
 
-.info-film-votes-count span {
+.upcoming-info-film-votes-count span {
   padding: 0px 4px;
   background-color: $white-color;
   border-radius: 5px;
@@ -48,11 +45,11 @@
   line-height: 1.14;
 }
 
-.info-film-votes-count b {
+.upcoming-info-film-votes-count b {
   padding: 1px 4px;
 }
 
-.info-film-item p {
+.upcoming-info-film-item p {
   font-weight: 500;
   line-height: 1.18;
   color: $card-desc-color;
@@ -64,7 +61,7 @@
   padding-bottom: 0px;
 }
 
-p.info-film-resp-release-date {
+p.upcoming-info-film-resp-release-date {
   color: $accent-color;
 }
 
@@ -72,13 +69,18 @@ p.text-color-white {
   color: $white-color;
 }
 
-.info-film-item {
+.upcoming-info-film-list {
+  margin: 0;
+  padding: 0;
+}
+
+.upcoming-info-film-item {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.film-description-title {
+.upcoming-info-film-title {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.18;
@@ -87,7 +89,7 @@ p.text-color-white {
   margin-bottom: 20px;
 }
 
-.film-description {
+.upcoming-info-film-description {
   max-height: 160px;
   font-size: 14px;
   line-height: 20px;
@@ -142,7 +144,7 @@ p.text-color-white {
     line-height: 1.14;
   }
 
-  .info-film {
+  .upcoming-info-film-wrap {
     column-count: 2;
   }
 
@@ -168,7 +170,7 @@ p.text-color-white {
   .upcoming-film-title {
     margin-bottom: 24px;
   }
-  .film-description {
+  .upcoming-info-film-description {
     max-height: 100px;
   }
 }
@@ -201,7 +203,7 @@ p.text-color-white {
     margin-bottom: 28px;
   }
 
-  .info-film {
+  .upcoming-info-film-wrap {
     column-count: 1;
   }
 }

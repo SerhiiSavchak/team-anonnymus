@@ -27,19 +27,19 @@ export function createMarkup(movie) {
     <div class="upcoming-info-wrap">
         <h3 class="upcoming-film-title">${movie.title}</h3>
         
-        <div class ="info-film">
-            <ul class="info-film-block">
-              <li class="info-film-item">
-                <p class="info-film-item-text">Release date</p>
-                <p class="info-film-resp-release-date">${movie.release_date.replace(
+        <div class ="upcoming-info-film-wrap">
+            <ul class="upcoming-info-film-list">
+              <li class="upcoming-info-film-item">
+                <p class="upcoming-info-film-text">Release date</p>
+                <p class="upcoming-info-film-resp-release-date">${movie.release_date.replace(
                   /^(\d+)-(\d+)-(\d+)$/,
                   `$3.$2.$1`
                 )}</p>
               </li>
 
-              <li class="info-film-item">
-                <p class="info-film-item-text">Vote / Votes</p>
-                <p class="info-film-votes-count"><span class="upcoming-info-span">${
+              <li class="upcoming-info-film-item">
+                <p class="upcoming-info-film-text">Vote / Votes</p>
+                <p class="upcoming-info-film-votes-count"><span class="upcoming-info-span">${
                   movie.vote_average
                 }</span ><b>/</b><span class="upcoming-info-span">${
     movie.vote_count
@@ -47,17 +47,17 @@ export function createMarkup(movie) {
               </li>
             </ul>
             
-            <ul class="info-film-block">
-              <li class="info-film-item">
-                <p class="info-film-item-text">Popularity</p>
-                <p class="info-film-popularity text-color-white">${Number(
+            <ul class="upcoming-info-film-list">
+              <li class="upcoming-info-film-item">
+                <p class="upcoming-info-film-text">Popularity</p>
+                <p class="upcoming-info-film-popularity text-color-white">${Number(
                   movie.popularity.toFixed(1)
                 )}</p>
               </li>
 
-              <li class="info-film-item">
-                <p class="info-film-item-text">Genre</p>
-                <p class="info-film-genre-style text-color-white genre-padding-bottom">${
+              <li class="upcoming-info-film-item">
+                <p class="upcoming-info-film-text">Genre</p>
+                <p class="upcoming-info-film-genre-style text-color-white genre-padding-bottom">${
                   movie.genres
                 }</p>
               </li>
@@ -65,9 +65,9 @@ export function createMarkup(movie) {
              
         </div>
     
-        <div class ="info-film-overview">
-      <h3 class="film-description-title">ABOUT</h3>
-      <p class="film-description">${textContent}</p>
+        <div class ="upcoming-info-film-overview">
+      <h3 class="upcoming-info-film-title">ABOUT</h3>
+      <p class="upcoming-info-film-description">${textContent}</p>
       <button class="btn js-add-remove-library" type="button" data-id="${
         movie.id
       }">${textButton}</button>
