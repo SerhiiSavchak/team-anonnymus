@@ -1,7 +1,7 @@
 import { selectMovie } from './modal';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-import { getTrendingMovie } from '../api/fetchTranding.js';
+import { getTrendingMovie } from '../api/fetchTrandingWeek.js';
 import { getGenres } from '../api/fetchGenres.js';
 import { getQuerryMovie } from '../api/fetchQuerry';
 
