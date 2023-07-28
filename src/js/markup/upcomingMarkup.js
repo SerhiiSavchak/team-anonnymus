@@ -20,9 +20,9 @@ export function createMarkup(movie) {
     <source media="(min-width:768px)" srcset="https://image.tmdb.org/t/p/original${
       movie.backdrop_path
     }">
-    <img src="https://image.tmdb.org/t/p/w500${
+    <img class="upcoming-img" src="https://image.tmdb.org/t/p/w500${
       movie.poster_path
-    }" alt="poster_path" style="width:auto;">
+    }" alt="${movie.title}">
 </picture>
     <div class="upcoming-info-wrap">
         <h3 class="upcoming-film-title">${movie.title}</h3>
@@ -31,7 +31,7 @@ export function createMarkup(movie) {
             <ul class="upcoming-info-film-list">
               <li class="upcoming-info-film-item">
                 <p class="upcoming-info-film-text">Release date</p>
-                <p class="upcoming-info-film-resp-release-date">${movie.release_date.replace(
+                <p class="upcoming-info-film-text release ">${movie.release_date.replace(
                   /^(\d+)-(\d+)-(\d+)$/,
                   `$3.$2.$1`
                 )}</p>
@@ -39,9 +39,9 @@ export function createMarkup(movie) {
 
               <li class="upcoming-info-film-item">
                 <p class="upcoming-info-film-text">Vote / Votes</p>
-                <p class="upcoming-info-film-votes-count"><span class="upcoming-info-span">${
+                <p class="upcoming-info-film-text"><span class="upcoming-info-film-span">${
                   movie.vote_average
-                }</span ><b>/</b><span class="upcoming-info-span">${
+                }</span ><b>/</b><span class="upcoming-info-film-span">${
     movie.vote_count
   }</span></p>
               </li>
@@ -50,14 +50,14 @@ export function createMarkup(movie) {
             <ul class="upcoming-info-film-list">
               <li class="upcoming-info-film-item">
                 <p class="upcoming-info-film-text">Popularity</p>
-                <p class="upcoming-info-film-popularity text-color-white">${Number(
+                <p class="upcoming-info-film-text white">${Number(
                   movie.popularity.toFixed(1)
                 )}</p>
               </li>
 
               <li class="upcoming-info-film-item">
                 <p class="upcoming-info-film-text">Genre</p>
-                <p class="upcoming-info-film-genre-style text-color-white genre-padding-bottom">${
+                <p class="upcoming-info-film-text white genre-padding-bottom">${
                   movie.genres
                 }</p>
               </li>
