@@ -28,7 +28,7 @@ export function createMarkup(movie) {
         <h3 class="upcoming-film-title">${movie.title}</h3>
         
         <div class ="upcoming-info-film-wrap">
-            <ul class="upcoming-info-film-list">
+            <ul class="upcoming-info-film-list list">
               <li class="upcoming-info-film-item">
                 <p class="upcoming-info-film-text">Release date</p>
                 <p class="upcoming-info-film-text release ">${movie.release_date.replace(
@@ -47,7 +47,7 @@ export function createMarkup(movie) {
               </li>
             </ul>
             
-            <ul class="upcoming-info-film-list">
+            <ul class="upcoming-info-film-list list">
               <li class="upcoming-info-film-item">
                 <p class="upcoming-info-film-text">Popularity</p>
                 <p class="upcoming-info-film-text white">${Number(

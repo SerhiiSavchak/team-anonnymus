@@ -1,5 +1,4 @@
 import { toggleModal } from '../utils/modalUtils.js';
-import { Notify } from 'notiflix';
 import { getInfoMovieByID } from '../api/fetchModal.js';
 import { URL_FOR_IMG } from '../api/apiKey.js';
 import { modalWindowRef } from '../refs/modalRefs.js';

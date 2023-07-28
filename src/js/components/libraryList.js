@@ -1,5 +1,5 @@
 import Storage from '../api/localStorageAPI';
-import { selectMovie } from '../components/modal';
+import { selectMovie } from './modal';
 
 const STORAGE_LIBRARY_KEY = 'movieLibrary';
 const container = document.querySelector('.library-container');
