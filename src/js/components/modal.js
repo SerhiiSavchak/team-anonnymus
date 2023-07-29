@@ -1,7 +1,6 @@
 import { createModalMarkup } from '../markup/modalMarkup.js';
 import { toggleModal } from '../utils/modalUtils.js';
-
-const closeModalBtn = document.querySelector('.modal-close-btn');
+import { closeModalBtn } from '../refs/modalRefs.js';
 
 // кнопка закрытия окна
 

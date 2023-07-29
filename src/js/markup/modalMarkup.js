@@ -1,7 +1,7 @@
 import { toggleModal } from '../utils/modalUtils.js';
-import { Notify } from 'notiflix';
 import { getInfoMovieByID } from '../api/fetchModal.js';
 import { URL_FOR_IMG } from '../api/apiKey.js';
+import errorImg from '../../images/error-img.jpg';
 import { modalWindowRef } from '../refs/modalRefs.js';
 import {
   onAddRemoveMovie,
@@ -29,6 +29,7 @@ async function createModalMarkup(movieID) {
 
     // приведем полученные данные к нужному виду
     const movieInfoForMarkup = {
+      havePoster: movieInfo.poster_path,
       poster: `${URL_FOR_IMG}${movieInfo.poster_path}`,
       title: movieInfo.title,
       vote_average: movieInfo.vote_average.toFixed(1),
@@ -54,6 +55,7 @@ async function createModalMarkup(movieID) {
 }
 
 function getModalMarkup({
+  havePoster,
   poster,
   title,
   vote_average,
@@ -65,7 +67,9 @@ function getModalMarkup({
   textButton,
 }) {
   return `
-      <img class="modal-img-poster" src="${poster}" alt="poster" />
+      <img class="modal-img-poster" src="${
+        havePoster ? poster : errorImg
+      }" alt="poster" />
       <div class="modal-all-information-about-film">
         <h2 class="modal-title">${title}</h2>
   
