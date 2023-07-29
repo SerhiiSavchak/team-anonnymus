@@ -2,6 +2,8 @@ import Storage from '../api/localStorageAPI';
 import { getInfoMovieByID } from '../api/fetchModal.js';
 import { URL_FOR_IMG } from '../api/apiKey.js';
 import { toggleModal } from '../utils/modalUtils';
+import { addMarkup } from '../utils/addMarkup';
+import { renderEmptyLocalMarkup } from '../markup/libraryMarkup';
 
 const STORAGE_LIBRARY_KEY = 'movieLibrary';
 const container = document.querySelector('.library-container');
@@ -46,7 +48,9 @@ async function AddMovieBtnClick(movieID) {
   try {
     const response = await getInfoMovieByID(movieID);
     const movieInfo = response.data;
-
+    if (response.status !== 'ok' || movieInfo.poster_path === null) {
+      return;
+    }
     // инфо фильма для my library
     const movie = {
       id: movieID,
@@ -91,7 +95,7 @@ function renderStorageData() {
     renderEmptyLocalMarkup();
   } else {
     const markup = generateMarkup(savedMovies);
-
+    console.log(markup);
     addMarkup(libraryUlRef, markup);
   }
 }
@@ -119,16 +123,4 @@ function generateMarkup(data) {
     .join('');
 
   return markup;
-}
-
-function addMarkup(element, markup) {
-  element.innerHTML = markup;
-}
-
-function renderEmptyLocalMarkup() {
-  const failureText = `<p class="library-error-text">OOPS...<br>
-  We are very sorry!<br>
-  We don’t have any results matching your search.</p>
-  <a href="./catalog.html" class="library-error-btn btn link">Search movie</a>`;
-  container.innerHTML = failureText;
 }
