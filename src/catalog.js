@@ -5,5 +5,4 @@ import './js/components/catalogList';
 import './js/components/modal';
 
 import './js/components/footer';
-import './js/utils/scroll-up';
-import './js/utils/loader';
+import './js/utils/scrollUp';
