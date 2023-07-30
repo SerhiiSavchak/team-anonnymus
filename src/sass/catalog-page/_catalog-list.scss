@@ -175,10 +175,6 @@
   object-fit: cover;
   background-size: cover;
   background-position: center;
-  @media screen and (min-width: 768px) {
-  }
-  @media screen and (min-width: 1280px) {
-  }
 }
 
 .catalog-movie-title {
@@ -364,11 +360,11 @@
 }
 
 .tui-next::after {
-  background-image: url(../images/pag-right-arr.svg);
+  background-image: url(../images/pagination/pag-right-arr.svg);
   content: '';
 }
 .tui-prev::after {
-  background-image: url(../images/pag-left-arr.svg);
+  background-image: url(../images/pagination/pag-left-arr.svg);
   content: '';
 }
 .tui-num-page {

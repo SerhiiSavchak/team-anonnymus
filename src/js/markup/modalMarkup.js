@@ -1,7 +1,7 @@
 import { toggleModal } from '../utils/modalUtils.js';
 import { getInfoMovieByID } from '../api/fetchModal.js';
 import { URL_FOR_IMG } from '../api/apiKey.js';
-import errorImg from '../../images/error-img.jpg';
+import errorImg from '../../images/error/error-img.jpg';
 import { modalWindowRef } from '../refs/modalRefs.js';
 import {
   onAddRemoveMovie,
