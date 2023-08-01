@@ -15,6 +15,7 @@ export function onAddRemoveMovie(event) {
     AddMovieBtnClick(movieID);
     event.target.textContent = 'Remove from my library';
     if (window.location.pathname === `/library.html`) {
+      toggleModal();
       renderStorageData();
     }
   } else {
@@ -22,7 +23,6 @@ export function onAddRemoveMovie(event) {
 
     event.target.textContent = 'Add to my library';
     if (window.location.pathname === `/library.html`) {
-      toggleModal();
       renderStorageData();
     }
   }
