@@ -7,7 +7,7 @@ import { renderEmptyLocalMarkup } from '../markup/libraryMarkup';
 
 const STORAGE_LIBRARY_KEY = 'movieLibrary';
 const container = document.querySelector('.library-container');
-const libraryUlRef = document.querySelector('.movies-list');
+const libraryUlRef = document.querySelector('.library-movies-list');
 
 export function onAddRemoveMovie(event) {
   const movieID = event.target.dataset.id;
@@ -31,7 +31,6 @@ export function onAddRemoveMovie(event) {
 // проверка есть ли такой фильм в библиотеке
 export function IsMovieInLibrary(movieID) {
   const savedMovies = Storage.load(STORAGE_LIBRARY_KEY);
-
   if (!savedMovies) {
     return false;
   }
@@ -48,9 +47,11 @@ async function AddMovieBtnClick(movieID) {
   try {
     const response = await getInfoMovieByID(movieID);
     const movieInfo = response.data;
-    if (response.status !== 'ok' || movieInfo.poster_path === null) {
+
+    if (response.status !== 200 || movieInfo.poster_path === null) {
       return;
     }
+
     // инфо фильма для my library
     const movie = {
       id: movieID,
@@ -95,7 +96,7 @@ function renderStorageData() {
     renderEmptyLocalMarkup();
   } else {
     const markup = generateMarkup(savedMovies);
-    console.log(markup);
+
     addMarkup(libraryUlRef, markup);
   }
 }
