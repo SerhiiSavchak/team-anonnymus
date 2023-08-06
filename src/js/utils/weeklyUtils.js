@@ -1,4 +1,4 @@
-function transformData(movieData, genreData) {
+export function transformData(movieData, genreData) {
   const transformedMovies = movieData.map(movie => {
     const genreIds = movie.genre_ids;
     const genres = genreIds.map(
@@ -16,5 +16,3 @@ function transformData(movieData, genreData) {
   });
   return transformedMovies;
 }
-
-export { transformData };
